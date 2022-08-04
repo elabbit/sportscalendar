@@ -1,0 +1,22 @@
+.day-container{
+    border:1px solid lightgrey;
+    cursor:pointer;
+    height:100px;
+}
+
+.day-header{
+    display: flex;
+    justify-content: right;
+}
+
+.day-number{
+border-radius: 50%;
+}
+
+.day-current{
+    background-color:teal;
+}
+
+.day-selected{
+    background-color: grey;
+}

@@ -1,0 +1,9 @@
+
+.calendar-container{
+display: flex;
+flex-direction: row;
+}
+.cal-head-container{
+    display: flex;
+    flex-direction: column;
+}
