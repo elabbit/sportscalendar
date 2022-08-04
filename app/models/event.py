@@ -1,5 +1,4 @@
 from .db import db
-from .calendarEvent import calendarEvents
 
 class Event(db.Model):
     __tablename__ = 'events'
@@ -13,11 +12,25 @@ class Event(db.Model):
     endDate = db.Column(db.Date)
     startTime = db.Column(db.Time)
     endTime = db.Column(db.Time)
+    editable = db.Column(db.Boolean, default=True)
+    calendarId = db.Column(db.Integer, db.ForeignKey('calendars.id'), nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
-    eventOwner = db.relationship("User", back_populates="user_events")
+    eventOwner = db.relationship("User", back_populates="userEvents")
+    eventCalendar = db.relationship("Calendar", back_populates="calendarEvents")
 
-    event_calendars = db.relationship("Calendar",
-        secondary=calendarEvents,
-        back_populates="calendar_events"
-    )
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'description': self.description,
+            'location': self.location,
+            'category': self.category,
+            'startDate': self.startDate,
+            'endDate': self.endDate,
+            'startTime': self.startTime,
+            'endTime': self.endTime,
+            'editable': self.editable,
+            'calendarId': self.calendarId,
+            'userId': self.userId,
+        }

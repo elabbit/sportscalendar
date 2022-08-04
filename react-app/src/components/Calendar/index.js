@@ -5,11 +5,22 @@ import Sidebar from '../Sidebar';
 import { getMonth } from '../../util'
 import CalendarContext from '../../context/CalendarContext';
 import './Calendar.css'
+import { useDispatch, useSelector } from "react-redux";
+import { getEvents } from '../../store/events';
+
 
 
 const Calendar = () => {
     const [currentMonth, setCurrentMonth] = useState(getMonth());
     const { monthIndex } = useContext(CalendarContext)
+    const dispatch = useDispatch();
+    const events = useSelector(state => state.events)
+
+
+    useEffect(()=>{
+        dispatch(getEvents(1));
+    }, [dispatch])
+
 
     useEffect(() => {
         setCurrentMonth(getMonth(monthIndex))
@@ -21,7 +32,7 @@ const Calendar = () => {
             <Sidebar />
             <div className="cal-head-container">
                 <CalendarHeader />
-                <Month month={currentMonth} />
+                <Month month={currentMonth} events={events}/>
             </div>
 
         </div>

@@ -11,8 +11,8 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    user_calendars = db.relationship("Calendar", back_populates="calendarOwner")
-    user_events = db.relationship("Event", back_populates="eventOwner")
+    userCalendars = db.relationship("Calendar", back_populates="calendarOwner")
+    userEvents = db.relationship("Event", back_populates="eventOwner")
 
     @property
     def password(self):

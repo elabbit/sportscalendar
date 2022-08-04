@@ -1,11 +1,17 @@
 import "./Day.css"
 import dayjs from "dayjs"
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import CalendarContext from "../../context/CalendarContext";
 
-const Day = ({ day }) => {
 
+
+const Day = ({ day, events }) => {
+    const [dayEvents, setDayEvents] = useState([]);
     const { daySelected, setDaySelected } = useContext(CalendarContext)
+
+    useEffect(()=>{
+        setDayEvents(events)
+    },[events])
 
     function getDayClass(day) {
         const format = 'DD-MM-YY';
@@ -23,14 +29,16 @@ const Day = ({ day }) => {
 
     }
     return (
-        <div className="day-container" onClick={()=>setDaySelected(day)}>
+        <div className="day-container" onClick={() => setDaySelected(day)}>
             <div className='day-header'>
                 <span className={`day-number ${getDayClass(day)}`}>{day.format('DD')}</span>
             </div>
 
-<div className="day-body">
-
-</div>
+            <div className="day-body">
+                        {dayEvents.map((event, i) => (
+                            <div key={i}>{event.title}</div>
+                        ))}
+            </div>
 
 
 
