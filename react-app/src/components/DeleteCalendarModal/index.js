@@ -22,7 +22,7 @@ function DeleteCalendarModal({ calendarId }) {
                             <h2>Delete Confirmation</h2>
                         </div>
                         <div className='modal-msg-container'>
-                            <div>{`Are you sure you want to remove this post?`}</div>
+                            <div>{`Are you sure you want to remove this calendar?`}</div>
                         </div>
                         <div className="modal-btn-container dlt-bttn">
                             <button onClick={onDelete}>Delete</button>
