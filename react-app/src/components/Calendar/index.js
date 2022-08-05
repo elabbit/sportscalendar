@@ -15,12 +15,13 @@ const Calendar = () => {
     const { monthIndex, currentCalendar, setCurrentCalendar } = useContext(CalendarContext)
     const dispatch = useDispatch();
     const calendars = useSelector(state => state.calendars)
-console.log("RENDER")
+
     useEffect(() => {
         async function fetchCalendars() {
             const data = await dispatch(getCalendars());
             if (data) {
                 const calArr = Object.values(data.calendars);
+
                 const currCal = calArr.find((cal) => cal.default === true) || calArr[0];
                 setCurrentCalendar(currCal)
             }
