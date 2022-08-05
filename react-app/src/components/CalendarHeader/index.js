@@ -6,6 +6,7 @@ import EditCalendarModal from '../EditCalendarModal';
 import DeleteCalendarModal from '../DeleteCalendarModal';
 
 const CalendarHeader = ({ calendars }) => {
+
     const { monthIndex, setMonthIndex, currentCalendar, setCurrentCalendar, setDaySelected } = useContext(CalendarContext)
     const calArr = Object.values(calendars)
 
@@ -42,7 +43,7 @@ const CalendarHeader = ({ calendars }) => {
                     <div>Description: <span>{currentCalendar.description}</span></div>
                 </div>
                 <EditCalendarModal calendar={currentCalendar} />
-                <DeleteCalendarModal calendarId={currentCalendar.id}/>
+                <DeleteCalendarModal calendarId={currentCalendar.id} calendars={calendars}/>
             </div>
             <div className="calendar-header-bottom">
                 <button onClick={handleToday}>

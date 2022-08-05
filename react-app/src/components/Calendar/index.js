@@ -26,7 +26,6 @@ const Calendar = () => {
             }
         }
         fetchCalendars();
-
     }, [dispatch])
 
 
@@ -51,6 +50,5 @@ const Calendar = () => {
 
 
 }
-
 
 export default Calendar;

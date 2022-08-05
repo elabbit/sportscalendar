@@ -7,11 +7,15 @@ const AddCalendarForm = ({hideModal}) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const dispatch = useDispatch();
+    const {setCurrentCalendar, currentCalendar } = useContext(CalendarContext)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = await dispatch(addCalendar(title, description));
         if(data){
+            // console.log(data)
+            // setCurrentCalendar(data)
+            // console.log(currentCalendar)
             hideModal();
         }
 

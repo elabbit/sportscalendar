@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import CalendarContext from '../../context/CalendarContext';
 import { Modal } from '../../context/Modal';
 import { deleteCalendar } from '../../store/calendars';
 
-function DeleteCalendarModal({ calendarId }) {
+function DeleteCalendarModal({ calendarId, calendars}) {
+    const {currentCalendar, setCurrentCalendar} = useContext(CalendarContext)
     const [showModal, setShowModal] = useState(false);
     const dispatch = useDispatch();
 
     const onDelete = async () => {
         await dispatch(deleteCalendar(calendarId))
+        setCurrentCalendar(Object.values(calendars)[0])
         setShowModal(false)
     }
 
