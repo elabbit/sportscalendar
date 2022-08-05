@@ -8,7 +8,6 @@ import CalendarContext from "../../context/CalendarContext";
 const Day = ({ day, events }) => {
     const [dayEvents, setDayEvents] = useState([]);
     const { daySelected, setDaySelected } = useContext(CalendarContext)
-
     useEffect(()=>{
         setDayEvents(events)
     },[events])
@@ -29,9 +28,9 @@ const Day = ({ day, events }) => {
 
     }
     return (
-        <div className="day-container" onClick={() => setDaySelected(day)}>
+        <div className="day-container" >
             <div className='day-header'>
-                <span className={`day-number ${getDayClass(day)}`}>{day.format('DD')}</span>
+                <span className={`day-number ${getDayClass(day)}`} onClick={() => setDaySelected(day)}>{day.format('DD')}</span>
             </div>
 
             <div className="day-body">

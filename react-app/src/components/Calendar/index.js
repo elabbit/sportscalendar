@@ -6,19 +6,27 @@ import { getMonth } from '../../util'
 import CalendarContext from '../../context/CalendarContext';
 import './Calendar.css'
 import { useDispatch, useSelector } from "react-redux";
-import { getEvents } from '../../store/events';
+import { getCalendars } from '../../store/calendars';
 
 
 
 const Calendar = () => {
     const [currentMonth, setCurrentMonth] = useState(getMonth());
-    const { monthIndex } = useContext(CalendarContext)
+    const { monthIndex, currentCalendar, setCurrentCalendar } = useContext(CalendarContext)
     const dispatch = useDispatch();
-    const events = useSelector(state => state.events)
+    const calendars = useSelector(state => state.calendars)
+console.log("RENDER")
+    useEffect(() => {
+        async function fetchCalendars() {
+            const data = await dispatch(getCalendars());
+            if (data) {
+                const calArr = Object.values(data.calendars);
+                const currCal = calArr.find((cal) => cal.default === true) || calArr[0];
+                setCurrentCalendar(currCal)
+            }
+        }
+        fetchCalendars();
 
-
-    useEffect(()=>{
-        dispatch(getEvents(1));
     }, [dispatch])
 
 
@@ -28,15 +36,17 @@ const Calendar = () => {
 
 
     return (
-        <div className='calendar-container'>
-            <Sidebar />
-            <div className="cal-head-container">
-                <CalendarHeader />
-                <Month month={currentMonth} events={events}/>
+        currentCalendar ?
+            <div className='calendar-container'>
+                <CalendarHeader calendars={calendars} />
+                <div className="cal-side-container">
+                    <Sidebar />
+                    <Month month={currentMonth} events={currentCalendar.events} />
+                </div>
+
             </div>
-
-        </div>
-
+            :
+            <h3>Loading...</h3>
     )
 
 

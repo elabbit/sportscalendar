@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import Calendar from './components/Calendar';
 import CalendarWrapper from './context/CalendarWrapper';
+import dayjs from 'dayjs'
 
 
 
@@ -17,6 +18,7 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
+  const newDate = new Date();
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
@@ -45,7 +47,6 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
           <CalendarWrapper>
           <Calendar />
           </CalendarWrapper>

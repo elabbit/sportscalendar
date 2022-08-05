@@ -14,10 +14,10 @@ def seed_users():
     db.session.commit()
 
     calendar1 = Calendar(
-        title="demo's calendar one", userId=1
+        title="demo's calendar", description="important dates!", userId=1
     )
     calendar2 = Calendar(
-        title="demo's calendar one", userId=1
+        title="yoga classes", description="yoga at Movement Boulder", userId=1
     )
     calendar3 = Calendar(
         title="labbit's calendar two", userId=2
@@ -34,24 +34,47 @@ def seed_users():
 
 
     event1= Event(
-        title="sample event 1", startDate="2022-07-03", userId=1, calendarId=1
+        title="passport renewal", startDate="2022-08-03", userId=1, calendarId=1
     )
     event2= Event(
-        title="sample event 2", startDate="2022-07-016", userId=1, calendarId=1
+        title="dentist appointment", startDate="2022-08-07", userId=1, calendarId=1
     )
     event3= Event(
-        title="sample event 3", startDate="2022-07-21", userId=1, calendarId=1
+        title="project due", startDate="2022-08-15", userId=1, calendarId=1
     )
     event4= Event(
-        title="sample event 4", startDate="2022-07-05", userId=2, calendarId=2
+        title="party time", startDate="2022-08-16", userId=1, calendarId=1
     )
     event5= Event(
-        title="sample event 5", startDate="2022-07-10", userId=2, calendarId=2
+        title="someone's birthday", startDate="2022-08-23", userId=1, calendarId=1
     )
     event6= Event(
-        title="sample event 6", startDate="2022-07-20", userId=2, calendarId=2
+        title="GRADUATION", startDate="2022-08-26", userId=1, calendarId=1
     )
-
+    event7= Event(
+        title="Power Flow", startDate="2022-08-08", userId=1, calendarId=2
+    )
+    event8= Event(
+        title="Vinyasa Flow", startDate="2022-08-10", userId=1, calendarId=2
+    )
+    event9= Event(
+        title="Power Flow", startDate="2022-08-15", userId=1, calendarId=2
+    )
+    event10= Event(
+        title="Vinyasa Flow", startDate="2022-08-17", userId=1, calendarId=2
+    )
+    event11= Event(
+        title="Power Flow", startDate="2022-08-22", userId=1, calendarId=2
+    )
+    event12= Event(
+        title="Vinysasa Flow", startDate="2022-08-24", userId=1, calendarId=2
+    )
+    event13= Event(
+        title="Power Flow", startDate="2022-08-29", userId=1, calendarId=2
+    )
+    event14= Event(
+        title="Vinysasa Flow", startDate="2022-08-31", userId=1, calendarId=2
+    )
 
     db.session.add(event1)
     db.session.add(event2)
@@ -59,6 +82,14 @@ def seed_users():
     db.session.add(event4)
     db.session.add(event5)
     db.session.add(event6)
+    db.session.add(event7)
+    db.session.add(event8)
+    db.session.add(event9)
+    db.session.add(event10)
+    db.session.add(event11)
+    db.session.add(event12)
+    db.session.add(event13)
+    db.session.add(event14)
     db.session.commit()
 
 

@@ -1,9 +1,10 @@
 
 .calendar-container{
 display: flex;
-flex-direction: row;
+flex-direction: column;
 }
-.cal-head-container{
+.cal-side-container{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    margin:auto;
 }

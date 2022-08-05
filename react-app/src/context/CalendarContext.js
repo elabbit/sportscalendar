@@ -5,6 +5,8 @@ const CalendarContext = React.createContext({
     setMonthIndex: (index)=>{},
     daySelected: null,
     setDaySelected:(day)=>{},
+    currentCalendar: null,
+    setCurrentCalendar: (calendar)=>{}
 
 })
 

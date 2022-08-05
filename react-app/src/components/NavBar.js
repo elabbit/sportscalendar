@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import AddCalendarModal from './AddCalendarModal';
 import LogoutButton from './auth/LogoutButton';
 
 const NavBar = () => {
@@ -29,6 +30,10 @@ const NavBar = () => {
         </li>
         <li>
           <LogoutButton />
+        </li>
+
+        <li>
+          <AddCalendarModal/>
         </li>
       </ul>
     </nav>

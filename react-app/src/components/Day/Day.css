@@ -1,6 +1,5 @@
 .day-container{
     border:1px solid lightgrey;
-    cursor:pointer;
     height:100px;
 }
 
@@ -11,6 +10,7 @@
 
 .day-number{
 border-radius: 50%;
+cursor: pointer;
 }
 
 .day-current{
