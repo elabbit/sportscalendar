@@ -4,6 +4,12 @@
     margin: auto;
     gap: 10px;
     margin-bottom:10px;
+    height:90px;
+    justify-content: center;
+    align-items: center;
+    border:solid 1px lightgrey;
+    width:100%;
+    overflow: auto;
 }
 
 .calendar-header-bottom,

@@ -10,17 +10,22 @@ const AddEventForm = ({ hideModal, day }) => {
     const [location, setLocation] = useState('');
     const [category, setCategory] = useState('')
     const [startDate, setStartDate] = useState(day.format("YYYY-MM-DD"));
-    const [startTime, setStartTime] = useState(undefined);
-    const [color, setColor] = useState("#000000");
-    const { currentCalendar, setCurrentCalendar } = useContext(CalendarContext);
+    const [startTime, setStartTime] = useState('');
+    const [color, setColor] = useState("#FFFFFF");
+    const { currentCalendar, setCurrentCalendar, setCurrentEvent } = useContext(CalendarContext);
 
     const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const data = await dispatch(addEvent(title, description, location, category, startDate, startTime, color, currentCalendar.id));
+        let newStartTime = undefined;
+        if(startTime !== ''){
+            newStartTime = startTime;
+        }
+        const data = await dispatch(addEvent(title, description, location, category, startDate, newStartTime, color, currentCalendar.id));
         if (data) {
-            setCurrentCalendar(data)
+            setCurrentCalendar(data.calendar)
+            setCurrentEvent(data.event)
             hideModal();
         }
     }
@@ -28,15 +33,6 @@ const AddEventForm = ({ hideModal, day }) => {
     return (
         <div className="add-event-container">
             <form className="add-event-form" onSubmit={handleSubmit}>
-            <input
-                    type='text'
-                    name='title'
-                    placeholder="Title"
-                    onChange={(e) => setTitle(e.target.value)}
-                    value={title}
-                    maxLength="80"
-                    required
-                />
                 <div className="start-div">
                     <div>{day.format("dddd, MMMM DD")}</div>
                     <input
@@ -45,6 +41,15 @@ const AddEventForm = ({ hideModal, day }) => {
                         onChange={(e) => setStartTime(e.target.value)}
                     />
                 </div>
+                <input
+                    type='text'
+                    name='title'
+                    placeholder="Title"
+                    onChange={(e) => setTitle(e.target.value)}
+                    value={title}
+                    maxLength="80"
+                    required
+                />
                 <textarea
                     placeholder="Description"
                     value={description}

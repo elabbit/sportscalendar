@@ -1,12 +1,14 @@
 import dayjs from "dayjs";
-import React from "react";
+import React, { useContext } from "react";
+import CalendarContext from "../../context/CalendarContext";
 import Day from "../Day";
 import "./Month.css"
 
 const Month = ({ month, events }) => {
+    const { currentOffset } = useContext(CalendarContext)
 
 const eventsProp = (events, day) => {
-    return Object.values(events).filter((event)=>(dayjs(event.startDate).add(6,'hour').format("DD-MM-YY") === day.format("DD-MM-YY")));
+    return Object.values(events).filter((event)=>(dayjs(event.startDate).add(currentOffset,'hour').format("DD-MM-YY") === day.format("DD-MM-YY")));
 }
 
     return (

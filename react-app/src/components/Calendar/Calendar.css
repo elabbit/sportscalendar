@@ -1,19 +1,28 @@
+.calendar-outer{
+    margin-left:40px;
+    margin-right:40px;
+}
 
 .calendar-container{
 display: flex;
 flex-direction: row;
-max-width:975px;
 margin:auto;
-background-color: red;
+}
+
+.right{
+    flex-direction: row-reverse;
 }
 
 .side-container{
     width:20%;
     display:flex;
     flex-direction: column;
+    align-items: center;
+    margin:5px;
 }
 .cal-container{
     width:80%;
     display: flex;
     flex-direction: column;
+    margin:5px;
 }

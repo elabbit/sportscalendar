@@ -90,10 +90,9 @@ export const addEvent = (
         }),
     })
     if (response.ok) {
-        const calendar = await response.json();
-        console.log("HELLLOO", calendar)
-        dispatch(addCal(calendar));
-        return calendar;
+        const data = await response.json();
+        dispatch(addCal(data.calendar));
+        return data;
     }
 }
 

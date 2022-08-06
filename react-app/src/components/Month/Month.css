@@ -8,3 +8,13 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
 }
+.month-weekdays div{
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+
+}

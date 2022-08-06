@@ -28,4 +28,4 @@ def add_event(calendarId):
         db.session.commit()
         calendar = Calendar.query.get(calendarId)
         print(calendar.to_dict())
-        return calendar.to_dict()
+        return {"calendar": calendar.to_dict(), "event": newEvent.to_dict()}

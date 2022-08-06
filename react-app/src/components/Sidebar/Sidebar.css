@@ -1,0 +1,7 @@
+.sidebar-outer{
+    border:1px solid lightgrey;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    min-height:500px;
+}

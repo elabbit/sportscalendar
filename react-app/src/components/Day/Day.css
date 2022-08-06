@@ -1,6 +1,6 @@
 .day-container{
     border:1px solid lightgrey;
-    height:100px;
+    height:125px;
 }
 
 .day-header{
@@ -8,11 +8,18 @@
     justify-content: right;
 }
 
-.day-number{
-border-radius: 50%;
-cursor: pointer;
-}
 
 .day-current{
 background-color: lightgrey;
+
+}
+
+.day-event{
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+cursor:pointer;
 }

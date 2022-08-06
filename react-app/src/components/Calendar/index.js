@@ -7,10 +7,11 @@ import CalendarContext from '../../context/CalendarContext';
 import './Calendar.css'
 import { useDispatch, useSelector } from "react-redux";
 import { getCalendars } from '../../store/calendars';
-
+import Options from '../Options';
 
 
 const Calendar = () => {
+    const [toggleSide, setToggleSide] = useState(true);
     const [currentMonth, setCurrentMonth] = useState(getMonth());
     const { monthIndex, currentCalendar, setCurrentCalendar } = useContext(CalendarContext)
     const dispatch = useDispatch();
@@ -35,9 +36,11 @@ const Calendar = () => {
 
 
     return (
-        currentCalendar ?
-            <div className='calendar-container'>
+        <div className="calendar-outer">
+        {currentCalendar ?
+            <div className={`calendar-container ${toggleSide ? "left" : "right"}`}>
                 <div className='side-container'>
+                    <Options toggleSide={toggleSide} setToggleSide={setToggleSide}/>
                     <Sidebar />
                 </div>
                 <div className="cal-container">
@@ -47,7 +50,8 @@ const Calendar = () => {
 
             </div>
             :
-            <h3>Loading...</h3>
+            <h3>Loading...</h3>}
+        </div>
     )
 
 
