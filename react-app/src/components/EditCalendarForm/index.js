@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import CalendarContext from '../../context/CalendarContext';
 import { editCalendar } from '../../store/calendars';
 
-const EditCalendarForm = ({hideModal, calendar}) => {
+const EditCalendarForm = ({hideForm, calendar}) => {
     const { setCurrentCalendar } = useContext(CalendarContext)
     const [title, setTitle] = useState(calendar.title);
     const [description, setDescription] = useState(calendar.description);
@@ -15,8 +15,13 @@ const EditCalendarForm = ({hideModal, calendar}) => {
         const data = await dispatch(editCalendar(title, description, calendarId));
         if(data){
             setCurrentCalendar(data)
-            hideModal();
+            hideForm();
         }
+    }
+
+    const handleCancel = async (e) => {
+        e.preventDefault();
+        hideForm()
     }
 
     return (
@@ -44,6 +49,8 @@ const EditCalendarForm = ({hideModal, calendar}) => {
                 ></input>
             </div>
             <button type='submit'>Submit</button>
+            <button type="cancel" onClick={handleCancel}>Cancel</button>
+
         </form>
     );
 };

@@ -1,7 +1,8 @@
 import { useContext, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import CalendarContext from '../../context/CalendarContext';
 import { addCalendar } from '../../store/calendars';
+import "./AddCalendarForm.css"
 
 const AddCalendarForm = ({ hideModal }) => {
     const [title, setTitle] = useState('');
@@ -17,6 +18,11 @@ const AddCalendarForm = ({ hideModal }) => {
             setCurrentCalendar(data)
             hideModal();
         }
+    }
+
+    const handleCancel = async (e) => {
+        e.preventDefault();
+        hideModal()
     }
 
     return (
@@ -44,6 +50,7 @@ const AddCalendarForm = ({ hideModal }) => {
                 />
             </div>
             <button type='submit'>Submit</button>
+            <button type="cancel" onClick={handleCancel}>Cancel</button>
         </form>
     );
 };

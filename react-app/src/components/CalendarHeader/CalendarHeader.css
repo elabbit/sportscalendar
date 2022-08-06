@@ -1,19 +1,81 @@
 .calendar-header-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin: auto;
     gap: 10px;
-    margin-bottom:10px;
-    height:90px;
-    justify-content: center;
+    margin-bottom: 10px;
+    height: 100px;
+    justify-content: space-between;
     align-items: center;
-    border:solid 1px lightgrey;
-    width:100%;
+    border: solid 1px lightgrey;
+    width: 100%;
     overflow: auto;
 }
 
-.calendar-header-bottom,
-.calendar-header-top {
+.calendar-header-left {
+    margin-left: 35px;
+    display: flex;
+    flex-direction: column;
+    min-width: 190px;
+    gap: 10px;
+
+}
+
+.calendar-header-month {
+    font-size: 24px;
+    font-weight: 560;
+
+}
+
+.cal-add-select {
     display: flex;
     gap: 10px;
+}
+
+.cal-add-select select {
+    width: 150px;
+    border: none;
+    font-size: 16px;
+}
+
+.cal-add-select select:focus {
+    outline: none;
+}
+
+.calendar-header-right {
+    display: flex;
+    flex: row;
+    margin-right: 35px;
+    align-items: center;
+    gap: 20px;
+}
+
+.calendar-header-right i {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.calendar-header-right button {
+    cursor: pointer;
+    background-color: lightgrey;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.calendar-header-center{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.calendar-header-center i{
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.cal-edit-del-buttons{
+    display: flex;
+    justify-content: right;
+    gap:15px;
 }

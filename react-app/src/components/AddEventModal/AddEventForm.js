@@ -30,6 +30,11 @@ const AddEventForm = ({ hideModal, day }) => {
         }
     }
 
+    const handleCancel = async (e) => {
+        e.preventDefault();
+        hideModal()
+    }
+
     return (
         <div className="add-event-container">
             <form className="add-event-form" onSubmit={handleSubmit}>
@@ -77,6 +82,7 @@ const AddEventForm = ({ hideModal, day }) => {
                     onChange={(e) => setColor(e.target.value)}
                 />
                 <button type="submit">Add Event</button>
+                <button type="cancel" onClick={handleCancel}>Cancel</button>
             </form>
         </div>
 
