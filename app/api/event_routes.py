@@ -10,7 +10,7 @@ event_routes = Blueprint('event', __name__)
 @login_required
 def add_event(calendarId):
     form = EventForm()
-    print("FORM", form.data)
+    print("@@@@@@@@@@@@@@@@@@@@@@", form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         newEvent = Event(
@@ -27,5 +27,25 @@ def add_event(calendarId):
         db.session.add(newEvent)
         db.session.commit()
         calendar = Calendar.query.get(calendarId)
-        print(calendar.to_dict())
+
         return {"calendar": calendar.to_dict(), "event": newEvent.to_dict()}
+
+
+@event_routes.route('/edit/<eventId>', methods=['PUT'])
+@login_required
+def edit_event(eventId):
+    form = EventForm()
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        editEvent = Event.query.get(eventId)
+        editEvent.title=form.data['title'],
+        editEvent.description=form.data['description'],
+        editEvent.location=form.data['location'],
+        editEvent.category=form.data['category'],
+        editEvent.startDate=form.data['startDate'],
+        editEvent.startTime=form.data['startTime'],
+        editEvent.color=form.data['color']
+        db.session.commit()
+        calendar = Calendar.query.get(editEvent.calendarId)
+        return {"calendar": calendar.to_dict(), "event": editEvent.to_dict()}

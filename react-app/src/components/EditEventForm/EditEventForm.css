@@ -1,0 +1,13 @@
+
+.edit-event-container {
+    padding: 10px;
+}
+
+.edit-event-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-start-div {
+    display: flex;
+}

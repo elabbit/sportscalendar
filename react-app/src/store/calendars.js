@@ -96,6 +96,25 @@ export const addEvent = (
     }
 }
 
+export const editEvent = (
+    title, description, location, category,
+    startDate, startTime, color, eventId) => async (dispatch) => {
+    const response = await fetch(`/api/events/edit/${eventId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            title, description, location, category, startDate, startTime, color
+        }),
+    })
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(addCal(data.calendar));
+        return data;
+    }
+}
+
 
 
 

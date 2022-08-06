@@ -33,7 +33,7 @@ const AddEventForm = ({ hideModal, day }) => {
     return (
         <div className="add-event-container">
             <form className="add-event-form" onSubmit={handleSubmit}>
-                <div className="start-div">
+                <div className="add-start-div">
                     <div>{day.format("dddd, MMMM DD")}</div>
                     <input
                         type="time"
