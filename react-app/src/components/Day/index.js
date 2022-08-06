@@ -1,13 +1,15 @@
 import "./Day.css"
 import dayjs from "dayjs"
 import { useContext, useEffect, useState } from "react";
-import CalendarContext from "../../context/CalendarContext";
 
+import AddEventModal from "../AddEventModal";
 
 
 const Day = ({ day, events }) => {
     const [dayEvents, setDayEvents] = useState([]);
-    const { daySelected, setDaySelected } = useContext(CalendarContext)
+
+
+
     useEffect(()=>{
         setDayEvents(events)
     },[events])
@@ -15,12 +17,12 @@ const Day = ({ day, events }) => {
     function getDayClass(day) {
         const format = 'DD-MM-YY';
         const toDay = dayjs().format(format);
-        const currDay = day.format(format);
-        const slcDay = daySelected && daySelected.format(format);
+        const currDay = day?.format(format);
+        // const slcDay = daySelected && daySelected.format(format);
         if (toDay === currDay) {
             return "day-current"
-        } else if (currDay === slcDay) {
-            return "day-selected"
+        // } else if (currDay === slcDay) {
+        //     return "day-selected"
         } else {
             return "";
         }
@@ -28,11 +30,10 @@ const Day = ({ day, events }) => {
 
     }
     return (
-        <div className="day-container" >
-            <div className='day-header'>
-                <span className={`day-number ${getDayClass(day)}`} onClick={() => setDaySelected(day)}>{day.format('DD')}</span>
+        <div className={`day-container ${getDayClass(day)}`} >
+            <div className='day-header' >
+                <AddEventModal day={day}/>
             </div>
-
             <div className="day-body">
                         {dayEvents.map((event, i) => (
                             <div key={i}>{event.title}</div>

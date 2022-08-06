@@ -76,6 +76,29 @@ export const deleteCalendar = (calendarId) => async (dispatch) => {
     }
   }
 
+//EVENTS
+export const addEvent = (
+    title, description, location, category,
+    startDate, startTime, color, calendarId) => async (dispatch) => {
+    const response = await fetch(`/api/events/new/${calendarId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            title, description, location, category, startDate, startTime, color
+        }),
+    })
+    if (response.ok) {
+        const calendar = await response.json();
+        console.log("HELLLOO", calendar)
+        dispatch(addCal(calendar));
+        return calendar;
+    }
+}
+
+
+
 
 export default function reducer(state = {}, action) {
     switch (action.type) {

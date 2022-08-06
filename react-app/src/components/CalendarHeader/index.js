@@ -4,15 +4,15 @@ import './CalendarHeader.css'
 import dayjs from 'dayjs';
 import EditCalendarModal from '../EditCalendarModal';
 import DeleteCalendarModal from '../DeleteCalendarModal';
+import AddCalendarModal from '../AddCalendarModal';
 
 const CalendarHeader = ({ calendars }) => {
 
-    const { monthIndex, setMonthIndex, currentCalendar, setCurrentCalendar, setDaySelected } = useContext(CalendarContext)
+    const { monthIndex, setMonthIndex, currentCalendar, setCurrentCalendar} = useContext(CalendarContext)
     const calArr = Object.values(calendars)
 
     function handleToday() {
         setMonthIndex(dayjs().month());
-        setDaySelected(dayjs())
     }
 
     function handlePrev() {
@@ -23,6 +23,7 @@ const CalendarHeader = ({ calendars }) => {
         setMonthIndex(monthIndex + 1)
     }
 
+
     async function updateCurrent(value) {
         const currCal = calArr.find((cal) => cal.id === +value)
         setCurrentCalendar(currCal)
@@ -31,6 +32,7 @@ const CalendarHeader = ({ calendars }) => {
     return (
         <div className="calendar-header-container">
             <div className="calendar-header-top">
+                <AddCalendarModal calendars={calendars}/>
                 <div>
                     <select name="calendars-select" id="calendar-select" onChange={(e) => updateCurrent(e.target.value)} value={currentCalendar.id}>
                         {calArr.map((cal, i) => (

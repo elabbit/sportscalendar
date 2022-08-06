@@ -4,8 +4,9 @@ import Day from "../Day";
 import "./Month.css"
 
 const Month = ({ month, events }) => {
+
 const eventsProp = (events, day) => {
-    return Object.values(events).filter((event)=>(dayjs(event.startDate).format("DD-MM-YY") === day.format("DD-MM-YY")));
+    return Object.values(events).filter((event)=>(dayjs(event.startDate).add(6,'hour').format("DD-MM-YY") === day.format("DD-MM-YY")));
 }
 
     return (

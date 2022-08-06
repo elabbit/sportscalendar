@@ -1,3 +1,17 @@
+.add-event-button{
+background-color: transparent;
+border:none;
+cursor: pointer;
+}
 .add-event-container{
 padding:10px;
+}
+
+.add-event-form{
+    display:flex;
+    flex-direction: column;
+}
+
+.start-div{
+    display:flex;
 }

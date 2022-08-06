@@ -5,10 +5,10 @@ import CalendarContext from "./CalendarContext";
 
 const CalendarWrapper = (props) => {
     const [monthIndex, setMonthIndex] = useState(dayjs().month());
-    const [daySelected, setDaySelected] = useState(dayjs());
+    // const [daySelected, setDaySelected] = useState(dayjs());
     const [currentCalendar, setCurrentCalendar] = useState();
     return (
-        <CalendarContext.Provider value={{monthIndex, setMonthIndex, daySelected, setDaySelected, currentCalendar, setCurrentCalendar}}>
+        <CalendarContext.Provider value={{monthIndex, setMonthIndex, currentCalendar, setCurrentCalendar}}>
             {props.children}
         </CalendarContext.Provider>
     )

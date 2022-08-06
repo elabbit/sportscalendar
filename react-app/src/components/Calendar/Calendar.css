@@ -1,10 +1,19 @@
 
 .calendar-container{
 display: flex;
-flex-direction: column;
+flex-direction: row;
+max-width:975px;
+margin:auto;
+background-color: red;
 }
-.cal-side-container{
+
+.side-container{
+    width:20%;
+    display:flex;
+    flex-direction: column;
+}
+.cal-container{
+    width:80%;
     display: flex;
-    flex-direction: row;
-    margin:auto;
+    flex-direction: column;
 }

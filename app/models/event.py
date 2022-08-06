@@ -13,6 +13,7 @@ class Event(db.Model):
     startTime = db.Column(db.Time)
     endTime = db.Column(db.Time)
     editable = db.Column(db.Boolean, default=True)
+    color = db.Column(db.String(7))
     calendarId = db.Column(db.Integer, db.ForeignKey('calendars.id'), nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
@@ -28,9 +29,10 @@ class Event(db.Model):
             'category': self.category,
             'startDate': self.startDate,
             'endDate': self.endDate,
-            'startTime': self.startTime,
+            'startTime': str(self.startTime),
             'endTime': self.endTime,
             'editable': self.editable,
+            'color': self.color,
             'calendarId': self.calendarId,
             'userId': self.userId,
         }

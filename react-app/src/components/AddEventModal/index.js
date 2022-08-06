@@ -1,16 +1,18 @@
+import dayjs from 'dayjs';
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import AddEventForm from './AddEventForm';
+import "./AddEventForm.css"
 
-function AddEventModal() {
+function AddEventModal({day}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Add Event</button>
+      <button className='add-event-button' onClick={() => setShowModal(true)}>{day.format('DD')}</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <AddEventForm />
+          <AddEventForm hideModal={()=>setShowModal(false)} day={day}/>
         </Modal>
       )}
     </>

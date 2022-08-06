@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from ..models import db, Calendar
 from app.forms import CalendarForm
 
+
 calendar_routes = Blueprint('calendar', __name__)
 
 @calendar_routes.route('/')
@@ -11,7 +12,9 @@ def get_calendars():
     calendars = Calendar.query.filter_by(userId=current_user.id).all()
     return {"calendars": [calendar.to_dict() for calendar in calendars]}
 
+
 @calendar_routes.route('/new', methods=['POST'])
+@login_required
 def add_calendar():
     form = CalendarForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -25,7 +28,9 @@ def add_calendar():
         db.session.commit()
         return calendar.to_dict()
 
+
 @calendar_routes.route('/edit/<calendarId>', methods=['PUT'])
+@login_required
 def edit_calendar(calendarId):
     form = CalendarForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -39,6 +44,7 @@ def edit_calendar(calendarId):
         db.session.commit()
 
         return editedCal.to_dict()
+
 
 @calendar_routes.route('/delete/<calendarId>', methods=['DELETE'])
 @login_required

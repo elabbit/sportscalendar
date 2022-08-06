@@ -4,7 +4,7 @@ const Sidebar = () => {
 
     return (
         <div>
-            <AddEventModal />
+THIS IS THE SIDEBAR
         </div>
 
     )

@@ -20,7 +20,7 @@ const Calendar = () => {
         async function fetchCalendars() {
             const data = await dispatch(getCalendars());
             if (data) {
-                const calArr = Object.values(data.calendars).sort((a,b)=>a.id-b.id);
+                const calArr = Object.values(data.calendars).sort((a, b) => a.id - b.id);
                 const currCal = calArr.find((cal) => cal.default === true) || calArr[0];
                 setCurrentCalendar(currCal)
             }
@@ -37,9 +37,11 @@ const Calendar = () => {
     return (
         currentCalendar ?
             <div className='calendar-container'>
-                <CalendarHeader calendars={calendars} />
-                <div className="cal-side-container">
+                <div className='side-container'>
                     <Sidebar />
+                </div>
+                <div className="cal-container">
+                    <CalendarHeader calendars={calendars} />
                     <Month month={currentMonth} events={currentCalendar.events} />
                 </div>
 
