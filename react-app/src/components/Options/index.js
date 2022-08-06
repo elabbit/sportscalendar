@@ -4,7 +4,6 @@ const Options = ({ toggleSide, setToggleSide }) => {
 
     function handleToggle() {
         setToggleSide(!toggleSide)
-        console.log(toggleSide)
     }
     return (
         <div className="options-outer">

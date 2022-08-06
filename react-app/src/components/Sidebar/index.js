@@ -1,6 +1,7 @@
 import dayjs from "dayjs"
 import { useContext, useEffect, useState } from "react"
 import CalendarContext from "../../context/CalendarContext"
+import DeleteEventModal from "../DeleteEventModal"
 import EditEventForm from "../EditEventForm"
 import "./Sidebar.css"
 
@@ -35,6 +36,7 @@ const Sidebar = () => {
                     {!showEdit ?
                         <div className="side-event-container">
                             <button onClick={() => setShowEdit(true)}>Edit</button>
+                            <DeleteEventModal event={currentEvent}/>
                             <div>{dayjs(currentEvent.startDate).add(currentOffset, "hour").format("dddd MMMM DD")}</div>
                             {currentEvent.startTime != "None" &&
                                 <div>{convertTime(currentEvent.startTime)}</div>}

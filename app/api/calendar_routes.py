@@ -48,7 +48,7 @@ def edit_calendar(calendarId):
 
 @calendar_routes.route('/delete/<calendarId>', methods=['DELETE'])
 @login_required
-def delete_post(calendarId):
+def delete_calendar(calendarId):
     calendar = Calendar.query.get(calendarId)
     db.session.delete(calendar)
     db.session.commit()

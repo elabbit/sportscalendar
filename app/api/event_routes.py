@@ -10,7 +10,6 @@ event_routes = Blueprint('event', __name__)
 @login_required
 def add_event(calendarId):
     form = EventForm()
-    print("@@@@@@@@@@@@@@@@@@@@@@", form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         newEvent = Event(
@@ -35,7 +34,6 @@ def add_event(calendarId):
 @login_required
 def edit_event(eventId):
     form = EventForm()
-
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         editEvent = Event.query.get(eventId)
@@ -49,3 +47,13 @@ def edit_event(eventId):
         db.session.commit()
         calendar = Calendar.query.get(editEvent.calendarId)
         return {"calendar": calendar.to_dict(), "event": editEvent.to_dict()}
+
+@event_routes.route('/delete/<eventId>', methods=['DELETE'])
+@login_required
+def delete_event(eventId):
+    delEvent = Event.query.get(eventId)
+    calendarId = delEvent.calendarId
+    db.session.delete(delEvent)
+    db.session.commit()
+    calendar = Calendar.query.get(calendarId)
+    return {"calendar": calendar.to_dict()}

@@ -115,6 +115,17 @@ export const editEvent = (
     }
 }
 
+export const deleteEvent = (eventId) => async (dispatch) => {
+    const response = await fetch(`/api/events/delete/${eventId}`, {
+      method: 'DELETE'
+    })
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(addCal(data.calendar));
+        return data;
+    }
+  }
+
 
 
 

@@ -20,12 +20,9 @@ const EditEventForm = ({ hideForm, event }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         let newStartTime = undefined;
-        console.log("START TIMEEEEEEEEEEE", startTime)
-        if (startTime !== '') {
-
+        if (startTime !== '' && startTime !== "None") {
             let editStartTime = startTime;
             newStartTime = String(editStartTime).split(":").splice(0,2).join(":")
-            console.log(String(editStartTime).split(":").splice(0,2).join(":"))
         }
         const data = await dispatch(editEvent(title, description, location, category, startDate, newStartTime, color, event.id));
         if (data) {
