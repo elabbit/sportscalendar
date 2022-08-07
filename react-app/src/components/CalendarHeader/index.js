@@ -24,6 +24,10 @@ const CalendarHeader = ({ calendars }) => {
         setMonthIndex(monthIndex + 1)
     }
 
+    function handleDef(def){
+        if(def) return "*"
+        return '';
+    }
 
     async function updateCurrent(value) {
         const currCal = calArr.find((cal) => cal.id === +value)
@@ -48,7 +52,7 @@ const CalendarHeader = ({ calendars }) => {
                         <div className="cal-sel">
                             <select name="calendars-select" id="calendar-select" onChange={(e) => updateCurrent(e.target.value)} value={currentCalendar.id}>
                                 {calArr.map((cal, i) => (
-                                    <option key={i} value={cal.id}>{cal.title}</option>
+                                    <option key={i} value={cal.id}>{cal.title}{handleDef(cal.default)}</option>
                                 ))
                                 }
                             </select>

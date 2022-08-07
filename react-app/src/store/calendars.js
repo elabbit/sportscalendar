@@ -139,6 +139,15 @@ export default function reducer(state = {}, action) {
             return newState;
         case ADD_CALENDAR:
             const newState2 = {...state}
+            if(action.calendar.default){
+                let prevDef = Object.values(newState2).find((cal)=>cal.default===true)
+                if(prevDef){
+                    prevDef.default = false;
+                    newState2[prevDef.id] = prevDef;
+                }
+                console.log("PREV DEF", prevDef)
+            }
+
             newState2[action.calendar.id] = action.calendar
             return newState2;
         case DELETE_CALENDAR:
