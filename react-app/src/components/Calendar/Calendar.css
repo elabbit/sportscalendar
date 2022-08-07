@@ -1,6 +1,6 @@
 .calendar-outer{
-    margin-left:40px;
-    margin-right:40px;
+    margin-left:50px;
+    margin-right:50px;
 }
 
 .calendar-container{
@@ -25,5 +25,5 @@ margin:auto;
     display: flex;
     flex-direction: column;
     margin:5px;
-    min-width:790px;
+    min-width:850px;
 }

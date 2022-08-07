@@ -69,7 +69,6 @@ const CalendarHeader = ({ calendars }) => {
                     <i className="fas fa-edit" onClick={() => setShowEditForm(true)}></i>
                     <DeleteCalendarModal calendarId={currentCalendar.id} calendars={calendars} />
                 </div>
-
             </div>
         </div>
     )

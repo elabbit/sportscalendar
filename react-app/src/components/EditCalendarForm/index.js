@@ -6,7 +6,7 @@ import "./EditCalendarForm.css"
 import Toggle from 'react-toggle'
 import "react-toggle/style.css"
 
-const EditCalendarForm = ({hideForm, calendar}) => {
+const EditCalendarForm = ({ hideForm, calendar }) => {
     const { setCurrentCalendar } = useContext(CalendarContext)
     const [title, setTitle] = useState(calendar.title);
     const [description, setDescription] = useState(calendar.description);
@@ -17,7 +17,7 @@ const EditCalendarForm = ({hideForm, calendar}) => {
         e.preventDefault();
         const calendarId = calendar.id;
         const data = await dispatch(editCalendar(title, description, def, calendarId));
-        if(data){
+        if (data) {
             setCurrentCalendar(data)
             hideForm();
         }
@@ -29,9 +29,10 @@ const EditCalendarForm = ({hideForm, calendar}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
+        <form className="edit-cal-form" onSubmit={handleSubmit}>
+            <div className="edit-cal-title-def">
                 <input
+                    className="edit-cal-title"
                     type='text'
                     name='title'
                     placeholder="Title"
@@ -40,8 +41,14 @@ const EditCalendarForm = ({hideForm, calendar}) => {
                     maxLength="40"
                     required
                 />
+                <Toggle
+                    checked={def}
+                    icons={false}
+                    onChange={(e) => setDef(e.target.checked)}
+                />
+                <div>Default?</div>
             </div>
-            <div>
+            <div className="edit-cal-text-div">
                 <textarea
                     name='description'
                     placeholder="Description"
@@ -50,16 +57,11 @@ const EditCalendarForm = ({hideForm, calendar}) => {
                     maxLength="200"
                 />
             </div>
-            <label>
-                <span>Default?</span>
-                <Toggle
-                    checked={def}
-                    icons={false}
-                    onChange={(e) => setDef(e.target.checked)}
-                />
-            </label>
-            <button type='submit'><i className="fa-solid fa-check"></i></button>
-            <button type="cancel" onClick={handleCancel}><i className="fa-solid fa-xmark"></i></button>
+
+            <div className="edit-cal-buttons">
+                <button type='submit'><i className="fa-solid fa-check"></i></button>
+                <button type="cancel" onClick={handleCancel}><i className="fa-solid fa-xmark"></i></button>
+            </div>
 
         </form>
     );

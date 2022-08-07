@@ -1,15 +1,31 @@
 /* TODO Add site wide styles */
 body * {
-font-family: Roboto,Helvetica,Arial,sans-serif;
-font-size:14px;
-box-sizing: border-box;
-color:rgba(45,46,47,1);
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    color: rgba(45, 46, 47, 1);
 }
 
-body i:hover{
-    color:grey;
+body i{
+    cursor: pointer;
 }
 
-body{
+body i:hover {
+    color: grey;
+}
+
+body {
     background-color: #fafafa;
+}
+
+body input:focus {
+    outline: none;
+}
+
+body textarea:focus {
+    outline: none;
+}
+
+body textarea {
+    resize: none;
 }
