@@ -1,7 +1,15 @@
 /* TODO Add site wide styles */
 body * {
-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-family: Roboto,Helvetica,Arial,sans-serif;
 font-size:14px;
 box-sizing: border-box;
-color: #262626;
+color:rgba(45,46,47,1);
+}
+
+body i:hover{
+    color:grey;
+}
+
+body{
+    background-color: #fafafa;
 }

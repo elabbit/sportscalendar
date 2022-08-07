@@ -8,7 +8,7 @@ function AddCalendarModal() {
 
   return (
     <>
-<i class="far fa-calendar-plus add-icon" onClick={()=>setShowModal(true)}></i>
+<i className="far fa-calendar-plus add-icon" onClick={()=>setShowModal(true)}></i>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <AddCalendarForm hideModal={()=>setShowModal(false)}/>

@@ -25,4 +25,5 @@ margin:auto;
     display: flex;
     flex-direction: column;
     margin:5px;
+    min-width:790px;
 }

@@ -17,7 +17,7 @@ function DeleteCalendarModal({ calendarId, calendars}) {
 
     return (
         <>
-            <i class="fas fa-trash-alt" onClick={() => setShowModal(true)}></i>
+            <i className="fas fa-trash-alt" onClick={() => setShowModal(true)}></i>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <div className="modal-container">

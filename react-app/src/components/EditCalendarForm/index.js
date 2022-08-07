@@ -2,17 +2,21 @@ import { useContext, useState } from 'react';
 import { useDispatch } from 'react-redux'
 import CalendarContext from '../../context/CalendarContext';
 import { editCalendar } from '../../store/calendars';
+import "./EditCalendarForm.css"
+import Toggle from 'react-toggle'
+import "react-toggle/style.css"
 
 const EditCalendarForm = ({hideForm, calendar}) => {
     const { setCurrentCalendar } = useContext(CalendarContext)
     const [title, setTitle] = useState(calendar.title);
     const [description, setDescription] = useState(calendar.description);
+    const [def, setDef] = useState(calendar.default)
     const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const calendarId = calendar.id;
-        const data = await dispatch(editCalendar(title, description, calendarId));
+        const data = await dispatch(editCalendar(title, description, def, calendarId));
         if(data){
             setCurrentCalendar(data)
             hideForm();
@@ -26,7 +30,6 @@ const EditCalendarForm = ({hideForm, calendar}) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div>Edit Calendar</div>
             <div>
                 <input
                     type='text'
@@ -36,20 +39,27 @@ const EditCalendarForm = ({hideForm, calendar}) => {
                     value={title}
                     maxLength="40"
                     required
-                ></input>
+                />
             </div>
             <div>
-                <input
-                    type='text'
+                <textarea
                     name='description'
                     placeholder="Description"
                     onChange={(e) => setDescription(e.target.value)}
                     value={description}
-                    maxLength="400"
-                ></input>
+                    maxLength="200"
+                />
             </div>
-            <button type='submit'>Submit</button>
-            <button type="cancel" onClick={handleCancel}>Cancel</button>
+            <label>
+                <span>Default?</span>
+                <Toggle
+                    checked={def}
+                    icons={false}
+                    onChange={(e) => setDef(e.target.checked)}
+                />
+            </label>
+            <button type='submit'><i className="fa-solid fa-check"></i></button>
+            <button type="cancel" onClick={handleCancel}><i className="fa-solid fa-xmark"></i></button>
 
         </form>
     );
