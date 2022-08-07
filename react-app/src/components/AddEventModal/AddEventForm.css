@@ -1,17 +1,23 @@
-.add-event-button{
-background-color: transparent;
-border:none;
-cursor: pointer;
-}
-.add-event-container{
-padding:10px;
+.add-event-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight:560;
+    margin-top:5px;
+    margin-right:5px;
+
 }
 
-.add-event-form{
-    display:flex;
+
+.add-event-container {
+    padding: 10px;
+}
+
+.add-event-form {
+    display: flex;
     flex-direction: column;
 }
 
-.add-start-div{
-    display:flex;
+.add-start-div {
+    display: flex;
 }

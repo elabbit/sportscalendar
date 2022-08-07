@@ -30,7 +30,8 @@
 .edit-cal-buttons {
     position: absolute;
     top: 145px;
-    margin-left: 335px;
+    margin-left: 345px;
+    width:60px;
 }
 
 .edit-cal-buttons button {

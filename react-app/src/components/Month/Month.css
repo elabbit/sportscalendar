@@ -1,8 +1,21 @@
+
+.month-outer{
+margin-top:10px;
+display: flex;
+flex-direction: column;
+gap:5px;
+
+}
+
 .month-container {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(5, 1fr);
+    border: 1px solid lightgrey;
+    border-radius: 2px;
 }
+
+
 
 .month-weekdays {
     display: grid;

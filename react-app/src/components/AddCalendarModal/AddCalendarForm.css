@@ -1,0 +1,68 @@
+.add-cal-container {
+    padding: 25px;
+    border-radius: 6px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.add-cal-mod-header {
+    font-size: 16px;
+    font-weight: 560;
+
+}
+
+.add-cal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-cal-title input {
+    width: 270px;
+    padding: 5px;
+    border: none;
+    background-color: lightgrey;
+    border-radius: 4px;
+}
+
+.add-cal-des textarea {
+    width: 270px;
+    height: 60px;
+    padding: 5px;
+    border: none;
+    background-color: lightgrey;
+    border-radius: 4px;
+}
+
+
+
+
+.add-cal-tog {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.add-cal-tog-bttns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-cal-bttns{
+    display: flex;
+    gap:5px;
+}
+
+.add-cal-bttns button {
+    background-color: transparent;
+    border: none;
+}
+
+.add-cal-bttns button i{
+    font-size: 20px;
+}

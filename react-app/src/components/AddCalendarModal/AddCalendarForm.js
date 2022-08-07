@@ -29,47 +29,47 @@ const AddCalendarForm = ({ hideModal }) => {
     }
 
 
-//     function handleToggle (e){
-// setDef(e.target.checked)
-// console.log(def)
-
-//     }
-
     return (
-        <form onSubmit={handleSubmit}>
-            <div>Add Calendar</div>
-            <div>
-                <input
-                    type='text'
-                    name='title'
-                    placeholder="Title"
-                    onChange={(e) => setTitle(e.target.value)}
-                    value={title}
-                    maxLength="40"
-                    required
-                />
-            </div>
-            <div>
-                <input
-                    type='text'
-                    name='description'
-                    placeholder="Description"
-                    onChange={(e) => setDescription(e.target.value)}
-                    value={description}
-                    maxLength="200"
-                />
-            </div>
-            <label>
-                <span>Default?</span>
-                <Toggle
-                    checked={def}
-                    icons={false}
-                    onChange={(e) => setDef(e.target.checked)}
-                />
-            </label>
-            <button type='submit'>Submit</button>
-            <button type="cancel" onClick={handleCancel}>Cancel</button>
-        </form>
+        <div className="add-cal-container">
+            <div className="add-cal-mod-header">New Calendar</div>
+            <form className="add-cal-form" onSubmit={handleSubmit}>
+                <div className='add-cal-title'>
+                    <input
+                        type='text'
+                        name='title'
+                        placeholder="Title"
+                        onChange={(e) => setTitle(e.target.value)}
+                        value={title}
+                        maxLength="40"
+                        required
+                    />
+                </div>
+                <div className='add-cal-des'>
+                    <textarea
+                        name='description'
+                        placeholder="Description"
+                        onChange={(e) => setDescription(e.target.value)}
+                        value={description}
+                        maxLength="200"
+                    />
+                </div>
+                <div className='add-cal-tog-bttns'>
+                    <div className='add-cal-tog'>
+                        <span>Default?</span>
+                        <Toggle
+                            checked={def}
+                            icons={false}
+                            onChange={(e) => setDef(e.target.checked)}
+                        />
+                    </div>
+                    <div className='add-cal-bttns'>
+                        <button type='submit'><i className="fa-solid fa-check"></i></button>
+                        <button type="cancel" onClick={handleCancel}><i className="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
     );
 };
 

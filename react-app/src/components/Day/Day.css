@@ -1,25 +1,31 @@
-.day-container{
-    border:1px solid lightgrey;
-    height:125px;
+.day-container {
+    border: 1px solid lightgrey;
+    height: 125px;
 }
 
-.day-header{
+.day-header {
     display: flex;
     justify-content: right;
 }
 
 
-.day-current{
-background-color: lightgrey;
+.day-current {
+    background-color:green;
 
 }
 
-.day-event{
+.day-event {
     word-break: break-all;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-cursor:pointer;
+    cursor: pointer;
+    border-radius: 4px;
+    padding:2px;
+}
+
+.day-body{
+    padding:5px;
 }
