@@ -10,6 +10,14 @@ const Day = ({ day, events }) => {
     const { currentEvent, setCurrentEvent } = useContext(CalendarContext)
 
     useEffect(() => {
+        events.sort((a,b)=>{
+            if(a.startTime === "None"){
+                return -1;
+            } else {
+                return convertMin(a.startTime) - convertMin(b.startTime)
+            }
+        })
+
         setDayEvents(events)
     }, [events])
 
@@ -29,23 +37,25 @@ const Day = ({ day, events }) => {
         if(time=== "None"){
             return '';
         }
-
         const timeArr = time.split(":").splice(0, 2)
         if (timeArr[0] === "00") {
-            return `12:${timeArr[1]} AM`
+            return `12:${timeArr[1]}am`
         } else if (+timeArr[0] < 10) {
-            return `${+timeArr[0]}:${timeArr[1]} AM`
+            return `${+timeArr[0]}:${timeArr[1]}am`
         } else if (+timeArr[0] < 12) {
-            return timeArr.join(':') + " AM"
+            return timeArr.join(':') + "am"
         } else if (+timeArr[0] === 12) {
-            return `12:${timeArr[1]} PM`
+            return `12:${timeArr[1]}pm`
         } else
-            return `${+timeArr[0] - 12}:${timeArr[1]} PM`
+            return `${+timeArr[0] - 12}:${timeArr[1]}pm`
     }
 
+    function convertMin(time){
+        const timeArr = time.split(":").splice(0, 2)
+        let hourMin = +timeArr[0]*60;
+        return hourMin + +timeArr[1];
 
-
-
+    }
 
     return (
         <div className={`day-container ${getDayClass(day)}`} >

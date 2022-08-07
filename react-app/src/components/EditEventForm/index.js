@@ -43,6 +43,7 @@ const EditEventForm = ({ hideForm, event }) => {
                 <input
                 type='date'
                 value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
                 />
                 <input
                     type="time"

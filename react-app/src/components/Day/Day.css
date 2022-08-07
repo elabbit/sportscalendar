@@ -1,6 +1,7 @@
 .day-container {
     border: 1px solid lightgrey;
-    height: 125px;
+    height: 130px;
+    overflow: auto;
 }
 
 .day-header {
@@ -10,7 +11,7 @@
 
 
 .day-current {
-    background-color:green;
+    background-color:lightgrey;
 
 }
 
@@ -23,9 +24,12 @@
     text-overflow: ellipsis;
     cursor: pointer;
     border-radius: 4px;
-    padding:2px;
+    padding:1px;
+    padding-left:5px;
+    margin-bottom:2px;
 }
 
 .day-body{
+    margin-top:-5px;
     padding:5px;
 }

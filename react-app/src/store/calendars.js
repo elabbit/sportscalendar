@@ -145,7 +145,6 @@ export default function reducer(state = {}, action) {
                     prevDef.default = false;
                     newState2[prevDef.id] = prevDef;
                 }
-                console.log("PREV DEF", prevDef)
             }
 
             newState2[action.calendar.id] = action.calendar

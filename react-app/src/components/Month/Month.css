@@ -12,7 +12,8 @@ gap:5px;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(5, 1fr);
     border: 1px solid lightgrey;
-    border-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
 }
 
 
@@ -20,6 +21,12 @@ gap:5px;
 .month-weekdays {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    background-color: lightgrey;
+    padding:6px;
+    margin-bottom:-5px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+
 }
 .month-weekdays div{
     word-break: break-all;
@@ -29,5 +36,4 @@ gap:5px;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
-
 }
