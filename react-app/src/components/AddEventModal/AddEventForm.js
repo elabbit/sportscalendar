@@ -57,9 +57,16 @@ const AddEventForm = ({ hideModal, day }) => {
                         list="presetColors"
                     />
                     <datalist id="presetColors">
-                        <option>#ff0000</option>
-                        <option>#00ff00</option>
-                        <option>#0000ff</option>
+                    <option>#ff6961</option>
+                    <option>#EC8993</option>
+                    <option>#ffb480</option>
+                    <option>#f8f38d</option>
+                    <option>#77dd77</option>
+                    <option>#42d6a4</option>
+                    <option>#08cad1</option>
+                    <option>#59adf6</option>
+                    <option>#9d94ff</option>
+                    <option>#c780e8</option>
                     </datalist>
                 </div>
                 <input

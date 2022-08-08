@@ -85,7 +85,20 @@ const EditEventForm = ({ hideForm, event }) => {
                     type="color"
                     value={color}
                     onChange={(e) => setColor(e.target.value)}
+                    list="presetColors"
                 />
+                <datalist id="presetColors">
+                    <option>#ff6961</option>
+                    <option>#EC8993</option>
+                    <option>#ffb480</option>
+                    <option>#f8f38d</option>
+                    <option>#77dd77</option>
+                    <option>#42d6a4</option>
+                    <option>#08cad1</option>
+                    <option>#59adf6</option>
+                    <option>#9d94ff</option>
+                    <option>#c780e8</option>
+                </datalist>
                 <button type="submit">Edit Event</button>
                 <button type="cancel" onClick={handleCancel}>Cancel</button>
             </form>
