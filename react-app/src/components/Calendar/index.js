@@ -1,17 +1,15 @@
 import { useState, useContext, useEffect } from 'react';
 import CalendarHeader from '../CalendarHeader';
 import Month from '../Month';
-import Sidebar from '../Sidebar';
 import { getMonth } from '../../util'
 import CalendarContext from '../../context/CalendarContext';
 import './Calendar.css'
 import { useDispatch, useSelector } from "react-redux";
 import { getCalendars } from '../../store/calendars';
-import Options from '../Options';
 
 
-const Calendar = () => {
-    const [toggleSide, setToggleSide] = useState(true);
+
+const Calendar = ({ showSide }) => {
     const [currentMonth, setCurrentMonth] = useState(getMonth());
     const { monthIndex, currentCalendar, setCurrentCalendar } = useContext(CalendarContext)
     const dispatch = useDispatch();
@@ -36,22 +34,16 @@ const Calendar = () => {
 
 
     return (
-        <div className="calendar-outer">
-        {currentCalendar ?
-            <div className={`calendar-container ${toggleSide ? "left" : "right"}`}>
-                <div className='side-container'>
-                    <Options toggleSide={toggleSide} setToggleSide={setToggleSide}/>
-                    <Sidebar />
-                </div>
+        <>
+            {currentCalendar ?
                 <div className="cal-container">
                     <CalendarHeader calendars={calendars} />
                     <Month month={currentMonth} events={currentCalendar.events} />
                 </div>
+                :
+                <h3>Loading...</h3>}
+        </>
 
-            </div>
-            :
-            <h3>Loading...</h3>}
-        </div>
     )
 
 

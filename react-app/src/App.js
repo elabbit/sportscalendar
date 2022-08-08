@@ -3,15 +3,11 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
-import Calendar from './components/Calendar';
-import CalendarWrapper from './context/CalendarWrapper';
-import dayjs from 'dayjs'
-
+import HomePage from './components/HomePage';
 
 
 function App() {
@@ -20,7 +16,7 @@ function App() {
 
   const newDate = new Date();
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -32,7 +28,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -41,15 +37,13 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <CalendarWrapper>
-          <Calendar />
-          </CalendarWrapper>
+          <HomePage/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

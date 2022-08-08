@@ -3,9 +3,12 @@ import { useContext, useEffect, useState } from "react"
 import CalendarContext from "../../context/CalendarContext"
 import DeleteEventModal from "../DeleteEventModal"
 import EditEventForm from "../EditEventForm"
+import NavBar from "../NavBar"
+import Options from "../Options"
 import "./Sidebar.css"
+import Toggle from "react-toggle";
 
-const Sidebar = () => {
+const Sidebar = ({ setShowSide, right, setRight}) => {
     const { currentEvent, setCurrentEvent, currentOffset } = useContext(CalendarContext)
     const [showEdit, setShowEdit] = useState(false)
 
@@ -30,13 +33,40 @@ const Sidebar = () => {
 
 
     return (
-        <div className="sidebar-outer">
+        <div className="sidebar-container">
+
+
+            <div className="sidebar-toggle-cancel-bttns">
+                <label className="toggle-sidebar">
+                    <Toggle
+                        className='toggle-switch'
+                        icons={{
+                            checked: <i className="fa-solid fa-r"></i>,
+                            unchecked: <i className="fa-solid fa-l"></i>,
+                        }}
+                        checked={right}
+                        onChange={() => setRight(!right)}
+                    />
+                </label>
+                <button className="arrow-button" onClick={() => setShowSide(false)}>
+                    {right ?
+                        <i class="fa-solid fa-angles-right"></i>
+                        :
+                        <i class="fa-solid fa-angles-left"></i>
+                    }
+                </button>
+            </div>
+            <div className="sidebar-header">
+
+            </div>
+            <NavBar />
+            <Options />
             {currentEvent ?
                 <>
                     {!showEdit ?
                         <div className="side-event-container">
                             <button onClick={() => setShowEdit(true)}>Edit</button>
-                            <DeleteEventModal event={currentEvent}/>
+                            <DeleteEventModal event={currentEvent} />
                             <div>{dayjs(currentEvent.startDate).add(currentOffset, "hour").format("dddd MMMM DD")}</div>
                             {currentEvent.startTime != "None" &&
                                 <div>{convertTime(currentEvent.startTime)}</div>}
@@ -54,16 +84,8 @@ const Sidebar = () => {
                 </>
                 :
                 null}
-
-
-
-
-
         </div>
-
-
     )
-
 }
 
 export default Sidebar;

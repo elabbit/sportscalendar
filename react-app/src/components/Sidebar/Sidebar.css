@@ -1,12 +1,5 @@
-.sidebar-outer{
-    width:100%;
-    display: flex;
-    justify-content: center;
-    min-height:500px;
-
+.sidebar-container {
 }
 
 
-.side-event-container{
-
-}
+.side-event-container {}
