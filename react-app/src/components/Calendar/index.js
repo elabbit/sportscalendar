@@ -9,7 +9,7 @@ import { getCalendars } from '../../store/calendars';
 
 
 
-const Calendar = ({showSide}) => {
+const Calendar = ({ showSide }) => {
     const [currentMonth, setCurrentMonth] = useState(getMonth());
     const { monthIndex, currentCalendar, setCurrentCalendar } = useContext(CalendarContext)
     const dispatch = useDispatch();
@@ -34,18 +34,16 @@ const Calendar = ({showSide}) => {
 
 
     return (
-        <div className="calendar-outer">
-        {showSide &&
-        <div className='spacer'></div>
-        }
+        <>
             {currentCalendar ?
-                    <div className="cal-container">
-                        <CalendarHeader calendars={calendars} />
-                        <Month month={currentMonth} events={currentCalendar.events} />
-                    </div>
+                <div className="cal-container">
+                    <CalendarHeader calendars={calendars} />
+                    <Month month={currentMonth} events={currentCalendar.events} />
+                </div>
                 :
                 <h3>Loading...</h3>}
-        </div>
+        </>
+
     )
 
 

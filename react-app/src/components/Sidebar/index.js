@@ -6,8 +6,9 @@ import EditEventForm from "../EditEventForm"
 import NavBar from "../NavBar"
 import Options from "../Options"
 import "./Sidebar.css"
+import Toggle from "react-toggle";
 
-const Sidebar = ({setShowSide}) => {
+const Sidebar = ({ setShowSide, right, setRight}) => {
     const { currentEvent, setCurrentEvent, currentOffset } = useContext(CalendarContext)
     const [showEdit, setShowEdit] = useState(false)
 
@@ -33,10 +34,30 @@ const Sidebar = ({setShowSide}) => {
 
     return (
         <div className="sidebar-container">
-            <div className="sidebar-header">
+
+
+            <div className="sidebar-toggle-cancel-bttns">
+                <label className="toggle-sidebar">
+                    <Toggle
+                        className='toggle-switch'
+                        icons={{
+                            checked: <i className="fa-solid fa-r"></i>,
+                            unchecked: <i className="fa-solid fa-l"></i>,
+                        }}
+                        checked={right}
+                        onChange={() => setRight(!right)}
+                    />
+                </label>
                 <button className="arrow-button" onClick={() => setShowSide(false)}>
-                    <i className="fas fa-arrow-right"></i>
+                    {right ?
+                        <i class="fa-solid fa-angles-right"></i>
+                        :
+                        <i class="fa-solid fa-angles-left"></i>
+                    }
                 </button>
+            </div>
+            <div className="sidebar-header">
+
             </div>
             <NavBar />
             <Options />
