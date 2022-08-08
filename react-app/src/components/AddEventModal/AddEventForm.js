@@ -37,19 +37,35 @@ const AddEventForm = ({ hideModal, day }) => {
 
     return (
         <div className="add-event-container">
+            <div className="add-event-mod-header">Add Event</div>
             <form className="add-event-form" onSubmit={handleSubmit}>
                 <div className="add-start-div">
-                    <div>{day.format("dddd, MMMM DD")}</div>
+                    <input
+                        type='date'
+                        value={startDate}
+                        onChange={(e) => setStartDate(e.target.value)}
+                    />
                     <input
                         type="time"
                         value={startTime}
                         onChange={(e) => setStartTime(e.target.value)}
                     />
+                    <input
+                        type="color"
+                        value={color}
+                        onChange={(e) => setColor(e.target.value)}
+                        list="presetColors"
+                    />
+                    <datalist id="presetColors">
+                        <option>#ff0000</option>
+                        <option>#00ff00</option>
+                        <option>#0000ff</option>
+                    </datalist>
                 </div>
                 <input
                     type='text'
                     name='title'
-                    placeholder="Title"
+                    placeholder="Title (required)"
                     onChange={(e) => setTitle(e.target.value)}
                     value={title}
                     maxLength="80"
@@ -62,33 +78,28 @@ const AddEventForm = ({ hideModal, day }) => {
                     maxLength="400"
                 >
                 </textarea>
+                <div className="add-eve-loc-cat">
                 <input
+                className="add-eve-loc"
                     type="text"
                     placeholder="Location"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     maxLength="80"
                 />
-                <input
-                    type="text"
-                    placeholder="Category"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                    maxLength="20"
-                />
-                <input
-                    type="color"
-                    value={color}
-                    onChange={(e) => setColor(e.target.value)}
-                    list="presetColors"
-                />
-                <datalist id="presetColors">
-                    <option>#ff0000</option>
-                    <option>#00ff00</option>
-                    <option>#0000ff</option>
-                </datalist>
-                <button type="submit">Add Event</button>
-                <button type="cancel" onClick={handleCancel}>Cancel</button>
+
+                    <input
+                        type="text"
+                        placeholder="Category"
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
+                        maxLength="20"
+                    />
+                </div>
+                <div className='add-eve-bttns'>
+                        <button type='submit'><i className="fa-solid fa-check"></i></button>
+                        <button type="cancel" onClick={handleCancel}><i className="fa-solid fa-xmark"></i></button>
+                    </div>
             </form>
         </div>
 

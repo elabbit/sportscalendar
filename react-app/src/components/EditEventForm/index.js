@@ -22,7 +22,7 @@ const EditEventForm = ({ hideForm, event }) => {
         let newStartTime = undefined;
         if (startTime !== '' && startTime !== "None") {
             let editStartTime = startTime;
-            newStartTime = String(editStartTime).split(":").splice(0,2).join(":")
+            newStartTime = String(editStartTime).split(":").splice(0, 2).join(":")
         }
         const data = await dispatch(editEvent(title, description, location, category, startDate, newStartTime, color, event.id));
         if (data) {
@@ -41,9 +41,9 @@ const EditEventForm = ({ hideForm, event }) => {
         <div className="edit-event-container">
             <form className="edit-event-form" onSubmit={handleSubmit}>
                 <input
-                type='date'
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
+                    type='date'
+                    value={startDate}
+                    onChange={(e) => setStartDate(e.target.value)}
                 />
                 <input
                     type="time"

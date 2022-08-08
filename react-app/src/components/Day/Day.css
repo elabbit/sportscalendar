@@ -31,6 +31,10 @@
     margin-bottom:2px;
 }
 
+.day-event:hover{
+    opacity: .6;
+}
+
 .day-body{
     margin-top:-3px;
     padding:5px;
