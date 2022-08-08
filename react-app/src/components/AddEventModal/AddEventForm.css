@@ -3,15 +3,20 @@
     border: none;
     cursor: pointer;
     font-weight:560;
-    margin-top:5px;
-    margin-right:5px;
+    margin-top:3px;
+    margin-right:3px;
 
+}
+
+.add-event-button:hover {
+color:grey;
 }
 
 
 .add-event-container {
-    padding: 10px;
+    padding: 25px;
     background-color: white;
+    border-radius: 6px;
 }
 
 .add-event-form {
@@ -22,3 +27,7 @@
 .add-start-div {
     display: flex;
 }
+/*
+input[type="time"]::-webkit-calendar-picker-indicator {
+
+} */

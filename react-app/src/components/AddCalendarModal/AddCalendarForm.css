@@ -39,8 +39,6 @@
 }
 
 
-
-
 .add-cal-tog {
     display: flex;
     align-items: center;
@@ -48,6 +46,7 @@
 }
 
 .add-cal-tog-bttns {
+    padding-left:5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -55,7 +54,7 @@
 
 .add-cal-bttns{
     display: flex;
-    gap:5px;
+    gap:6px;
 }
 
 .add-cal-bttns button {
@@ -64,5 +63,5 @@
 }
 
 .add-cal-bttns button i{
-    font-size: 20px;
+    font-size: 22px;
 }

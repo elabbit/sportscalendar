@@ -9,10 +9,12 @@
     justify-content: right;
 }
 
+.day-grey button{
+    color: lightgrey;
+}
 
 .day-current {
-    background-color:lightgrey;
-
+    background-color: rgba(211, 211, 211, .5)
 }
 
 .day-event {
@@ -30,6 +32,6 @@
 }
 
 .day-body{
-    margin-top:-5px;
+    margin-top:-3px;
     padding:5px;
 }

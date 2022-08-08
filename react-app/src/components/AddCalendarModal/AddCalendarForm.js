@@ -37,7 +37,7 @@ const AddCalendarForm = ({ hideModal }) => {
                     <input
                         type='text'
                         name='title'
-                        placeholder="Title"
+                        placeholder="Title (required)"
                         onChange={(e) => setTitle(e.target.value)}
                         value={title}
                         maxLength="40"

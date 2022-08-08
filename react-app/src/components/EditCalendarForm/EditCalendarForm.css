@@ -5,10 +5,12 @@
 }
 
 .edit-cal-title {
-    border: none;
-    background-color: lightgrey;
+    border: 1px solid lightgrey;
+    background-color: rgba(211, 211, 211,.3);
     padding: 5px;
     border-radius: 4px;
+    width:200px;
+    font-weight:560;
 }
 
 .edit-cal-form {
@@ -18,21 +20,23 @@
     gap: 8px;
 }
 
+.edit-cal-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:400px;
+}
+
 .edit-cal-text-div textarea {
-    width: 273px;
+    width: 400px;
     height: 60px;
-    background-color: lightgrey;
-    border: none;
+    border: 1px solid lightgrey;
+    background-color: rgba(211, 211, 211,.3);
     border-radius: 4px;
     padding: 5px;
 }
 
-.edit-cal-buttons {
-    position: absolute;
-    top: 145px;
-    margin-left: 345px;
-    width:60px;
-}
+
 
 .edit-cal-buttons button {
     background-color: transparent;
@@ -41,5 +45,5 @@
 }
 
 .edit-cal-buttons button i{
-font-size:18px;
+font-size:20px;
 }

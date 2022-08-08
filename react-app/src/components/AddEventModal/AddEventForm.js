@@ -19,7 +19,7 @@ const AddEventForm = ({ hideModal, day }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         let newStartTime = undefined;
-        if(startTime !== ''){
+        if (startTime !== '') {
             newStartTime = startTime;
         }
         const data = await dispatch(addEvent(title, description, location, category, startDate, newStartTime, color, currentCalendar.id));
@@ -80,7 +80,13 @@ const AddEventForm = ({ hideModal, day }) => {
                     type="color"
                     value={color}
                     onChange={(e) => setColor(e.target.value)}
+                    list="presetColors"
                 />
+                <datalist id="presetColors">
+                    <option>#ff0000</option>
+                    <option>#00ff00</option>
+                    <option>#0000ff</option>
+                </datalist>
                 <button type="submit">Add Event</button>
                 <button type="cancel" onClick={handleCancel}>Cancel</button>
             </form>

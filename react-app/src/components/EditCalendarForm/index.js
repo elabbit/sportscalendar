@@ -6,7 +6,7 @@ import "./EditCalendarForm.css"
 import Toggle from 'react-toggle'
 import "react-toggle/style.css"
 
-const EditCalendarForm = ({ hideForm, calendar }) => {
+const EditCalendarForm = ({ setShowEditForm, calendar }) => {
     const { setCurrentCalendar } = useContext(CalendarContext)
     const [title, setTitle] = useState(calendar.title);
     const [description, setDescription] = useState(calendar.description);
@@ -19,18 +19,19 @@ const EditCalendarForm = ({ hideForm, calendar }) => {
         const data = await dispatch(editCalendar(title, description, def, calendarId));
         if (data) {
             setCurrentCalendar(data)
-            hideForm();
+            setShowEditForm(false);
         }
     }
 
     const handleCancel = async (e) => {
         e.preventDefault();
-        hideForm()
+        setShowEditForm(false)
     }
 
     return (
         <form className="edit-cal-form" onSubmit={handleSubmit}>
-            <div className="edit-cal-title-def">
+            <div className="edit-cal-top">
+                <div className="edit-cal-title-def">
                 <input
                     className="edit-cal-title"
                     type='text'
@@ -47,6 +48,11 @@ const EditCalendarForm = ({ hideForm, calendar }) => {
                     onChange={(e) => setDef(e.target.checked)}
                 />
                 <div>Default?</div>
+                </div>
+            <div className="edit-cal-buttons">
+                <button type='submit'><i className="fa-solid fa-check"></i></button>
+                <button type="cancel" onClick={handleCancel}><i className="fa-solid fa-xmark"></i></button>
+            </div>
             </div>
             <div className="edit-cal-text-div">
                 <textarea
@@ -57,12 +63,6 @@ const EditCalendarForm = ({ hideForm, calendar }) => {
                     maxLength="200"
                 />
             </div>
-
-            <div className="edit-cal-buttons">
-                <button type='submit'><i className="fa-solid fa-check"></i></button>
-                <button type="cancel" onClick={handleCancel}><i className="fa-solid fa-xmark"></i></button>
-            </div>
-
         </form>
     );
 };

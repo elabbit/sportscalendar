@@ -91,6 +91,8 @@ color:grey;
     word-wrap: break-word;
     max-height: 50px;
     overflow: auto;
+    padding-right:5px;
+    padding-left:5px;
 }
 
 .calendar-header-right {

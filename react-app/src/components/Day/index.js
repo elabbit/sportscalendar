@@ -7,11 +7,11 @@ import CalendarContext from "../../context/CalendarContext";
 
 const Day = ({ day, events }) => {
     const [dayEvents, setDayEvents] = useState([]);
-    const { currentEvent, setCurrentEvent } = useContext(CalendarContext)
+    const { monthIndex, currentEvent, setCurrentEvent } = useContext(CalendarContext)
 
     useEffect(() => {
-        events.sort((a,b)=>{
-            if(a.startTime === "None"){
+        events.sort((a, b) => {
+            if (a.startTime === "None") {
                 return -1;
             } else {
                 return convertMin(a.startTime) - convertMin(b.startTime)
@@ -24,7 +24,7 @@ const Day = ({ day, events }) => {
     function getDayClass(day) {
         const format = 'DD-MM-YY';
         const toDay = dayjs().format(format);
-        const currDay = day?.format(format);
+        const currDay = day.format(format);
         if (toDay === currDay) {
             return "day-current"
 
@@ -34,7 +34,7 @@ const Day = ({ day, events }) => {
 
     }
     function convertTime(time) {
-        if(time=== "None"){
+        if (time === "None") {
             return '';
         }
         const timeArr = time.split(":").splice(0, 2)
@@ -50,20 +50,31 @@ const Day = ({ day, events }) => {
             return `${+timeArr[0] - 12}:${timeArr[1]}pm`
     }
 
-    function convertMin(time){
+    function convertMin(time) {
         const timeArr = time.split(":").splice(0, 2)
-        let hourMin = +timeArr[0]*60;
+        let hourMin = +timeArr[0] * 60;
         return hourMin + +timeArr[1];
 
+    }
+    function dayChecker(day) {
+        if (monthIndex < 0 || monthIndex > 11) {
+            if (+day.format("MM") !== +dayjs().month(monthIndex).format("MM")) {
+                return "day-grey"
+            }
+        } else {
+            if (+day.format("MM") !== monthIndex + 1) {
+                return "day-grey"
+            }
+        }
     }
 
     return (
         <div className={`day-container ${getDayClass(day)}`} >
-            <div className='day-header' >
+            <div className={`day-header ${dayChecker(day)}`} >
                 <AddEventModal day={day} />
             </div>
             <div className="day-body">
-                {dayEvents.sort((a,b)=>b.startTime-a.startTime).map((event, i) => (
+                {dayEvents.sort((a, b) => b.startTime - a.startTime).map((event, i) => (
                     <div className="day-event" key={i} onClick={() => setCurrentEvent(event)}
                         style={{ backgroundColor: `${event.color}` }}>{convertTime(event.startTime)} {event.title}</div>
                 ))}

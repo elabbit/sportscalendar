@@ -64,13 +64,13 @@ const CalendarHeader = ({ calendars }) => {
 
                     </>
                     :
-                    <EditCalendarForm hideForm={() => setShowEditForm(false)} calendar={currentCalendar} />
+                    <EditCalendarForm setShowEditForm={setShowEditForm} calendar={currentCalendar} />
                 }
             </div>
             <div className="calendar-header-right">
                 <div className="cal-add-buttons">
                     <AddCalendarModal calendars={calendars} />
-                    <i className="fas fa-edit" onClick={() => setShowEditForm(true)}></i>
+                    <i className="fas fa-edit" onClick={() => setShowEditForm(!showEditForm)}></i>
                     <DeleteCalendarModal calendarId={currentCalendar.id} calendars={calendars} />
                 </div>
             </div>
