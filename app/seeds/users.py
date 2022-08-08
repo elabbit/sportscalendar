@@ -215,18 +215,18 @@ def seed_users():
         color="#ffb480"
     )
     event18= Event(
-        title="lunch with Lloyd",
+        title="lunch with friends",
         description="",
         location="In-n-out",
         category="",
         startDate="2022-08-21",
-        startTime="18:00:00",
+        startTime="13:00:00",
         userId=1,
         calendarId=1,
         color="#77dd77"
     )
     event19= Event(
-        title="hot date",
+        title="date night",
         description="",
         location="some place nice",
         category="date",

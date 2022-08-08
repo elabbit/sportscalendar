@@ -1,12 +1,15 @@
 .calendar-outer{
-    margin-left:50px;
-    margin-right:50px;
+    margin-left:25px;
+    margin-right:25px;
+    display: flex;
+    justify-content: center;
 }
 
 .calendar-container{
 display: flex;
 flex-direction: row;
 margin:auto;
+gap:15px;
 }
 
 .right{
@@ -14,17 +17,17 @@ margin:auto;
 }
 
 .side-container{
-    width:20%;
     display:flex;
     flex-direction: column;
     align-items: center;
     margin:5px;
+    width:300px;
 }
 .cal-container{
-    width:80%;
+
     display: flex;
     flex-direction: column;
     margin:5px;
-    min-width:850px;
-
+    min-width:825px;
+    max-width:1025px;
 }

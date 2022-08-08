@@ -14,7 +14,7 @@
 }
 
 .day-current {
-    background-color: rgba(211, 211, 211, .5)
+    border: rgba(45, 46, 47, 1) solid 2px;
 }
 
 .day-event {
