@@ -20,7 +20,7 @@ function DeleteEventModal({ event }) {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>Delete</button>
+            <i className="fa-solid fa-trash-can" onClick={() => setShowModal(true)}></i>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <div className="modal-container">

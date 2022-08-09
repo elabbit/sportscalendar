@@ -1,5 +1,52 @@
 .sidebar-container {
+    display: flex;
+    flex-direction: column;
+    gap:15px;
 }
 
+.sidebar-cancel-bttn {
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
 
-.side-event-container {}
+}
+
+.sidebar-cancel-bttn button {
+    background-color: rgba(45, 46, 47, 1);
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    padding: 0px;
+    height: 100%;
+    border-radius: 2px;
+
+}
+
+.sidebar-cancel-bttn button:hover {
+    background-color: grey;
+
+}
+
+.sidebar-cancel-bttn i {
+    padding-top: 3px;
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    color: white;
+
+}
+
+.sidebar-cancel-bttn i:hover {
+    color: white;
+}
+
+.sidebar-navbar{
+display: flex;
+justify-content: space-evenly;
+
+}
+
+.sidebar-navbar i{
+    font-size:20px;
+}

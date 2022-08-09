@@ -29,6 +29,10 @@
     border-radius: 4px;
 }
 
+.add-cal-title input:focus{
+    background-color: rgba(211, 211, 211,.4);
+    border:1px solid lightgrey;
+    }
 .add-cal-des textarea {
     width: 270px;
     height: 60px;
@@ -38,6 +42,10 @@
     border-radius: 4px;
 }
 
+.add-cal-des textarea:focus {
+    background-color: rgba(211, 211, 211,.4);
+    border:1px solid lightgrey;
+    }
 
 .add-cal-tog {
     display: flex;

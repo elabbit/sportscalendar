@@ -40,6 +40,17 @@ const EditEventForm = ({ hideForm, event }) => {
     return (
         <div className="edit-event-container">
             <form className="edit-event-form" onSubmit={handleSubmit}>
+                <div className="edit-event-header">Edit Event</div>
+            <input
+                    type='text'
+                    name='title'
+                    placeholder="Title (required)"
+                    onChange={(e) => setTitle(e.target.value)}
+                    value={title}
+                    maxLength="80"
+                    required
+                />
+
                 <input
                     type='date'
                     value={startDate}
@@ -50,16 +61,14 @@ const EditEventForm = ({ hideForm, event }) => {
                     value={startTime}
                     onChange={(e) => setStartTime(e.target.value)}
                 />
-
-                <input
-                    type='text'
-                    name='title'
-                    placeholder="Title"
-                    onChange={(e) => setTitle(e.target.value)}
-                    value={title}
+              <input
+                    type="text"
+                    placeholder="Location"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
                     maxLength="80"
-                    required
                 />
+
                 <textarea
                     placeholder="Description"
                     value={description}
@@ -67,13 +76,7 @@ const EditEventForm = ({ hideForm, event }) => {
                     maxLength="400"
                 >
                 </textarea>
-                <input
-                    type="text"
-                    placeholder="Location"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                    maxLength="80"
-                />
+
                 <input
                     type="text"
                     placeholder="Category"
@@ -81,6 +84,8 @@ const EditEventForm = ({ hideForm, event }) => {
                     onChange={(e) => setCategory(e.target.value)}
                     maxLength="20"
                 />
+                <div className="edit-eve-color-bttns">
+
                 <input
                     type="color"
                     value={color}
@@ -99,8 +104,13 @@ const EditEventForm = ({ hideForm, event }) => {
                     <option>#9d94ff</option>
                     <option>#c780e8</option>
                 </datalist>
-                <button type="submit">Edit Event</button>
-                <button type="cancel" onClick={handleCancel}>Cancel</button>
+                <div className="edit-eve-bttns">
+
+                <button type="submit"><i class="fa-solid fa-check"></i></button>
+                <button type="cancel" onClick={handleCancel}><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                </div>
             </form>
         </div>
 

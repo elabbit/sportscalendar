@@ -8,6 +8,7 @@ const CalendarWrapper = (props) => {
     const [currentCalendar, setCurrentCalendar] = useState();
     const [currentEvent, setCurrentEvent] = useState();
     const [currentOffset, setCurrentOffset] = useState(new Date().getTimezoneOffset()/60);
+    const [showSide, setShowSide] = useState(false)
 
 
 
@@ -15,7 +16,7 @@ const CalendarWrapper = (props) => {
     return (
         <CalendarContext.Provider value={{monthIndex, setMonthIndex,
         currentCalendar, setCurrentCalendar, currentEvent, setCurrentEvent,
-        currentOffset, setCurrentOffset}}>
+        currentOffset, setCurrentOffset, showSide, setShowSide}}>
             {props.children}
         </CalendarContext.Provider>
     )

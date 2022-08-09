@@ -8,7 +8,9 @@ const CalendarContext = React.createContext({
     currentEvent: null,
     setCurrentEvent:(event)=>{},
     currentOffset: 0,
-    setCurrentOffset: (offset)=>{}
+    setCurrentOffset: (offset)=>{},
+    showSide: false,
+    setShowSide: (boolean) => {}
 
 })
 

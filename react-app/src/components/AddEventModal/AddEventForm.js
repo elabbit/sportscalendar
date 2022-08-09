@@ -39,6 +39,15 @@ const AddEventForm = ({ hideModal, day }) => {
         <div className="add-event-container">
             <div className="add-event-mod-header">Add Event</div>
             <form className="add-event-form" onSubmit={handleSubmit}>
+            <input
+                    type='text'
+                    name='title'
+                    placeholder="Title (required)"
+                    onChange={(e) => setTitle(e.target.value)}
+                    value={title}
+                    maxLength="80"
+                    required
+                />
                 <div className="add-start-div">
                     <input
                         type='date'
@@ -57,43 +66,27 @@ const AddEventForm = ({ hideModal, day }) => {
                         list="presetColors"
                     />
                     <datalist id="presetColors">
-                    <option>#ff6961</option>
-                    <option>#EC8993</option>
-                    <option>#ffb480</option>
-                    <option>#f8f38d</option>
-                    <option>#77dd77</option>
-                    <option>#42d6a4</option>
-                    <option>#08cad1</option>
-                    <option>#59adf6</option>
-                    <option>#9d94ff</option>
-                    <option>#c780e8</option>
+                        <option>#ff6961</option>
+                        <option>#EC8993</option>
+                        <option>#ffb480</option>
+                        <option>#f8f38d</option>
+                        <option>#77dd77</option>
+                        <option>#42d6a4</option>
+                        <option>#08cad1</option>
+                        <option>#59adf6</option>
+                        <option>#9d94ff</option>
+                        <option>#c780e8</option>
                     </datalist>
                 </div>
-                <input
-                    type='text'
-                    name='title'
-                    placeholder="Title (required)"
-                    onChange={(e) => setTitle(e.target.value)}
-                    value={title}
-                    maxLength="80"
-                    required
-                />
-                <textarea
-                    placeholder="Description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    maxLength="400"
-                >
-                </textarea>
                 <div className="add-eve-loc-cat">
-                <input
-                className="add-eve-loc"
-                    type="text"
-                    placeholder="Location"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                    maxLength="80"
-                />
+                    <input
+                        className="add-eve-loc"
+                        type="text"
+                        placeholder="Location"
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                        maxLength="80"
+                    />
 
                     <input
                         type="text"
@@ -103,10 +96,17 @@ const AddEventForm = ({ hideModal, day }) => {
                         maxLength="20"
                     />
                 </div>
+                <textarea
+                    placeholder="Description"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    maxLength="400"
+                >
+                </textarea>
                 <div className='add-eve-bttns'>
-                        <button type='submit'><i className="fa-solid fa-check"></i></button>
-                        <button type="cancel" onClick={handleCancel}><i className="fa-solid fa-xmark"></i></button>
-                    </div>
+                    <button type='submit'><i className="fa-solid fa-check"></i></button>
+                    <button type="cancel" onClick={handleCancel}><i className="fa-solid fa-xmark"></i></button>
+                </div>
             </form>
         </div>
 

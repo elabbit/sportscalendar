@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import CalendarContext from "../../context/CalendarContext";
 import Calendar from "../Calendar";
 import Sidebar from "../Sidebar";
 import './HomePage.css'
 
 
 const HomePage = () => {
-    const [showSide, setShowSide] = useState(false);
+    const { showSide, setShowSide } = useContext(CalendarContext)
     const [right, setRight] = useState(false);
-    console.log(right)
 
     return (
         <div className="home-outer">
@@ -18,14 +18,14 @@ const HomePage = () => {
             </div>
             <div className={`${right ? 'sidebar-right' : 'sidebar-left'}`}
                 style={right ? (showSide ? { transform: 'translateX(-100%)' } : {}) : (showSide ? { transform: 'translateX(+100%)' } : {})}>
-                <Sidebar setShowSide={setShowSide} right={right} setRight={setRight}/>
+                <Sidebar right={right} setRight={setRight}/>
             </div>
             <div className={`${right ? 'content-outer-right' : 'content-outer-left'} ${showSide ? 'open' : 'close'}`}>
                 {showSide &&
                     <div className='spacer'></div>
                 }
                 <div className={`${right ? 'content-container-right' : 'content-container-left'}`}>
-                    <Calendar showSide={showSide} />
+                    <Calendar />
                 </div>
             </div>
         </div>

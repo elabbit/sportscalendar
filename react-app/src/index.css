@@ -4,6 +4,7 @@ body * {
     font-size: 14px;
     box-sizing: border-box;
     color: rgba(45, 46, 47, 1);
+    word-wrap: break-word;
 }
 
 body i{

@@ -7,7 +7,7 @@ import CalendarContext from "../../context/CalendarContext";
 
 const Day = ({ day, events }) => {
     const [dayEvents, setDayEvents] = useState([]);
-    const { monthIndex, currentEvent, setCurrentEvent } = useContext(CalendarContext)
+    const { monthIndex, currentEvent, setCurrentEvent, showSide, setShowSide } = useContext(CalendarContext)
 
     useEffect(() => {
         events.sort((a, b) => {
@@ -68,6 +68,12 @@ const Day = ({ day, events }) => {
         }
     }
 
+
+    function eventClick (event) {
+        setCurrentEvent(event)
+        if(!showSide) setShowSide(true)
+    }
+
     return (
         <div className={`day-container ${getDayClass(day)}`} >
             <div className={`day-header ${dayChecker(day)}`} >
@@ -75,7 +81,7 @@ const Day = ({ day, events }) => {
             </div>
             <div className="day-body">
                 {dayEvents.sort((a, b) => b.startTime - a.startTime).map((event, i) => (
-                    <div className="day-event" key={i} onClick={() => setCurrentEvent(event)}
+                    <div className="day-event" key={i} onClick={() => eventClick(event)}
                         style={{ backgroundColor: `${event.color}` }}>{convertTime(event.startTime)} {event.title}</div>
                 ))}
             </div>
