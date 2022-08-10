@@ -7,27 +7,27 @@ import "./Month.css"
 const Month = ({ month, events }) => {
     const { currentOffset } = useContext(CalendarContext)
 
-const eventsProp = (events, day) => {
-    return Object.values(events).filter((event)=>(dayjs(event.startDate).add(currentOffset,'hour').format("DD-MM-YY") === day.format("DD-MM-YY")));
-}
+    const eventsProp = (events, day) => {
+        return Object.values(events).filter((event) => (dayjs(event.startDate).add(currentOffset, 'hour').format("DD-MM-YY") === day.format("DD-MM-YY")));
+    }
 
     return (
         <div className="month-outer">
             <div className="month-weekdays">
-                <div>Sunday</div>
-                <div>Monday</div>
-                <div>Tuesday</div>
-                <div>Wednesday</div>
-                <div>Thursday</div>
-                <div>Friday</div>
-                <div>Saturday</div>
+                <div>SUN</div>
+                <div>MON</div>
+                <div>TUE</div>
+                <div>WED</div>
+                <div>THU</div>
+                <div>FRI</div>
+                <div>SAT</div>
             </div>
             <div className="month-container">
                 {month.map((row, i) => (
                     <React.Fragment key={i}>
                         {
                             row.map((day, index) => (
-                                <Day day={day} key={index} events={eventsProp(events, day)}/>
+                                <Day day={day} key={index} events={eventsProp(events, day)} />
                             ))
                         }
                     </React.Fragment>

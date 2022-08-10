@@ -31,7 +31,7 @@ color:grey;
 }
 .add-event-form input{
 border:none;
-background-color: lightgrey;
+background-color: #d5e4e6;;
 padding:5px;
 border-radius:4px;
 height:28px;
@@ -51,7 +51,7 @@ border:1px solid lightgrey;
 }
 .add-event-form textarea:focus{
     background-color: rgba(211, 211, 211,.4);
-    border:1px solid lightgrey;
+    border:1px solid #d5e4e6;;
 }
 
 .add-start-div {

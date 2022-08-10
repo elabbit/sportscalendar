@@ -5,18 +5,18 @@
 }
 
 .edit-cal-title {
-    background-color: lightgrey;
+    background-color: #d5e4e6;;
     padding: 5px;
     border-radius: 4px;
-    width:200px;
-    font-weight:560;
+    width: 200px;
+    font-weight: 560;
     border: none;
 }
 
-.edit-cal-title:focus {
-    background-color: rgba(211, 211, 211,.4);
-    border:1px solid lightgrey;
-    }
+/* .edit-cal-title:focus {
+    background-color: rgba(211, 211, 211, .4);
+    border: 1px solid lightgrey;
+} */
 
 .edit-cal-form {
     display: flex;
@@ -25,26 +25,26 @@
     gap: 8px;
 }
 
-.edit-cal-top{
+.edit-cal-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width:400px;
+    width: 400px;
 }
 
 .edit-cal-text-div textarea {
     width: 400px;
     height: 60px;
-    background-color: lightgrey;
+    background-color: #d5e4e6;
     border-radius: 4px;
     padding: 5px;
     border: none;
 }
 
-.edit-cal-text-div textarea:focus {
-    background-color: rgba(211, 211, 211,.4);
-    border:1px solid lightgrey;
-    }
+/* .edit-cal-text-div textarea:focus {
+    background-color: rgba(211, 211, 211, .4);
+    border: 1px solid lightgrey;
+} */
 
 
 
@@ -54,6 +54,6 @@
 
 }
 
-.edit-cal-buttons button i{
-font-size:20px;
+.edit-cal-buttons button i {
+    font-size: 20px;
 }

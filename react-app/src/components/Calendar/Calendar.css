@@ -1,14 +1,13 @@
-
-.cal-container{
+.cal-container {
     display: flex;
     flex-direction: column;
-    min-width:825px;
-    max-width:1075px;
+    min-width: 825px;
+    max-width: 1075px;
     margin: auto;
 
 }
 
-.cal-loading{
+.cal-loading {
     margin-top: -10px;
-margin-left:15px;
+    margin-left: 15px;
 }

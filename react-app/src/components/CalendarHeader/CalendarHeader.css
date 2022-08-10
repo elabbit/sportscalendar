@@ -34,20 +34,22 @@
 }
 
 .cal-month-nav i {
+    color:#015d67;
     cursor: pointer;
     font-size: 22px;
 }
 
 .cal-month-nav button {
     cursor: pointer;
-    font-size: 13px;
+    font-size: 14px;
     border:none;
     background-color: transparent;
     font-weight: 550;
+    color:#015d67;
 }
 
 .cal-month-nav button:hover {
-    color: grey;
+    color: #caf0c1;
 
 }
 
@@ -74,12 +76,13 @@
     border:none;
     border-bottom:2px solid #262626;
     padding: 3px;
+    cursor: pointer;
 }
 
-.cal-sel select:hover {
-    color: grey;
+/* .cal-sel select:hover {
+    color: #caf0c1;
 
-}
+} */
 
 .cal-sel select:focus {
     outline: none;
@@ -111,4 +114,5 @@
 .cal-add-buttons i {
     cursor: pointer;
     font-size: 22px;
+    color:#015d67;
 }
