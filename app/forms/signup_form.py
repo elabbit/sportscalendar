@@ -19,16 +19,9 @@ def username_exists(form, field):
     if user:
         raise ValidationError('Username is already in use.')
 
-def email_checker(form, field):
-    email = field.data
-    atIndex = email.find('@')
-    dotIndex = email.find('.', atIndex)
-    if (atIndex < 0 or dotIndex < 0):
-        raise ValidationError('Please enter a valid email address.')
-
 
 class SignUpForm(FlaskForm):
     username = StringField(
-        'username', validators=[DataRequired(), username_exists])
-    email = StringField('email', validators=[DataRequired(), user_exists, email_checker])
-    password = StringField('password', validators=[DataRequired()])
+        'username', validators=[DataRequired(message="Please enter a username."), username_exists])
+    email = StringField('email', validators=[DataRequired(), user_exists, Email("Please enter a valid email address.")])
+    password = StringField('password', validators=[DataRequired(message="Please enter a password.")])

@@ -26,6 +26,17 @@ const SignUpForm = ({ setShowLogin }) => {
         setErrors(errorsArray)
         return setShowModal(true);
       }
+    } else {
+      errorsArray.push("Please enter matching passwords.")
+      if (errorsArray.length) {
+        setErrors(errorsArray)
+        return setShowModal(true);
+      }
+
+
+
+
+
     }
   };
 
@@ -60,7 +71,7 @@ const SignUpForm = ({ setShowLogin }) => {
             name='username'
             onChange={updateUsername}
             value={username}
-            required
+
           ></input>
         </div>
         <div>
@@ -70,7 +81,7 @@ const SignUpForm = ({ setShowLogin }) => {
             name='email'
             onChange={updateEmail}
             value={email}
-            required
+
           ></input>
         </div>
         <div>
@@ -80,17 +91,16 @@ const SignUpForm = ({ setShowLogin }) => {
             name='password'
             onChange={updatePassword}
             value={password}
-            required
+
           ></input>
         </div>
         <div>
-          <label>Repeat Password</label>
+          <label>Confirm Password</label>
           <input
             type='password'
             name='repeat_password'
             onChange={updateRepeatPassword}
             value={repeatPassword}
-            required
           ></input>
         </div>
         <button type='submit'>Sign Up</button>
