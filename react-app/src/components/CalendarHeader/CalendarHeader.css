@@ -78,11 +78,6 @@
     cursor: pointer;
 }
 
-/* .cal-sel select:hover {
-    color: #caf0c1;
-
-} */
-
 .cal-sel select:focus {
     outline: none;
 }

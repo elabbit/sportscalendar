@@ -1,65 +1,103 @@
 #modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 3;
-  }
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
 
-  #modal-background {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-  }
+#modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
 
-  #modal-content {
-    position: absolute;
-  }
+#modal-content {
+  position: absolute;
+}
 
-  .modal-container{
-    background-color: white;
-  }
+.modal-container {
+  background-color: white;
+}
 
-  .modal-del-container{
-    background-color: white;
-    padding:25px;
-    border-radius:8px;
-    display: flex;
-    flex-direction: column;
-  }
+.modal-del-container {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
 
-  .modal-header{
-display: flex;
-justify-content: center;
-  }
+.modal-header {
+  display: flex;
+  justify-content: center;
+}
 
-  .modal-header h2{
-    margin-top:0px;
-font-size: 16px;
-font-weight: 560;
-  }
+.modal-header h2 {
+  margin-top: 0px;
+  font-size: 16px;
+  font-weight: 560;
+}
 
 
-  .del-mod-bttns{
-    display: flex;
-    justify-content: center;
-    margin-top:15px;
-    gap:20px;
-  }
+.modal-msg-container div{
+font-style: italic;
+}
 
-  .del-mod-bttns button{
+.del-mod-bttns {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 20px;
+}
 
-background-color: transparent;
-border:none;
-  }
+.del-mod-bttns button {
+  background-color: transparent;
+  border: none;
+}
 
-  .del-mod-bttns button i{
-font-size:28px;
-  }
+.del-mod-bttns button i {
+  font-size: 28px;
+}
+
+
+.err-mod-bttns{
+  display: flex;
+  justify-content: center;
+}
+
+.err-mod-bttns button{
+  background-color: transparent;
+  border: none;
+}
+.err-mod-bttns button i {
+  font-size: 28px;
+}
+
+.modal-err-container{
+  background-color: white;
+  padding: 20px;
+  padding-left:40px;
+  padding-right:40px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+ul.errors{
+  margin-top:0px;
+  list-style:circle;
+  margin-left:-20px;
+}
+
+ul.errors li{
+  margin:5px;
+font-style: italic;
+}

@@ -28,8 +28,10 @@ function App() {
 
   return (
     <BrowserRouter>
-
-      <Switch>
+      <Route path='/'>
+        <HomePage />
+      </Route>
+      {/* <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -45,7 +47,7 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <HomePage/>
         </ProtectedRoute>
-      </Switch>
+      </Switch> */}
     </BrowserRouter>
   );
 }
