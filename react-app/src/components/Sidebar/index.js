@@ -13,9 +13,9 @@ const Sidebar = ({ right, setRight }) => {
             <div className="sidebar-cancel-bttn" onClick={() => setShowSide(false)}>
                 <button className="arrow-button" >
                     {right ?
-                        <i class="fa-solid fa-caret-right"></i>
+                        <i className="fa-solid fa-angles-right"></i>
                         :
-                        <i class="fa-solid fa-caret-left"></i>
+                        <i className="fa-solid fa-angles-left"></i>
                     }
                 </button>
             </div>

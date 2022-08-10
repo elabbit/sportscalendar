@@ -13,7 +13,7 @@
 }
 
 .sidebar-cancel-bttn button {
-    background-color: rgba(45, 46, 47, 1);
+    background-color: #015d67;
     cursor: pointer;
     width: 100%;
     border: none;
@@ -24,7 +24,7 @@
 }
 
 .sidebar-cancel-bttn button:hover {
-    background-color: grey;
+    background-color: #00BFA5;
 
 }
 

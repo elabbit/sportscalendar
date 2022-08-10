@@ -19,29 +19,23 @@
 
 .edit-event-form input{
     border:none;
-    background-color: lightgrey;
+    background-color: #d5e4e6;
     padding:5px;
     border-radius:4px;
     height:26px;
 
 }
 
-.edit-event-form input:focus{
-    background-color: rgba(211, 211, 211,.4);
-    border:1px solid lightgrey;
-    }
+
     .edit-event-form textarea{
         border:none;
-        background-color: lightgrey;
+        background-color: #d5e4e6;
         padding:5px;
         border-radius:4px;
         height:75px;
     }
 
-    .edit-event-form textarea:focus{
-        background-color: rgba(211, 211, 211,.4);
-        border:1px solid lightgrey;
-    }
+
 .edit-start-div {
     display: flex;
 }

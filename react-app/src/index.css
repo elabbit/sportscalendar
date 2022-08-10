@@ -9,10 +9,11 @@ body * {
 
 body i{
     cursor: pointer;
+    color:#015d67;
 }
 
 body i:hover {
-    color: #caf0c1;
+    color: #00BFA5;
 }
 
 body {

@@ -26,3 +26,40 @@
   .modal-container{
     background-color: white;
   }
+
+  .modal-del-container{
+    background-color: white;
+    padding:25px;
+    border-radius:8px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-header{
+display: flex;
+justify-content: center;
+  }
+
+  .modal-header h2{
+    margin-top:0px;
+font-size: 16px;
+font-weight: 560;
+  }
+
+
+  .del-mod-bttns{
+    display: flex;
+    justify-content: center;
+    margin-top:15px;
+    gap:20px;
+  }
+
+  .del-mod-bttns button{
+
+background-color: transparent;
+border:none;
+  }
+
+  .del-mod-bttns button i{
+font-size:28px;
+  }

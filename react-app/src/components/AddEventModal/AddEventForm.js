@@ -66,16 +66,16 @@ const AddEventForm = ({ hideModal, day }) => {
                         list="presetColors"
                     />
                     <datalist id="presetColors">
-                        <option>#ff6961</option>
                         <option>#EC8993</option>
                         <option>#ffb480</option>
                         <option>#f8f38d</option>
-                        <option>#77dd77</option>
-                        <option>#42d6a4</option>
+                        <option>#c4f581</option>
+                        <option>#87f33f</option>
+                        <option>#32EEBD</option>
                         <option>#08cad1</option>
+                        <option>#00C7FC</option>
                         <option>#59adf6</option>
                         <option>#9d94ff</option>
-                        <option>#c780e8</option>
                     </datalist>
                 </div>
                 <div className="add-eve-loc-cat">

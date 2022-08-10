@@ -41,7 +41,7 @@ const EditEventForm = ({ hideForm, event }) => {
         <div className="edit-event-container">
             <form className="edit-event-form" onSubmit={handleSubmit}>
                 <div className="edit-event-header">Edit Event</div>
-            <input
+                <input
                     type='text'
                     name='title'
                     placeholder="Title (required)"
@@ -61,7 +61,7 @@ const EditEventForm = ({ hideForm, event }) => {
                     value={startTime}
                     onChange={(e) => setStartTime(e.target.value)}
                 />
-              <input
+                <input
                     type="text"
                     placeholder="Location"
                     value={location}
@@ -86,29 +86,29 @@ const EditEventForm = ({ hideForm, event }) => {
                 />
                 <div className="edit-eve-color-bttns">
 
-                <input
-                    type="color"
-                    value={color}
-                    onChange={(e) => setColor(e.target.value)}
-                    list="presetColors"
-                />
-                <datalist id="presetColors">
-                    <option>#ff6961</option>
-                    <option>#EC8993</option>
-                    <option>#ffb480</option>
-                    <option>#f8f38d</option>
-                    <option>#77dd77</option>
-                    <option>#42d6a4</option>
-                    <option>#08cad1</option>
-                    <option>#59adf6</option>
-                    <option>#9d94ff</option>
-                    <option>#c780e8</option>
-                </datalist>
-                <div className="edit-eve-bttns">
+                    <input
+                        type="color"
+                        value={color}
+                        onChange={(e) => setColor(e.target.value)}
+                        list="presetColors"
+                    />
+                    <datalist id="presetColors">
+                        <option>#EC8993</option>
+                        <option>#ffb480</option>
+                        <option>#f8f38d</option>
+                        <option>#c4f581</option>
+                        <option>#87f33f</option>
+                        <option>#32EEBD</option>
+                        <option>#08cad1</option>
+                        <option>#00C7FC</option>
+                        <option>#59adf6</option>
+                        <option>#9d94ff</option>
+                    </datalist>
+                    <div className="edit-eve-bttns">
 
-                <button type="submit"><i class="fa-solid fa-check"></i></button>
-                <button type="cancel" onClick={handleCancel}><i class="fa-solid fa-xmark"></i></button>
-                </div>
+                        <button type="submit"><i class="fa-solid fa-check"></i></button>
+                        <button type="cancel" onClick={handleCancel}><i class="fa-solid fa-xmark"></i></button>
+                    </div>
 
                 </div>
             </form>

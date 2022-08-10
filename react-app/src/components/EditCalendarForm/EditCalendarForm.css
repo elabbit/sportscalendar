@@ -13,10 +13,6 @@
     border: none;
 }
 
-/* .edit-cal-title:focus {
-    background-color: rgba(211, 211, 211, .4);
-    border: 1px solid lightgrey;
-} */
 
 .edit-cal-form {
     display: flex;
@@ -41,10 +37,6 @@
     border: none;
 }
 
-/* .edit-cal-text-div textarea:focus {
-    background-color: rgba(211, 211, 211, .4);
-    border: 1px solid lightgrey;
-} */
 
 
 

@@ -8,7 +8,7 @@ import EditCalendarForm from '../EditCalendarForm';
 
 
 const CalendarHeader = ({ calendars }) => {
-    const { monthIndex, setMonthIndex, currentCalendar, setCurrentCalendar } = useContext(CalendarContext)
+    const { monthIndex, setMonthIndex, currentCalendar, setCurrentCalendar, setCurrentEvent} = useContext(CalendarContext)
     const calArr = Object.values(calendars)
     const [showEditForm, setShowEditForm] = useState(false);
 
@@ -32,6 +32,7 @@ const CalendarHeader = ({ calendars }) => {
     async function updateCurrent(value) {
         const currCal = calArr.find((cal) => cal.id === +value)
         setCurrentCalendar(currCal)
+        setCurrentEvent('')
     }
 
     return (
