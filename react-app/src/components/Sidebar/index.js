@@ -4,6 +4,7 @@ import "./Sidebar.css"
 import LogoutButton from "../auth/LogoutButton"
 import { NavLink } from "react-router-dom"
 import EventDetails from "../EventDetails"
+import FetchSports from "../FetchSports"
 
 const Sidebar = ({ right, setRight }) => {
     const { setShowSide } = useContext(CalendarContext)
@@ -25,6 +26,11 @@ const Sidebar = ({ right, setRight }) => {
                     <i className="fa-solid fa-house"></i>
                 </NavLink>
                 <LogoutButton />
+            </div>
+
+
+            <div>
+                <FetchSports/>
             </div>
             <div>
                 <EventDetails />
