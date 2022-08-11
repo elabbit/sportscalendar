@@ -5,12 +5,12 @@ import dayjs from "dayjs"
 import CalendarContext from "../../context/CalendarContext"
 import "./EventDetails.css"
 
-const EventDetails = () => {
+const EventDetails = ({showEditEvent, setShowEditEvent}) => {
     const { currentEvent, currentOffset } = useContext(CalendarContext)
-    const [showEdit, setShowEdit] = useState(false)
+
 
     useEffect(() => {
-        setShowEdit(false)
+        setShowEditEvent(false)
     }, [currentEvent])
 
     function convertTime(time) {
@@ -27,11 +27,10 @@ const EventDetails = () => {
             return `${+timeArr[0] - 12}:${timeArr[1]} PM`
     }
 
-
     return (
         currentEvent ?
             <>
-                {!showEdit ?
+                {!showEditEvent ?
                     <div className="side-event-container" >
                         <div className="side-event-title" style={{borderBottom:`3px solid ${currentEvent.color}`}}>{currentEvent.title}</div>
                         <div><i className="fa-solid fa-calendar-day"></i> {dayjs(currentEvent.startDate).add(currentOffset, "hour").format("dddd, MMMM DD")}</div>
@@ -51,13 +50,13 @@ const EventDetails = () => {
                             }
                             <div className="side-event-bttns">
 
-                                <i className="fa-solid fa-pen-to-square" onClick={() => setShowEdit(true)}></i>
+                                <i className="fa-solid fa-pen-to-square" onClick={()=>setShowEditEvent(true)}></i>
                                 <DeleteEventModal event={currentEvent} />
                             </div>
                         </div>
                     </div>
                     :
-                    <EditEventForm event={currentEvent} hideForm={() => setShowEdit(false)} />
+                    <EditEventForm event={currentEvent} hideForm={() => setShowEditEvent(false)} />
                 }
             </>
             :

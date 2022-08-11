@@ -52,3 +52,14 @@ font-size:18px;
     display: flex;
     justify-content: space-between;
 }
+
+.event-edit-cancel{
+    position: fixed;
+    top:0;
+    left:0;
+    background-color: transparent;
+    border: none;
+    width:100%;
+    height: 100vh;
+    z-index:2;
+}

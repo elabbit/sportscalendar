@@ -13,16 +13,18 @@ const HomePage = () => {
     const [right, setRight] = useState(false);
     const user = useSelector(state => state.session.user);
     const [showCal, setShowCal] = useState(true);
+    const [showEditEvent, setShowEditEvent] = useState(false)
 
     return (
         user ?
             < div className="home-outer" >
+            {showEditEvent && <button className='event-edit-cancel' onClick={()=>setShowEditEvent(false)}></button>}
                 <div className={`${right ? 'sidebar-controls-right' : 'sidebar-controls-left'}`}>
                     <button className='sidebar-button' onClick={() => setShowSide(true)}><i className="fa-solid fa-bars"></i></button>
                 </div>
                 <div className={`${right ? 'sidebar-right' : 'sidebar-left'}`}
                     style={right ? (showSide ? { transform: 'translateX(-100%)' } : {}) : (showSide ? { transform: 'translateX(+100%)' } : {})}>
-                    <Sidebar right={right} setRight={setRight} setShowCal={setShowCal}/>
+                    <Sidebar right={right} setRight={setRight} setShowCal={setShowCal} showEditEvent={showEditEvent} setShowEditEvent={setShowEditEvent}/>
                 </div>
                 <div className={`${right ? 'content-outer-right' : 'content-outer-left'} ${showSide ? 'open' : 'close'}`}>
                     {showSide &&

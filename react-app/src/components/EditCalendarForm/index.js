@@ -11,7 +11,7 @@ import ErrorModal from '../ErrorModal';
 const EditCalendarForm = ({ setShowEditForm, calendars, calendar }) => {
     const { setCurrentCalendar } = useContext(CalendarContext)
     const [title, setTitle] = useState(calendar.title);
-    const [description, setDescription] = useState(calendar.description);
+    const [description, setDescription] = useState(calendar.description || '');
     const [def, setDef] = useState(calendar.default)
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);

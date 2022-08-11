@@ -36,10 +36,12 @@ const Calendar = () => {
     return (
         <>
             {currentCalendar ?
-                <div className="cal-container">
-                    <CalendarHeader calendars={calendars} />
-                    <Month month={currentMonth} events={currentCalendar.events} />
-                </div>
+                <>
+                    <div className="cal-container">
+                        <CalendarHeader calendars={calendars} />
+                        <Month month={currentMonth} events={currentCalendar.events} />
+                    </div>
+                </>
                 :
                 <div className="cal-loading">
                     <h2>Loading...</h2>

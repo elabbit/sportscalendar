@@ -106,8 +106,8 @@ const EditEventForm = ({ hideForm, event }) => {
                     </datalist>
                     <div className="edit-eve-bttns">
 
-                        <button type="submit"><i class="fa-solid fa-check"></i></button>
-                        <button type="cancel" onClick={handleCancel}><i class="fa-solid fa-xmark"></i></button>
+                        <button type="submit"><i className="fa-solid fa-check"></i></button>
+                        <button type="cancel" onClick={handleCancel}><i className="fa-solid fa-xmark"></i></button>
                     </div>
 
                 </div>

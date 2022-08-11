@@ -5,7 +5,7 @@ import LogoutButton from "../auth/LogoutButton"
 import EventDetails from "../EventDetails"
 import FetchSports from "../FetchSports"
 
-const Sidebar = ({ right, setRight, setShowCal }) => {
+const Sidebar = ({ right, setRight, setShowCal, showEditEvent, setShowEditEvent}) => {
     const { setShowSide } = useContext(CalendarContext)
 
     return (
@@ -29,7 +29,7 @@ const Sidebar = ({ right, setRight, setShowCal }) => {
                 <FetchSports/>
             </div> */}
             <div>
-                <EventDetails />
+                <EventDetails showEditEvent={showEditEvent} setShowEditEvent={setShowEditEvent}/>
             </div>
         </div>
     )
