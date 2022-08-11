@@ -30,7 +30,6 @@
 
 .about-contact-header{
     font-weight:560;
-
     margin-bottom:5px;
 }
 
@@ -54,6 +53,11 @@
 .about-text-contact a{
     text-decoration: none;
 }
+
+.about-text-contact span:hover{
+    color:#00BFA5;
+}
+
 
 #signature {
     display: flex;
