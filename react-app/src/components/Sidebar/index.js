@@ -2,11 +2,10 @@ import { useContext } from "react"
 import CalendarContext from "../../context/CalendarContext"
 import "./Sidebar.css"
 import LogoutButton from "../auth/LogoutButton"
-import { NavLink } from "react-router-dom"
 import EventDetails from "../EventDetails"
 import FetchSports from "../FetchSports"
 
-const Sidebar = ({ right, setRight }) => {
+const Sidebar = ({ right, setRight, setShowCal }) => {
     const { setShowSide } = useContext(CalendarContext)
 
     return (
@@ -22,16 +21,13 @@ const Sidebar = ({ right, setRight }) => {
             </div>
             <div className="sidebar-navbar">
                 <i className="fa-solid fa-right-left" onClick={() => setRight(!right)}></i>
-                <NavLink to='/' exact={true} activeClassName='active'>
-                    <i className="fa-solid fa-house"></i>
-                </NavLink>
+                <i className="fa-solid fa-house" onClick={() => setShowCal(true)}></i>
+                <i className="fa-solid fa-circle-info" onClick={() => setShowCal(false)}></i>
                 <LogoutButton />
             </div>
-
-
-            <div>
+            {/* <div>
                 <FetchSports/>
-            </div>
+            </div> */}
             <div>
                 <EventDetails />
             </div>

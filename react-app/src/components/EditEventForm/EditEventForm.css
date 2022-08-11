@@ -1,13 +1,11 @@
-
 .edit-event-container {
     padding: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
     background-color: white;
     margin: 10px;
-    margin-top:50px;
-    border-radius: 4px;
-    border: 1px solid lightgrey;
+    margin-top: 50px;
+    border-radius: 2px;
 
 }
 
@@ -17,53 +15,52 @@
     gap: 9px;
 }
 
-.edit-event-form input{
-    border:none;
+.edit-event-form input {
+    border: none;
     background-color: #d5e4e6;
-    padding:5px;
-    border-radius:4px;
-    height:26px;
+    padding: 5px;
+    border-radius: 4px;
+    height: 26px;
 
 }
 
 
-    .edit-event-form textarea{
-        border:none;
-        background-color: #d5e4e6;
-        padding:5px;
-        border-radius:4px;
-        height:75px;
-    }
+.edit-event-form textarea {
+    border: none;
+    background-color: #d5e4e6;
+    padding: 5px;
+    border-radius: 4px;
+    height: 75px;
+}
 
 
 .edit-start-div {
     display: flex;
 }
 
-.edit-eve-color-bttns{
+.edit-eve-color-bttns {
     display: flex;
     justify-content: space-between;
 }
 
-.edit-eve-bttns{
- display: flex;
- gap:6px;
-}
-
-.edit-eve-bttns button{
- background-color:transparent;
- border: none;
-}
-
-.edit-eve-bttns button i{
-font-size: 18px;
-}
-
-.edit-event-header{
+.edit-eve-bttns {
     display: flex;
-justify-content: center;
-font-size:16px;
-padding-bottom:8px;
-border-bottom: 1px solid lightgrey;
-font-weight:560;
+    gap: 6px;
+}
+
+.edit-eve-bttns button {
+    background-color: transparent;
+    border: none;
+}
+
+.edit-eve-bttns button i {
+    font-size: 18px;
+}
+
+.edit-event-header {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    padding-bottom: 8px;
+    font-weight: 560;
 }

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { login } from '../../store/session';
 import ErrorModal from '../ErrorModal';
+import DemoLogin from './DemoLogin';
+import './LoginForm.css'
 
 const LoginForm = ({ setShowLogin }) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
 
@@ -33,16 +33,15 @@ const LoginForm = ({ setShowLogin }) => {
     setPassword(e.target.value);
   };
 
-  if (user) {
-    return <Redirect to='/' />;
-  }
 
   return (
-    <div>
-      <form onSubmit={onLogin}>
+    <div className="login-container">
+      <div className="login-header">
+        Start here.
+      </div>
+      <form className="login-form" onSubmit={onLogin}>
         <ErrorModal hideModal={() => setShowModal(false)} showModal={showModal} validationErrors={errors} />
         <div>
-          <label htmlFor='email'>Email</label>
           <input
             name='email'
             type='text'
@@ -53,7 +52,6 @@ const LoginForm = ({ setShowLogin }) => {
           />
         </div>
         <div>
-          <label htmlFor='password'>Password</label>
           <input
             name='password'
             type='password'
@@ -62,15 +60,13 @@ const LoginForm = ({ setShowLogin }) => {
             onChange={updatePassword}
             maxLength={20}
           />
-          <button type='submit'>Login</button>
         </div>
+        <button type='submit'>Log In</button>
       </form>
-<div>
-  Not a member? Click
-      <button onClick={()=>setShowLogin(false)}>here</button>
-      to sign up.
-
-</div>
+      <div className="login-bot-bttns">
+        Don't have an account?
+        <button onClick={() => setShowLogin(false)}>sign up</button> or try our <DemoLogin/>
+      </div>
     </div>
   );
 };

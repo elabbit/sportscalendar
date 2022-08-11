@@ -4,9 +4,8 @@
     padding-bottom: 15px;
     background-color: white;
     margin: 10px;
-    margin-top:50px;
-    border-radius: 4px;
-    border: 1px solid lightgrey;
+    margin-top:100px;
+    border-radius: 2px;
     display: flex;
     flex-direction: column;
     gap: 9px;
@@ -21,12 +20,15 @@
     cursor: default;
 }
 
+.side-event-container i:hover{
+    color: grey;
+}
+
 
 .side-event-title {
     font-size: 16px;
     font-weight: 560;
     padding-bottom: 8px;
-    border-bottom: 1px solid lightgrey;
 }
 
 .side-event-category {

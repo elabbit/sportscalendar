@@ -1,11 +1,18 @@
 .splash-outer {
-    width: 100%;
-    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    position: relative;
+    margin-top:40px;
 }
 
 .splash-container {
-    display: flex;
-    margin: auto;
-    justify-content: center;
-align-items: center;
+    position: absolute;
+}
+
+.splash-form {
+    position: absolute;
+    width: 200px;
+    right: 174px;
+    top: 210px;
 }

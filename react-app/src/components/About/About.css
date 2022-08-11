@@ -1,0 +1,77 @@
+.about-outer {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 525px;
+    margin-top:70px;
+    gap:20px;
+}
+
+#portrait{
+    height:200px;
+    border-radius: 20px;
+}
+.about-header{
+    font-size:23px;
+    font-weight:560;
+}
+
+
+.about-container-contact {
+    display: flex;
+    gap:20px;
+    font-size:20px;
+}
+
+.about-container-contact div {
+    font-size:16px;
+}
+
+
+.about-contact-header{
+    font-weight:560;
+
+    margin-bottom:5px;
+}
+
+.about-text-contact {
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+.about-text-contact span{
+    font-size:16px;
+    color: #015d67;
+    font-weight:560;
+
+
+}
+
+.about-text-contact i{
+    font-size:16px;
+}
+
+.about-text-contact a{
+    text-decoration: none;
+}
+
+#signature {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 4px;
+
+}
+
+#signature div {
+    font-style: italic;
+    display: flex;
+    justify-content: right;
+    margin-right: 20px;
+
+}
+
+.bold{
+    font-weight:560;
+}

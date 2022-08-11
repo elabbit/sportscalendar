@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useSelector } from "react-redux";
 import CalendarContext from "../../context/CalendarContext";
+import About from "../About";
 import Calendar from "../Calendar";
 import Sidebar from "../Sidebar";
 import SplashPage from "../SplashPage";
@@ -11,6 +12,7 @@ const HomePage = () => {
     const { showSide, setShowSide } = useContext(CalendarContext)
     const [right, setRight] = useState(false);
     const user = useSelector(state => state.session.user);
+    const [showCal, setShowCal] = useState(true);
 
     return (
         user ?
@@ -20,14 +22,18 @@ const HomePage = () => {
                 </div>
                 <div className={`${right ? 'sidebar-right' : 'sidebar-left'}`}
                     style={right ? (showSide ? { transform: 'translateX(-100%)' } : {}) : (showSide ? { transform: 'translateX(+100%)' } : {})}>
-                    <Sidebar right={right} setRight={setRight} />
+                    <Sidebar right={right} setRight={setRight} setShowCal={setShowCal}/>
                 </div>
                 <div className={`${right ? 'content-outer-right' : 'content-outer-left'} ${showSide ? 'open' : 'close'}`}>
                     {showSide &&
                         <div className='spacer'></div>
                     }
                     <div className={`${right ? 'content-container-right' : 'content-container-left'}`}>
-                        <Calendar />
+                        {showCal?
+                            <Calendar />
+                            :
+                            <About />
+                        }
                     </div>
                 </div>
             </div >

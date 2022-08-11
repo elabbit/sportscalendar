@@ -65,7 +65,7 @@ const CalendarHeader = ({ calendars }) => {
 
                     </>
                     :
-                    <EditCalendarForm setShowEditForm={setShowEditForm} calendar={currentCalendar} />
+                    <EditCalendarForm calendars={calendars} setShowEditForm={setShowEditForm} calendar={currentCalendar} />
                 }
             </div>
             <div className="calendar-header-right">

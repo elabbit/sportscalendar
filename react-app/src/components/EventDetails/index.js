@@ -32,8 +32,8 @@ const EventDetails = () => {
         currentEvent ?
             <>
                 {!showEdit ?
-                    <div className="side-event-container">
-                        <div className="side-event-title">{currentEvent.title}</div>
+                    <div className="side-event-container" >
+                        <div className="side-event-title" style={{borderBottom:`3px solid ${currentEvent.color}`}}>{currentEvent.title}</div>
                         <div><i className="fa-solid fa-calendar-day"></i> {dayjs(currentEvent.startDate).add(currentOffset, "hour").format("dddd, MMMM DD")}</div>
                         {currentEvent.startTime != "None" &&
                             <div><i className="fa-regular fa-clock"></i> {convertTime(currentEvent.startTime)}</div>}

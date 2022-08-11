@@ -1,21 +1,31 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
 import CalendarContext from '../../context/CalendarContext';
 import { addCalendar } from '../../store/calendars';
 import "./AddCalendarForm.css"
 import Toggle from 'react-toggle'
 import "react-toggle/style.css"
+import ErrorModal from '../ErrorModal';
 
-const AddCalendarForm = ({ hideModal }) => {
+const AddCalendarForm = ({ hideModal, calendars }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [def, setDef] = useState(false);
     const dispatch = useDispatch();
     const { setCurrentCalendar, currentCalendar } = useContext(CalendarContext)
+    const [errors, setErrors] = useState([]);
+    const [showErrorModal, setShowErrorModal] = useState(false)
+
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (Object.values(calendars).findIndex((cal) =>(cal.title === title)) > -1) {
+            setErrors([`Already have a calendar named ${title}!`])
+            setShowErrorModal(true)
+            return
+        }
+
         const data = await dispatch(addCalendar(title, description, def));
         if (data) {
             setCurrentCalendar(data)
@@ -31,6 +41,7 @@ const AddCalendarForm = ({ hideModal }) => {
 
     return (
         <div className="add-cal-container">
+            <ErrorModal hideModal={() => setShowErrorModal(false)} showModal={showErrorModal} validationErrors={errors} />
             <div className="add-cal-mod-header">New Calendar</div>
             <form className="add-cal-form" onSubmit={handleSubmit}>
                 <div className='add-cal-title'>
@@ -52,6 +63,7 @@ const AddCalendarForm = ({ hideModal }) => {
                         value={description}
                         maxLength="200"
                     />
+
                 </div>
                 <div className='add-cal-tog-bttns'>
                     <div className='add-cal-tog'>

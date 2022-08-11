@@ -23,10 +23,6 @@ const FetchSports = () => {
     }
 
 
-
-
-
-
     return (
         <div>
             <button onClick={handleClick}>click</button>

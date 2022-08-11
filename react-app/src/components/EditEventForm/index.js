@@ -40,7 +40,7 @@ const EditEventForm = ({ hideForm, event }) => {
     return (
         <div className="edit-event-container">
             <form className="edit-event-form" onSubmit={handleSubmit}>
-                <div className="edit-event-header">Edit Event</div>
+                <div className="edit-event-header" style={{borderBottom:`3px solid ${color}`}}>Edit Event</div>
                 <input
                     type='text'
                     name='title'
