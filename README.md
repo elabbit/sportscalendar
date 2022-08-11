@@ -1,6 +1,59 @@
-# Flask React Project
+# Sports Calendar
 
-This is the starter for the Flask React project.
+## Introduction
+Welcome to Sports Calendar! This app is a fully functional calendar where users can create multiple calendars and add events. User's can edit events, and can pick any color for their event tags that show up on the calendar.
+
+## Technologies Used
+- Front-End: React-Redux, JSX
+- Back-End: Python, Flask-SQLAlchemy
+- Database: PostgreSQL
+- Hosting: Heroku
+
+## Link to live site
+https://sportscalendar-jade.herokuapp.com/
+
+## Link to Wiki docs
+https://github.com/elabbit/sportscalendar
+
+## Features
+
+### Creat New Calendars
+When a user signs up, their first calendar will be automatically created for them. They can then create as many new calendars as they like. Each calendar must have a title, and it must me unique. A calendar may be set as "default" and will be the calendar shown upon login or refresh.
+
+![Screen Shot 2022-08-11 at 9 59 18 AM](https://user-images.githubusercontent.com/100314162/184177496-52697cdb-5dc3-4a09-99da-6ef3596ac808.png)
+
+![Screen Shot 2022-08-11 at 10 00 00 AM](https://user-images.githubusercontent.com/100314162/184177793-364e9b2a-4e22-445a-a00c-308c773901ca.png)
+
+### Edit/Delete Calendars
+Users may edit the title, description, and default option on any of their calendars. If there is no default selected, the first calendar created will be shown upon login or refresh. Users can delete their calendars, however they must always have one calendar and cannot delete their final calendar.
+
+![Screen Shot 2022-08-11 at 10 04 42 AM](https://user-images.githubusercontent.com/100314162/184178629-4cb2d5b1-704a-45de-9073-b7670568fe87.png)
+
+
+### Creat Events
+Users can add events on any of their calendars by clicking on the calendar date. The start date will auto populate with the date that was clicked, however it can be changed. Each event must have a title. Events details will show up on the sidebar after being created and selected.
+
+![Screen Shot 2022-08-11 at 10 02 00 AM](https://user-images.githubusercontent.com/100314162/184178106-b899638e-03eb-4212-a576-b9c6f23ff9f8.png)
+
+![Screen Shot 2022-08-11 at 10 08 15 AM](https://user-images.githubusercontent.com/100314162/184179278-dd2d36c5-fe7b-4c37-80e1-4fb679b96084.png)
+
+### Edit/Delete Events
+Users can edit or delete any of their events by clicking on the small icons on the bottom right of the event details.
+
+![Screen Shot 2022-08-11 at 10 09 05 AM](https://user-images.githubusercontent.com/100314162/184179648-b45046c9-b00f-4515-8669-59b5897680eb.png)
+
+## Future features to implement
+- Auto populate sports event data.
+- Drag and drop for events
+- Background image upload
+- Google calendar or iCalendar sync
+
+## Challenges Faced
+Figuring out how to create a calendar was tough. Manipulating date and time required a lot of extra steps. The backend stores date objects in GMT so dealing with local timezone offsets and writing special functions to parse time were also a challenge.
+
+
+
+# Project installation and setup
 
 ## Getting started
 1. Clone this repository (only this branch)
