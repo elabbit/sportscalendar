@@ -2,6 +2,9 @@ from flask import Blueprint, request
 from flask_login import login_required, current_user
 from ..models import db, Calendar, Event
 from app.forms import EventForm
+import requests
+import os
+
 
 event_routes = Blueprint('event', __name__)
 
@@ -57,3 +60,22 @@ def delete_event(eventId):
     db.session.commit()
     calendar = Calendar.query.get(calendarId)
     return {"calendar": calendar.to_dict()}
+
+
+@event_routes.route('/getsports')
+@login_required
+def get_sports():
+    headers = {
+        'accept': 'application/json',
+        'Authorization': os.environ.get('SPORTS_KEY'),
+    }
+
+    params = {
+        'dateTo': '2022-08-31',
+        'competition': 'formula 1',
+    }
+
+    response = requests.get('https://api.allsportdb.com/v3/calendar', params=params, headers=headers)
+    data = response.json()
+    print('@@@@@@@@@@@@', data)
+    return ''

@@ -25,9 +25,9 @@ const Sidebar = ({ right, setRight, setShowCal, showEditEvent, setShowEditEvent}
                 <i className="fa-solid fa-circle-info" onClick={() => setShowCal(false)}></i>
                 <LogoutButton />
             </div>
-            {/* <div>
+            <div>
                 <FetchSports/>
-            </div> */}
+            </div>
             <div>
                 <EventDetails showEditEvent={showEditEvent} setShowEditEvent={setShowEditEvent}/>
             </div>
