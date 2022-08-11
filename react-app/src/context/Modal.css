@@ -93,7 +93,7 @@ font-style: italic;
 
 ul.errors{
   margin-top:0px;
-  list-style:circle;
+  list-style:square;
   margin-left:-20px;
 }
 

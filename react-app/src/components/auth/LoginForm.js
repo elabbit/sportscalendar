@@ -49,7 +49,7 @@ const LoginForm = ({ setShowLogin }) => {
             placeholder='Email'
             value={email}
             onChange={updateEmail}
-            required
+            maxLength={50}
           />
         </div>
         <div>
@@ -60,7 +60,7 @@ const LoginForm = ({ setShowLogin }) => {
             placeholder='Password'
             value={password}
             onChange={updatePassword}
-            required
+            maxLength={20}
           />
           <button type='submit'>Login</button>
         </div>

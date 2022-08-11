@@ -17,90 +17,86 @@ const SignUpForm = ({ setShowLogin }) => {
   const onSignUp = async (e) => {
     e.preventDefault();
     const errorsArray = [];
-    if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
-      if (data) {
-        errorsArray.push(...data)
-      }
-      if (errorsArray.length) {
-        setErrors(errorsArray)
-        return setShowModal(true);
-      }
+
+    const data = await dispatch(signUp(username, email, password, repeatPassword));
+    if (data) {
+      errorsArray.push(...data)
     }
-  };
-
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const updatePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const updateRepeatPassword = (e) => {
-    setRepeatPassword(e.target.value);
-  };
-
-  if (user) {
-    return <Redirect to='/' />;
+    if (errorsArray.length) {
+      setErrors(errorsArray)
+      return setShowModal(true);
+    }
   }
 
-  return (
-    <div>
-      <form onSubmit={onSignUp}>
-        <ErrorModal hideModal={() => setShowModal(false)} showModal={showModal} validationErrors={errors} />
-        <div>
-          <label>Username</label>
-          <input
-            type='text'
-            name='username'
-            onChange={updateUsername}
-            value={username}
-            required
-          ></input>
-        </div>
-        <div>
-          <label>Email</label>
-          <input
-            type='text'
-            name='email'
-            onChange={updateEmail}
-            value={email}
-            required
-          ></input>
-        </div>
-        <div>
-          <label>Password</label>
-          <input
-            type='password'
-            name='password'
-            onChange={updatePassword}
-            value={password}
-            required
-          ></input>
-        </div>
-        <div>
-          <label>Repeat Password</label>
-          <input
-            type='password'
-            name='repeat_password'
-            onChange={updateRepeatPassword}
-            value={repeatPassword}
-            required
-          ></input>
-        </div>
-        <button type='submit'>Sign Up</button>
-      </form>
-      <div>Already a member? click
-      <button onClick={()=>setShowLogin(true)}>here</button>
-      to login.
+
+const updateUsername = (e) => {
+  setUsername(e.target.value);
+};
+
+const updateEmail = (e) => {
+  setEmail(e.target.value);
+};
+
+const updatePassword = (e) => {
+  setPassword(e.target.value);
+};
+
+const updateRepeatPassword = (e) => {
+  setRepeatPassword(e.target.value);
+};
+
+
+return (
+  <div>
+    <form onSubmit={onSignUp}>
+      <ErrorModal hideModal={() => setShowModal(false)} showModal={showModal} validationErrors={errors} />
+      <div>
+        <label>Username</label>
+        <input
+          type='text'
+          name='username'
+          onChange={updateUsername}
+          value={username}
+
+        ></input>
       </div>
+      <div>
+        <label>Email</label>
+        <input
+          type='text'
+          name='email'
+          onChange={updateEmail}
+          value={email}
+
+        ></input>
+      </div>
+      <div>
+        <label>Password</label>
+        <input
+          type='password'
+          name='password'
+          onChange={updatePassword}
+          value={password}
+
+        ></input>
+      </div>
+      <div>
+        <label>Confirm Password</label>
+        <input
+          type='password'
+          name='repeat_password'
+          onChange={updateRepeatPassword}
+          value={repeatPassword}
+        ></input>
+      </div>
+      <button type='submit'>Sign Up</button>
+    </form>
+    <div>Already a member? click
+      <button onClick={() => setShowLogin(true)}>here</button>
+      to login.
     </div>
-  );
+  </div>
+);
 };
 
 export default SignUpForm;

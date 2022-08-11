@@ -3,21 +3,31 @@ import { useDispatch } from 'react-redux';
 import CalendarContext from '../../context/CalendarContext';
 import { Modal } from '../../context/Modal';
 import { deleteCalendar } from '../../store/calendars';
+import ErrorModal from '../ErrorModal';
 
-function DeleteCalendarModal({ calendarId, calendars}) {
-    const {currentCalendar, setCurrentCalendar} = useContext(CalendarContext)
+function DeleteCalendarModal({ calendarId, calendars }) {
+    const { currentCalendar, setCurrentCalendar } = useContext(CalendarContext)
     const [showModal, setShowModal] = useState(false);
     const dispatch = useDispatch();
+    const [showErrorModal, setShowErrorModal] = useState(false);
+    const [errors, setErrors] = useState([]);
 
     const onDelete = async () => {
-        await dispatch(deleteCalendar(calendarId))
-        setCurrentCalendar(Object.values(calendars)[0])
-        setShowModal(false)
+        if (Object.values(calendars).length === 1) {
+            setErrors(['Unable to delete last calendar!'])
+            setShowModal(false)
+            setShowErrorModal(true)
+        } else {
+            await dispatch(deleteCalendar(calendarId))
+            setCurrentCalendar(Object.values(calendars)[0])
+            setShowModal(false)
+        }
     }
 
     return (
         <>
             <i className="fas fa-trash-alt" onClick={() => setShowModal(true)}></i>
+            <ErrorModal hideModal={() => setShowErrorModal(false)} showModal={showErrorModal} validationErrors={errors} />
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <div className="modal-del-container">
