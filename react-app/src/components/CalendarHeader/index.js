@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import CalendarContext from '../../context/CalendarContext'
 import './CalendarHeader.css'
 import dayjs from 'dayjs';

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect } from "react"
 import DeleteEventModal from "../DeleteEventModal"
 import EditEventForm from "../EditEventForm"
 import dayjs from "dayjs"
@@ -11,7 +11,7 @@ const EventDetails = ({showEditEvent, setShowEditEvent}) => {
 
     useEffect(() => {
         setShowEditEvent(false)
-    }, [currentEvent])
+    }, [currentEvent, setShowEditEvent])
 
     function convertTime(time) {
         const timeArr = time.split(":").splice(0, 2)
@@ -34,7 +34,7 @@ const EventDetails = ({showEditEvent, setShowEditEvent}) => {
                     <div className="side-event-container" >
                         <div className="side-event-title" style={{borderBottom:`3px solid ${currentEvent.color}`}}>{currentEvent.title}</div>
                         <div><i className="fa-solid fa-calendar-day"></i> {dayjs(currentEvent.startDate).add(currentOffset, "hour").format("dddd, MMMM DD")}</div>
-                        {currentEvent.startTime != "None" &&
+                        {currentEvent.startTime !== "None" &&
                             <div><i className="fa-regular fa-clock"></i> {convertTime(currentEvent.startTime)}</div>}
 
                         {currentEvent.location &&

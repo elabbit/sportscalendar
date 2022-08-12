@@ -6,7 +6,7 @@ import CalendarContext from "../../context/CalendarContext";
 import dayjs from "dayjs";
 
 const EditEventForm = ({ hideForm, event }) => {
-    const { currentCalendar, setCurrentCalendar, setCurrentEvent, currentOffset } = useContext(CalendarContext);
+    const { setCurrentCalendar, setCurrentEvent, currentOffset } = useContext(CalendarContext);
     const [title, setTitle] = useState(event.title);
     const [description, setDescription] = useState(event.description);
     const [location, setLocation] = useState(event.location);

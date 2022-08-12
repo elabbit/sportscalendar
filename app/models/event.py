@@ -6,6 +6,8 @@ class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)
     description = db.Column(db.String(400))
+    image = db.Column(db.String(500))
+    venue = db.Column(db.String(80))
     location = db.Column(db.String(80))
     category = db.Column(db.String(20))
     startDate = db.Column(db.Date, nullable=False)
@@ -25,6 +27,8 @@ class Event(db.Model):
             'id': self.id,
             'title': self.title,
             'description': self.description,
+            'image':self.image,
+            'venue': self.venue,
             'location': self.location,
             'category': self.category,
             'startDate': self.startDate,

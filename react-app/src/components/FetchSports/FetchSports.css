@@ -1,0 +1,16 @@
+.sports-container {
+    background-color: white;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.sports-header h2 {
+    margin-top: 0px;
+    font-size: 16px;
+    font-weight: 560;
+  }

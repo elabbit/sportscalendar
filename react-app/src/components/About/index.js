@@ -22,10 +22,10 @@ const About = () => {
                 <div className='about-text-contact'>
                     <div className="about-contact-header">Contact Me</div>
                     <div>Email: <a className="contact-link" href="mailto:edwinjlau26@gmail.com"><span className='bold'>edwinjlau26@gmail.com</span></a></div>
-                    <div>Project Repo: <a className="contact-link" href="https://github.com/elabbit/sportscalendar" target='_blank'><span className='bold'>Sports Calendar</span></a></div>
+                    <div>Project Repo: <a className="contact-link" href="https://github.com/elabbit/sportscalendar" target='_blank' rel="noreferrer"><span className='bold'>Sports Calendar</span></a></div>
 
-                        <div>Github: <a className="contact-link" href="https://github.com/elabbit" target='_blank'> <i className="fa-brands fa-github"></i></a></div>
-                        <div>LinkedIn: <a className="contact-link" href="https://www.linkedin.com/in/edwin-lau-312a11241/" target='_blank'> <i className="fa-brands fa-linkedin-in"></i></a></div>
+                        <div>Github: <a className="contact-link" href="https://github.com/elabbit" target='_blank' rel="noreferrer"> <i className="fa-brands fa-github"></i></a></div>
+                        <div>LinkedIn: <a className="contact-link" href="https://www.linkedin.com/in/edwin-lau-312a11241/" target='_blank' rel="noreferrer"> <i className="fa-brands fa-linkedin-in"></i></a></div>
 
                 </div>
             </div>

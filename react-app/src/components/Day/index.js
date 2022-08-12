@@ -7,7 +7,7 @@ import CalendarContext from "../../context/CalendarContext";
 
 const Day = ({ day, events }) => {
     const [dayEvents, setDayEvents] = useState([]);
-    const { monthIndex, currentEvent, setCurrentEvent, showSide, setShowSide } = useContext(CalendarContext)
+    const { monthIndex, setCurrentEvent, showSide, setShowSide } = useContext(CalendarContext)
 
     useEffect(() => {
         events.sort((a, b) => {

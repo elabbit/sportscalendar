@@ -62,20 +62,27 @@ def delete_event(eventId):
     return {"calendar": calendar.to_dict()}
 
 
-@event_routes.route('/getsports')
+@event_routes.route('/getformulaone')
 @login_required
 def get_sports():
     headers = {
-        'accept': 'application/json',
-        'Authorization': os.environ.get('SPORTS_KEY'),
+        'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com',
+        'X-RapidAPI-Key': os.environ.get('FORMULA_KEY'),
     }
 
-    params = {
-        'dateTo': '2022-08-31',
-        'competition': 'formula 1',
-    }
+    params = {'type': 'race', 'season': '2022', 'next':'10'}
 
-    response = requests.get('https://api.allsportdb.com/v3/calendar', params=params, headers=headers)
+    response = requests.get('https://api-formula-1.p.rapidapi.com/races', params=params, headers=headers)
     data = response.json()
-    print('@@@@@@@@@@@@', data)
-    return ''
+    return {'races': [race_dict(race) for race in data['response']]}
+
+
+def race_dict(race):
+
+    return {
+        'name': race['competition']['name'],
+        'location': f"{race['competition']['location']['city']}, {race['competition']['location']['country']}",
+        'venue': race['circuit']['name'],
+        'image': race['circuit']['image'],
+        'date': race['date']
+        }

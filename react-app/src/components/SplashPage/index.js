@@ -11,7 +11,7 @@ const SplashPage = () => {
         <div className='splash-outer'>
             <div className="splash-container">
                 <div>
-                    <img src={splash}></img>
+                    <img src={splash} alt=''></img>
                 </div>
                 <div className='splash-form'>
                 {showLogin ?

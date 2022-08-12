@@ -6,7 +6,7 @@ import { deleteCalendar } from '../../store/calendars';
 import ErrorModal from '../ErrorModal';
 
 function DeleteCalendarModal({ calendarId, calendars }) {
-    const { currentCalendar, setCurrentCalendar } = useContext(CalendarContext)
+    const { setCurrentCalendar } = useContext(CalendarContext)
     const [showModal, setShowModal] = useState(false);
     const dispatch = useDispatch();
     const [showErrorModal, setShowErrorModal] = useState(false);
