@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { addEvent } from "../../store/calendars";
 import "./AddEventForm.css"
 import CalendarContext from "../../context/CalendarContext";
+import ErrorModal from '../ErrorModal';
 
 const AddEventForm = ({ hideModal, day }) => {
     const [title, setTitle] = useState('');
@@ -13,11 +14,18 @@ const AddEventForm = ({ hideModal, day }) => {
     const [startTime, setStartTime] = useState('');
     const [color, setColor] = useState("#FFFFFF");
     const { currentCalendar, setCurrentCalendar, setCurrentEvent } = useContext(CalendarContext);
+    const [errors, setErrors] = useState([]);
+    const [showErrorModal, setShowErrorModal] = useState(false)
 
     const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if(!title.trim().length){
+            setErrors([`Please enter a title.`])
+            setShowErrorModal(true)
+            return
+        }
         let newStartTime = undefined;
         if (startTime !== '') {
             newStartTime = startTime;
@@ -37,6 +45,7 @@ const AddEventForm = ({ hideModal, day }) => {
 
     return (
         <div className="add-event-container">
+            <ErrorModal hideModal={() => setShowErrorModal(false)} showModal={showErrorModal} validationErrors={errors} />
             <div className="add-event-mod-header">Add Event</div>
             <form className="add-event-form" onSubmit={handleSubmit}>
             <input

@@ -18,7 +18,12 @@ const AddCalendarForm = ({ hideModal, calendars }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (Object.values(calendars).findIndex((cal) =>(cal.title === title)) > -1) {
+        if(!title.trim().length){
+            setErrors([`Please enter a title.`])
+            setShowErrorModal(true)
+            return
+        }
+        if (Object.values(calendars).findIndex((cal) =>(cal.title.trim() === title.trim())) > -1) {
             setErrors([`Already have a calendar named ${title}!`])
             setShowErrorModal(true)
             return
