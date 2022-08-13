@@ -42,7 +42,7 @@ def seed_users():
         startDate="2022-07-04",
         userId=1,
         calendarId=1,
-        color="#59adf6"
+        color="#adc9cd"
     )
     event2= Event(
         title="oil change",
@@ -307,7 +307,7 @@ def seed_users():
         startDate="2022-09-05",
         userId=1,
         calendarId=1,
-        color="#59adf6"
+        color="#adc9cd"
     )
     event27= Event(
         title="golf",
@@ -700,7 +700,7 @@ def seed_users():
         startDate="2022-08-05",
         userId=1,
         calendarId=3,
-        color="#59adf6"
+        color="#adc9cd"
     )
     event58= Event(
         title="core",
@@ -760,7 +760,7 @@ def seed_users():
         startDate="2022-08-12",
         userId=1,
         calendarId=3,
-        color="#59adf6"
+        color="#adc9cd"
     )
     event64= Event(
         title="core",

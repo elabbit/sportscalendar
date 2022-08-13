@@ -13,8 +13,8 @@ function DeleteEventModal({ event }) {
         const data = await dispatch(deleteEvent(event.id))
         if (data) {
             setCurrentCalendar(data.calendar)
-            setCurrentEvent()
             setShowModal(false)
+            setCurrentEvent()
         }
     }
 

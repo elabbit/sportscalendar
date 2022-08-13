@@ -102,3 +102,12 @@ ul.errors li {
   margin: 5px;
   font-style: italic;
 }
+
+.confirm-mod-msg{
+  margin-top:10px;
+  margin-bottom:15px;
+}
+
+.confirm-mod-msg span{
+font-weight:560;
+}

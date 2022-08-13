@@ -79,14 +79,14 @@ export const deleteCalendar = (calendarId) => async (dispatch) => {
 //EVENTS
 export const addEvent = (
     title, description, location, category,
-    startDate, startTime, color, calendarId) => async (dispatch) => {
+    startDate, startTime, color, editable, venue, image, calendarId) => async (dispatch) => {
     const response = await fetch(`/api/events/new/${calendarId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            title, description, location, category, startDate, startTime, color
+            title, description, location, category, startDate, startTime, color, editable, venue, image
         }),
     })
     if (response.ok) {
@@ -146,7 +146,6 @@ export default function reducer(state = {}, action) {
                     newState2[prevDef.id] = prevDef;
                 }
             }
-
             newState2[action.calendar.id] = action.calendar
             return newState2;
         case DELETE_CALENDAR:

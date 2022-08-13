@@ -100,8 +100,8 @@ const EditEventForm = ({ hideForm, event }) => {
                         <option>#87f33f</option>
                         <option>#32EEBD</option>
                         <option>#08cad1</option>
+                        <option>#adc9cd</option>
                         <option>#00C7FC</option>
-                        <option>#59adf6</option>
                         <option>#9d94ff</option>
                     </datalist>
                     <div className="edit-eve-bttns">

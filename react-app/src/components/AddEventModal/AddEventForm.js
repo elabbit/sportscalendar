@@ -12,7 +12,7 @@ const AddEventForm = ({ hideModal, day }) => {
     const [category, setCategory] = useState('')
     const [startDate, setStartDate] = useState(day.format("YYYY-MM-DD"));
     const [startTime, setStartTime] = useState('');
-    const [color, setColor] = useState("#FFFFFF");
+    const [color, setColor] = useState("#adc9cd");
     const { currentCalendar, setCurrentCalendar, setCurrentEvent } = useContext(CalendarContext);
     const [errors, setErrors] = useState([]);
     const [showErrorModal, setShowErrorModal] = useState(false)
@@ -21,7 +21,7 @@ const AddEventForm = ({ hideModal, day }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if(!title.trim().length){
+        if (!title.trim().length) {
             setErrors([`Please enter a title.`])
             setShowErrorModal(true)
             return
@@ -30,7 +30,7 @@ const AddEventForm = ({ hideModal, day }) => {
         if (startTime !== '') {
             newStartTime = startTime;
         }
-        const data = await dispatch(addEvent(title, description, location, category, startDate, newStartTime, color, currentCalendar.id));
+        const data = await dispatch(addEvent(title, description, location, category, startDate, newStartTime, color, true, null, null, currentCalendar.id));
         if (data) {
             setCurrentCalendar(data.calendar)
             setCurrentEvent(data.event)
@@ -48,7 +48,7 @@ const AddEventForm = ({ hideModal, day }) => {
             <ErrorModal hideModal={() => setShowErrorModal(false)} showModal={showErrorModal} validationErrors={errors} />
             <div className="add-event-mod-header">Add Event</div>
             <form className="add-event-form" onSubmit={handleSubmit}>
-            <input
+                <input
                     type='text'
                     name='title'
                     placeholder="Title (required)"
@@ -82,8 +82,8 @@ const AddEventForm = ({ hideModal, day }) => {
                         <option>#87f33f</option>
                         <option>#32EEBD</option>
                         <option>#08cad1</option>
+                        <option>#adc9cd</option>
                         <option>#00C7FC</option>
-                        <option>#59adf6</option>
                         <option>#9d94ff</option>
                     </datalist>
                 </div>

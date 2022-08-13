@@ -1,15 +1,4 @@
 
-
-.sports-header h2 {
-    margin-top: 0px;
-    font-size: 16px;
-    font-weight: 560;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-
 .category-conatainer .react-tabs {
     -webkit-tap-highlight-color: transparent;
 }
@@ -17,7 +6,8 @@
 .category-conatainer .react-tabs__tab-list {
     border-bottom: none;
     margin: 0 0 10px;
-    padding: 0;
+    padding-top: 10px;
+    padding-left:10px;
 }
 
 .category-conatainer .react-tabs__tab {
@@ -33,7 +23,7 @@
 }
 
 .category-conatainer .react-tabs__tab--selected {
-    background: #fff;
+    background: #adc9cd;
 
     color: black;
     border-radius: 5px 5px 0 0;
@@ -56,7 +46,7 @@
     left: -4px;
     right: -4px;
     bottom: -5px;
-    background: #fff;
+    background: transparent;
 }
 
 .category-conatainer .react-tabs__tab-panel {
@@ -65,4 +55,13 @@
 
 .category-conatainer .react-tabs__tab-panel--selected {
     display: block;
+}
+
+.category-conatainer{
+
+
+}
+
+.cat-tab-body{
+
 }

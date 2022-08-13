@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, DateField, TimeField
+from wtforms import StringField, DateField, TimeField, BooleanField
 from wtforms.validators import DataRequired
 
 
@@ -14,3 +14,6 @@ class EventForm(FlaskForm):
     startDate = DateField('startDate', validators=[DataRequired()])
     startTime = TimeField('startTime')
     color = StringField('color')
+    editable = BooleanField('editable')
+    venue = StringField('venue')
+    image = StringField('image')

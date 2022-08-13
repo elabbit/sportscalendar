@@ -23,6 +23,9 @@ def add_event(calendarId):
             startDate=form.data['startDate'],
             startTime=form.data['startTime'],
             color=form.data['color'],
+            editable=form.data['editable'],
+            venue=form.data['venue'],
+            image=form.data['image'],
             userId=current_user.id,
             calendarId=calendarId
         )
@@ -31,7 +34,8 @@ def add_event(calendarId):
         calendar = Calendar.query.get(calendarId)
 
         return {"calendar": calendar.to_dict(), "event": newEvent.to_dict()}
-
+    print('@@@@@@@@@@@@@', form.errors)
+    return ''
 
 @event_routes.route('/edit/<eventId>', methods=['PUT'])
 @login_required
@@ -62,27 +66,35 @@ def delete_event(eventId):
     return {"calendar": calendar.to_dict()}
 
 
-@event_routes.route('/getformulaone')
+@event_routes.route('/getformulaone/<type>')
 @login_required
-def get_sports():
+def get_sports(type):
     headers = {
         'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com',
         'X-RapidAPI-Key': os.environ.get('FORMULA_KEY'),
     }
 
-    params = {'type': 'race', 'season': '2022', 'next':'10'}
+    params = {'type': type, 'season': '2022', 'next':'10'}
 
     response = requests.get('https://api-formula-1.p.rapidapi.com/races', params=params, headers=headers)
     data = response.json()
-    return {'races': [race_dict(race) for race in data['response']]}
+    return {'races': [race_dict(race, type) for race in data['response']]}
 
 
-def race_dict(race):
+def race_dict(race, type):
+    if type == "race":
+        title = race['competition']['name']
+    if type == "1st Qualifying":
+        title = f"{race['competition']['name']} - Qualifying"
+
 
     return {
-        'name': race['competition']['name'],
+        'title': title,
+        'description': '',
+        'category': 'Formula 1',
         'location': f"{race['competition']['location']['city']}, {race['competition']['location']['country']}",
         'venue': race['circuit']['name'],
         'image': race['circuit']['image'],
-        'date': race['date']
+        'startDate': race['date'],
+        'startTime': race['date']
         }

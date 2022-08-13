@@ -15,13 +15,19 @@ const CategoryMotorsports = ({eventsList, setEventsList}) => {
                     <Tab>IndyCar</Tab>
                 </TabList>
                 <TabPanel>
+                    <div className="cat-tab-body">
                     <FetchFormulaOne eventsList={eventsList} setEventsList={setEventsList}/>
+                    </div>
                 </TabPanel>
                 <TabPanel>
-                    <div>Nascar Component</div>
+                    <div className="cat-tab-body">
+                        Nascar Component
+                        </div>
                 </TabPanel>
                 <TabPanel>
-                <div>Indycar Component</div>
+                <div className="cat-tab-body">
+                    Indycar Component
+                    </div>
                 </TabPanel>
             </Tabs>
         </div>
