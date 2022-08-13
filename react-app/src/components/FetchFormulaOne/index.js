@@ -2,10 +2,12 @@ import dayjs from "dayjs";
 import "./FetchFormulaOne.css";
 import formulaOneLogo from "../../images/formulaOneLogo.png";
 import { useState } from "react";
+import BarLoader from "react-spinners/BarLoader";
 
 const FetchFormulaOne = ({ eventsList, setEventsList }) => {
     const [loading, setLoading] = useState(false)
     const [type, setType] = useState('race');
+    const [hasSubmitted, setHasSubmitted] = useState(false)
 
     const handleClick = async () => {
         setLoading(true)
@@ -17,6 +19,7 @@ const FetchFormulaOne = ({ eventsList, setEventsList }) => {
                 setEventsList(...Object.values(data))
             }
             setLoading(false)
+            setHasSubmitted(true)
         }
     }
 
@@ -30,12 +33,16 @@ const FetchFormulaOne = ({ eventsList, setEventsList }) => {
                 <select className="formula-type-select" onChange={(e) => setType(e.target.value)} value={type}>
                     <option value={"race"}>Race</option>
                     <option value={"1st Qualifying"}>Qualifying</option>
+                    <option value={"Sprint"}>Sprint</option>
+                    <option value={"1st Practice"}>FP1</option>
+                    <option value={"2nd Practice"}>FP2</option>
+                    <option value={"3rd Practice"}>FP3</option>
                 </select>
                 <div className="formula-loading-div">
                 {!loading ?
                     <button onClick={handleClick}>Search</button>
                     :
-                    <div>Loading...</div>
+                   <BarLoader width="60px"/>
                 }
                 </div>
             </div>
@@ -49,7 +56,10 @@ const FetchFormulaOne = ({ eventsList, setEventsList }) => {
                         </div>
                     ))
                     :
-                    null
+                    <>
+                    {(hasSubmitted && !eventsList.length) &&
+                    <div className="no-res-msg">No results found.</div> }
+                    </>
                 }
 
             </div>

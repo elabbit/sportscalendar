@@ -3,7 +3,7 @@ import CalendarContext from "../../context/CalendarContext"
 import "./Sidebar.css"
 import LogoutButton from "../auth/LogoutButton"
 import EventDetails from "../EventDetails"
-import FetchSports from "../FetchSports"
+import FetchSports from "../FetchSportsModal"
 
 const Sidebar = ({ right, setRight, setShowCal, showEditEvent, setShowEditEvent}) => {
     const { setShowSide } = useContext(CalendarContext)
