@@ -9,7 +9,7 @@ const About = () => {
             <div className='about-header'>About</div>
             <div className="about-container">
                 <div className='about-text'>
-                    Organize your life with this fully functional calendar app. Build mupltiple calendars, add events, and never miss out on anything again! This project was built with a <span className='bold'>React/Redux</span> frontend and a <span className='bold'>Flask-SQLalchemy/Python</span> backend.
+                    Organize your life with this fully functional calendar app. Build multiple calendars, add events, and never miss out on anything again! This project was built with a <span className='bold'>React/Redux</span> frontend and a <span className='bold'>Flask-SQLalchemy/Python</span> backend.
                 </div>
                 <div id='signature'>
                     <div>Live. Lau. Love.</div>
