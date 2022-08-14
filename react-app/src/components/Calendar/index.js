@@ -25,7 +25,8 @@ const Calendar = () => {
             }
         }
         fetchCalendars();
-    }, [dispatch])
+    }, [dispatch, setCurrentCalendar])
+
 
 
     useEffect(() => {

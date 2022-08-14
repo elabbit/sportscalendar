@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import React, { useContext } from "react";
 import CalendarContext from "../../context/CalendarContext";
 import Day from "../Day";
-import "./Month.css"
+import "./Month.css";
 
 const Month = ({ month, events }) => {
     const { currentOffset } = useContext(CalendarContext)

@@ -1,0 +1,128 @@
+.sports-container {
+    background-color: white;
+    width: 550px;
+    height: 550px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+.sports-header h2 {
+    margin-top: 0px;
+    font-size: 16px;
+    font-weight: 560;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+.react-tabs {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.react-tabs__tab-list {
+
+    margin: 0 0 0px;
+    padding: 0;
+}
+
+.react-tabs__tab {
+    display: inline-block;
+    border: 1px solid transparent;
+    border-bottom: none;
+    bottom: -1px;
+    position: relative;
+    list-style: none;
+    padding: 6px 12px;
+    cursor: pointer;
+
+}
+
+.react-tabs__tab--selected {
+    background: #adc9cd;
+
+    color: black;
+    border-radius: 5px 5px 0 0;
+
+}
+
+.react-tabs__tab--disabled {
+    color: GrayText;
+    cursor: default;
+}
+
+.react-tabs__tab:focus {
+    outline: none;
+}
+
+.react-tabs__tab:focus:after {
+    content: '';
+    position: absolute;
+    height: 5px;
+    left: -4px;
+    right: -4px;
+    bottom: -5px;
+    background: transparent;
+}
+
+.react-tabs__tab-panel {
+    display: none;
+}
+
+.react-tabs__tab-panel--selected {
+    display: block;
+    background-color: #adc9cd;
+}
+
+.sports-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    justify-content: space-evenly;
+    background-color: #adc9cd;
+    border-top: 2px solid white;
+}
+
+.add-eve-load {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+}
+
+.sports-footer input, .sports-footer select{
+border: none;
+background-color: white;
+height:26px;
+padding:2px 8px;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.sports-footer button{
+    height:26px;
+    border: none;
+    cursor: pointer;
+    background-color: #015d67;
+    color:white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.sports-footer button:hover{
+background-color: #00BFA5;
+}
+
+.add-eve-load button:disabled{
+    opacity: .5;
+    cursor: default;
+}
+
+.disabled:hover{
+    background-color: #015d67 !important;
+}

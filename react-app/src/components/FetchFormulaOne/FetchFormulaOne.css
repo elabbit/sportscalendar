@@ -1,0 +1,84 @@
+.formula-container {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.formula-header {
+    border-top: 2px solid white;
+    height: 50px;
+    padding: 0px 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+}
+
+
+.formula-header select {
+    border: none;
+    background-color: white;
+    height: 26px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    width:120px;
+}
+
+.formula-header button {
+    background-color: #015d67;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 13px;
+
+
+}
+
+.formula-header button:hover {
+    background-color: #00BFA5;
+}
+
+.formula-body {
+    border-top: 2px solid white;
+    height: 300px;
+    overflow: auto;
+}
+
+.formula-logo {
+    width: 70px;
+}
+
+.formula-item {
+    border-bottom: solid 1px lightgrey;
+    padding: 10px 25px;
+}
+
+.formula-item * {
+    padding: 5px;
+}
+
+.formula-item-title {
+    font-weight: 560;
+    font-size: 15px;
+}
+
+.formula-item-title span {
+    font-weight: normal;
+    font-style: italic;
+}
+
+.formula-loading-div {
+    display: flex;
+    width: 80px;
+    justify-content: right;
+}
+
+.no-res-msg{
+    font-size:15px;
+    padding: 20px 25px;
+}

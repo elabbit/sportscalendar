@@ -3,7 +3,7 @@ import CalendarContext from "../../context/CalendarContext"
 import "./Sidebar.css"
 import LogoutButton from "../auth/LogoutButton"
 import EventDetails from "../EventDetails"
-import FetchSports from "../FetchSports"
+import FetchSports from "../FetchSportsModal"
 
 const Sidebar = ({ right, setRight, setShowCal, showEditEvent, setShowEditEvent}) => {
     const { setShowSide } = useContext(CalendarContext)
@@ -25,9 +25,9 @@ const Sidebar = ({ right, setRight, setShowCal, showEditEvent, setShowEditEvent}
                 <i className="fa-solid fa-circle-info" onClick={() => setShowCal(false)}></i>
                 <LogoutButton />
             </div>
-            {/* <div>
+            <div className="sidebar-options">
                 <FetchSports/>
-            </div> */}
+            </div>
             <div>
                 <EventDetails showEditEvent={showEditEvent} setShowEditEvent={setShowEditEvent}/>
             </div>

@@ -50,3 +50,25 @@ justify-content: space-evenly;
 .sidebar-navbar i{
     font-size:20px;
 }
+
+.sidebar-options{
+    margin:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sidebar-options button{
+border: none;
+background-color: #015d67;
+color:white;
+padding:8px 12px;
+font-weight:560;
+border-radius: 3px;
+cursor: pointer;
+}
+
+.sidebar-options button:hover{
+background-color: #00BFA5;
+}

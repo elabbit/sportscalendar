@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useDispatch } from 'react-redux'
 import CalendarContext from '../../context/CalendarContext';
 import { addCalendar } from '../../store/calendars';
@@ -12,15 +12,18 @@ const AddCalendarForm = ({ hideModal, calendars }) => {
     const [description, setDescription] = useState('');
     const [def, setDef] = useState(false);
     const dispatch = useDispatch();
-    const { setCurrentCalendar, currentCalendar } = useContext(CalendarContext)
+    const { setCurrentCalendar } = useContext(CalendarContext)
     const [errors, setErrors] = useState([]);
     const [showErrorModal, setShowErrorModal] = useState(false)
 
-
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (Object.values(calendars).findIndex((cal) =>(cal.title === title)) > -1) {
+        if(!title.trim().length){
+            setErrors([`Please enter a title.`])
+            setShowErrorModal(true)
+            return
+        }
+        if (Object.values(calendars).findIndex((cal) =>(cal.title.trim() === title.trim())) > -1) {
             setErrors([`Already have a calendar named ${title}!`])
             setShowErrorModal(true)
             return

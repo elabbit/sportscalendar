@@ -4,11 +4,11 @@
     padding-bottom: 15px;
     background-color: white;
     margin: 10px;
-    margin-top:100px;
+
     border-radius: 2px;
     display: flex;
     flex-direction: column;
-    gap: 9px;
+    gap: 10px;
 }
 
 .side-event-container * {
@@ -20,7 +20,7 @@
     cursor: default;
 }
 
-.side-event-container i:hover{
+.side-event-container i:hover {
     color: grey;
 }
 
@@ -29,37 +29,53 @@
     font-size: 16px;
     font-weight: 560;
     padding-bottom: 8px;
+
 }
 
 .side-event-category {
-font-style: italic;
+    font-style: italic;
 }
 
-.side-event-bttns{
+.side-event-bttns {
     display: flex;
     justify-content: right;
-    gap:15px;
+    gap: 15px;
 }
 
-.side-event-bttns i{
-cursor: pointer;
-color:#015d67;
-font-size:18px;
+.side-event-bttns i {
+    cursor: pointer;
+    color: #015d67;
+    font-size: 18px;
 }
 
 
-.side-event-cat-bttns{
+.side-event-cat-bttns {
     display: flex;
     justify-content: space-between;
 }
 
-.event-edit-cancel{
+.event-edit-cancel {
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     background-color: transparent;
     border: none;
-    width:100%;
+    width: 100%;
     height: 100vh;
-    z-index:2;
+    z-index: 2;
+}
+
+
+.eve-logo-container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:5px;
+}
+
+
+.eve-logo{
+max-width:120px;
+max-height:60px;
 }

@@ -47,8 +47,8 @@
 }
 
 
-.modal-msg-container div{
-font-style: italic;
+.modal-msg-container div {
+  font-style: italic;
 }
 
 .del-mod-bttns {
@@ -68,36 +68,46 @@ font-style: italic;
 }
 
 
-.err-mod-bttns{
+.err-mod-bttns {
   display: flex;
   justify-content: center;
 }
 
-.err-mod-bttns button{
+.err-mod-bttns button {
   background-color: transparent;
   border: none;
 }
+
 .err-mod-bttns button i {
   font-size: 28px;
 }
 
-.modal-err-container{
+.modal-err-container {
   background-color: white;
   padding: 20px;
-  padding-left:40px;
-  padding-right:40px;
+  padding-left: 40px;
+  padding-right: 40px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
 }
 
-ul.errors{
-  margin-top:0px;
-  list-style:square;
-  margin-left:-20px;
+ul.errors {
+  margin-top: 0px;
+  list-style: square;
+  margin-left: -20px;
 }
 
-ul.errors li{
-  margin:5px;
-font-style: italic;
+ul.errors li {
+  margin: 5px;
+  font-style: italic;
+}
+
+.confirm-mod-msg{
+  margin-top:10px;
+  margin-bottom:15px;
+}
+
+.confirm-mod-msg span{
+font-weight:560;
 }

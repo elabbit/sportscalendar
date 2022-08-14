@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
 import { signUp } from '../../store/session';
 import ErrorModal from '../ErrorModal';
 import DemoLogin from './DemoLogin';
@@ -11,7 +10,6 @@ const SignUpForm = ({ setShowLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
 

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { addEvent } from "../../store/calendars";
 import "./AddEventForm.css"
 import CalendarContext from "../../context/CalendarContext";
+import ErrorModal from '../ErrorModal';
 
 const AddEventForm = ({ hideModal, day }) => {
     const [title, setTitle] = useState('');
@@ -11,18 +12,25 @@ const AddEventForm = ({ hideModal, day }) => {
     const [category, setCategory] = useState('')
     const [startDate, setStartDate] = useState(day.format("YYYY-MM-DD"));
     const [startTime, setStartTime] = useState('');
-    const [color, setColor] = useState("#FFFFFF");
+    const [color, setColor] = useState("#adc9cd");
     const { currentCalendar, setCurrentCalendar, setCurrentEvent } = useContext(CalendarContext);
+    const [errors, setErrors] = useState([]);
+    const [showErrorModal, setShowErrorModal] = useState(false)
 
     const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!title.trim().length) {
+            setErrors([`Please enter a title.`])
+            setShowErrorModal(true)
+            return
+        }
         let newStartTime = undefined;
         if (startTime !== '') {
             newStartTime = startTime;
         }
-        const data = await dispatch(addEvent(title, description, location, category, startDate, newStartTime, color, currentCalendar.id));
+        const data = await dispatch(addEvent(title, description, location, category, startDate, newStartTime, color, true, null, null, currentCalendar.id));
         if (data) {
             setCurrentCalendar(data.calendar)
             setCurrentEvent(data.event)
@@ -37,9 +45,10 @@ const AddEventForm = ({ hideModal, day }) => {
 
     return (
         <div className="add-event-container">
+            <ErrorModal hideModal={() => setShowErrorModal(false)} showModal={showErrorModal} validationErrors={errors} />
             <div className="add-event-mod-header">Add Event</div>
             <form className="add-event-form" onSubmit={handleSubmit}>
-            <input
+                <input
                     type='text'
                     name='title'
                     placeholder="Title (required)"
@@ -73,8 +82,8 @@ const AddEventForm = ({ hideModal, day }) => {
                         <option>#87f33f</option>
                         <option>#32EEBD</option>
                         <option>#08cad1</option>
+                        <option>#adc9cd</option>
                         <option>#00C7FC</option>
-                        <option>#59adf6</option>
                         <option>#9d94ff</option>
                     </datalist>
                 </div>

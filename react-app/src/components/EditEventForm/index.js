@@ -6,7 +6,7 @@ import CalendarContext from "../../context/CalendarContext";
 import dayjs from "dayjs";
 
 const EditEventForm = ({ hideForm, event }) => {
-    const { currentCalendar, setCurrentCalendar, setCurrentEvent, currentOffset } = useContext(CalendarContext);
+    const { setCurrentCalendar, setCurrentEvent, currentOffset } = useContext(CalendarContext);
     const [title, setTitle] = useState(event.title);
     const [description, setDescription] = useState(event.description);
     const [location, setLocation] = useState(event.location);
@@ -100,8 +100,8 @@ const EditEventForm = ({ hideForm, event }) => {
                         <option>#87f33f</option>
                         <option>#32EEBD</option>
                         <option>#08cad1</option>
+                        <option>#adc9cd</option>
                         <option>#00C7FC</option>
-                        <option>#59adf6</option>
                         <option>#9d94ff</option>
                     </datalist>
                     <div className="edit-eve-bttns">
