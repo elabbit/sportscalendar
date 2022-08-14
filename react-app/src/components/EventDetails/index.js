@@ -5,7 +5,7 @@ import dayjs from "dayjs"
 import CalendarContext from "../../context/CalendarContext"
 import "./EventDetails.css"
 
-const EventDetails = ({showEditEvent, setShowEditEvent}) => {
+const EventDetails = ({ showEditEvent, setShowEditEvent }) => {
     const { currentEvent, currentOffset } = useContext(CalendarContext)
 
 
@@ -32,7 +32,13 @@ const EventDetails = ({showEditEvent, setShowEditEvent}) => {
             <>
                 {!showEditEvent ?
                     <div className="side-event-container" >
-                        <div className="side-event-title" style={{borderBottom:`3px solid ${currentEvent.color}`}}>{currentEvent.title}</div>
+                        <div className="side-event-title" style={{ borderBottom: `3px solid ${currentEvent.color}` }}>{currentEvent.title}</div>
+                        {currentEvent.venue &&
+                            <div>{currentEvent.venue}</div>}
+
+                        {currentEvent.image &&
+                            <img src={currentEvent.image}></img>
+                        }
                         <div><i className="fa-solid fa-calendar-day"></i> {dayjs(currentEvent.startDate).add(currentOffset, "hour").format("dddd, MMMM DD")}</div>
                         {currentEvent.startTime !== "None" &&
                             <div><i className="fa-regular fa-clock"></i> {convertTime(currentEvent.startTime)}</div>}
@@ -45,12 +51,12 @@ const EventDetails = ({showEditEvent, setShowEditEvent}) => {
 
                             {currentEvent.category ?
                                 <div className="side-event-category">{currentEvent.category}</div>
-                            :
-                            <div></div>
+                                :
+                                <div></div>
                             }
                             <div className="side-event-bttns">
 
-                                <i className="fa-solid fa-pen-to-square" onClick={()=>setShowEditEvent(true)}></i>
+                                <i className="fa-solid fa-pen-to-square" onClick={() => setShowEditEvent(true)}></i>
                                 <DeleteEventModal event={currentEvent} />
                             </div>
                         </div>

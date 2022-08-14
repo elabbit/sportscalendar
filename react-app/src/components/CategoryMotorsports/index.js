@@ -1,5 +1,6 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import FetchFormulaOne from '../FetchFormulaOne';
+import FetchNascar from '../FetchNascar';
 import "./CategoryMotorsports.css"
 
 
@@ -12,7 +13,6 @@ const CategoryMotorsports = ({eventsList, setEventsList}) => {
                 <TabList>
                     <Tab>Formula 1</Tab>
                     <Tab>Nascar</Tab>
-                    <Tab>IndyCar</Tab>
                 </TabList>
                 <TabPanel>
                     <div className="cat-tab-body">
@@ -21,14 +21,10 @@ const CategoryMotorsports = ({eventsList, setEventsList}) => {
                 </TabPanel>
                 <TabPanel>
                     <div className="cat-tab-body">
-                        Nascar Component
+                    <FetchNascar eventsList={eventsList} setEventsList={setEventsList}/>
                         </div>
                 </TabPanel>
-                <TabPanel>
-                <div className="cat-tab-body">
-                    Indycar Component
-                    </div>
-                </TabPanel>
+
             </Tabs>
         </div>
 

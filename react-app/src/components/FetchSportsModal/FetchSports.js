@@ -8,16 +8,16 @@ import CalendarContext from "../../context/CalendarContext";
 import dayjs from 'dayjs';
 import ConfirmationModal from "../ConfirmationModal";
 import BarLoader from "react-spinners/BarLoader";
+import CategoryMMA from "../CategoryMMA";
 
 const FetchSports = ({ hideModal }) => {
     const calendars = useSelector(state => state.calendars)
-    const { currentCalendar, setCurrentCalendar } = useContext(CalendarContext)
+    const { currentOffset, currentCalendar, setCurrentCalendar } = useContext(CalendarContext)
     const dispatch = useDispatch();
     const [eventsList, setEventsList] = useState([]);
     const [color, setColor] = useState('#adc9cd');
     const [loading, setLoading] = useState(false);
     const [showConfimMod, setShowConfirmMod] = useState(false);
-
 
     useEffect(() => {
         if (currentCalendar) {
@@ -28,6 +28,18 @@ const FetchSports = ({ hideModal }) => {
 
     const handleAdd = () => {
         setLoading(true)
+
+        if(eventsList[0].category === "UFC" || eventsList[0].category === 'NASCAR')
+        {
+        Promise.all(eventsList.map(async (event) => {
+            await dispatch(addEvent(event.title, event.description, event.location, event.category,
+                dayjs(event.startDate).format("YYYY-MM-DD"), dayjs(event.startTime).subtract(currentOffset-4, 'hour').format("HH:mm"), color, false, event.venue, event.image, currentCalendar.id))
+        }
+        )).then(() => {
+            setLoading(false)
+            setShowConfirmMod(true)
+        })
+        } else
         Promise.all(eventsList.map(async (event) => {
             await dispatch(addEvent(event.title, event.description, event.location, event.category,
                 dayjs(event.startDate).format("YYYY-MM-DD"), dayjs(event.startTime).format("HH:mm"), color, false, event.venue, event.image, currentCalendar.id))
@@ -67,6 +79,7 @@ const FetchSports = ({ hideModal }) => {
                         </TabPanel>
                         <TabPanel>
                             <div className="category-container">
+                                <CategoryMMA eventsList={eventsList} setEventsList={setEventsList} />
                             </div>
                         </TabPanel>
                     </Tabs>

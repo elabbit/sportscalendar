@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addEvent } from "../../store/calendars";
 import "./AddEventForm.css"

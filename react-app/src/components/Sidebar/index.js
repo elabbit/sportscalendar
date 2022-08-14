@@ -4,10 +4,11 @@ import "./Sidebar.css"
 import LogoutButton from "../auth/LogoutButton"
 import EventDetails from "../EventDetails"
 import FetchSports from "../FetchSportsModal"
+import AddEventModal from "../AddEventModal"
 
 const Sidebar = ({ right, setRight, setShowCal, showEditEvent, setShowEditEvent}) => {
     const { setShowSide } = useContext(CalendarContext)
-
+    const day = new Date();
     return (
         <div className="sidebar-container">
             <div className="sidebar-cancel-bttn" onClick={() => setShowSide(false)}>
@@ -25,7 +26,7 @@ const Sidebar = ({ right, setRight, setShowCal, showEditEvent, setShowEditEvent}
                 <i className="fa-solid fa-circle-info" onClick={() => setShowCal(false)}></i>
                 <LogoutButton />
             </div>
-            <div>
+            <div className="sidebar-options">
                 <FetchSports/>
             </div>
             <div>

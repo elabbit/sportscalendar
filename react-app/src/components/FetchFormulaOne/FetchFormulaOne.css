@@ -23,6 +23,7 @@
     padding: 2px 8px;
     border-radius: 4px;
     cursor: pointer;
+    width:120px;
 }
 
 .formula-header button {
@@ -49,7 +50,7 @@
 }
 
 .formula-logo {
-    height: 50px;
+    width: 70px;
 }
 
 .formula-item {
