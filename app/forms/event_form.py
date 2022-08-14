@@ -3,8 +3,6 @@ from wtforms import StringField, DateField, TimeField, BooleanField
 from wtforms.validators import DataRequired
 
 
-
-
 class EventForm(FlaskForm):
     title = StringField('title', validators=[DataRequired()])
     description = StringField('description')

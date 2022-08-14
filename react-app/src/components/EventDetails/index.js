@@ -1,12 +1,45 @@
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import DeleteEventModal from "../DeleteEventModal"
 import EditEventForm from "../EditEventForm"
 import dayjs from "dayjs"
 import CalendarContext from "../../context/CalendarContext"
 import "./EventDetails.css"
+import ufcLogo from "../../images/ufcLogo.png";
+import formulaOneLogo from "../../images/formulaOneLogo.png";
+import nascarLogo from "../../images/nascarLogo.png";
+import nbaLogo from "../../images/nbaLogo.png";
+import nflLogo from "../../images/nflLogo.png";
 
 const EventDetails = ({ showEditEvent, setShowEditEvent }) => {
     const { currentEvent, currentOffset } = useContext(CalendarContext)
+    const [currentLogo, setCurrentLogo] = useState(null);
+
+    useEffect(() => {
+        if (currentEvent && currentEvent.editable === false) {
+            switch (currentEvent.category) {
+                case 'Formula 1':
+                    setCurrentLogo(formulaOneLogo)
+                    break;
+                case 'NASCAR':
+                    setCurrentLogo(nascarLogo)
+                    break;
+                case 'UFC':
+                    setCurrentLogo(ufcLogo)
+                    break;
+                case 'NBA':
+                    setCurrentLogo(nbaLogo)
+                    break;
+                case 'NFL':
+                    setCurrentLogo(nflLogo)
+                    break;
+                default:
+                    setCurrentLogo(null)
+                    break;
+            }
+        }
+
+    }, [currentEvent])
+
 
 
     useEffect(() => {
@@ -32,12 +65,13 @@ const EventDetails = ({ showEditEvent, setShowEditEvent }) => {
             <>
                 {!showEditEvent ?
                     <div className="side-event-container" >
+                        {currentEvent.editable === false && <div className="eve-logo-container"><img className="eve-logo" src={currentLogo} alt=''/></div>}
                         <div className="side-event-title" style={{ borderBottom: `3px solid ${currentEvent.color}` }}>{currentEvent.title}</div>
                         {currentEvent.venue &&
                             <div>{currentEvent.venue}</div>}
 
                         {currentEvent.image &&
-                            <img src={currentEvent.image}></img>
+                            <img src={currentEvent.image} alt=''></img>
                         }
                         <div><i className="fa-solid fa-calendar-day"></i> {dayjs(currentEvent.startDate).add(currentOffset, "hour").format("dddd, MMMM DD")}</div>
                         {currentEvent.startTime !== "None" &&
@@ -55,8 +89,7 @@ const EventDetails = ({ showEditEvent, setShowEditEvent }) => {
                                 <div></div>
                             }
                             <div className="side-event-bttns">
-
-                                <i className="fa-solid fa-pen-to-square" onClick={() => setShowEditEvent(true)}></i>
+                                {currentEvent.editable && <i className="fa-solid fa-pen-to-square" onClick={() => setShowEditEvent(true)}></i>}
                                 <DeleteEventModal event={currentEvent} />
                             </div>
                         </div>

@@ -64,3 +64,18 @@
     height: 100vh;
     z-index: 2;
 }
+
+
+.eve-logo-container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:5px;
+}
+
+
+.eve-logo{
+max-width:120px;
+max-height:60px;
+}

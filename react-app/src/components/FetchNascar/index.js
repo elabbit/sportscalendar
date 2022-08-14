@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import "./FetchNascar.css";
 import nascarLogo from "../../images/nascarLogo.png";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import BarLoader from "react-spinners/BarLoader";
 import CalendarContext from "../../context/CalendarContext";
 
@@ -10,6 +10,10 @@ const FetchNascar = ({ eventsList, setEventsList }) => {
     const [series, setSeries] = useState(1);
     const [hasSubmitted, setHasSubmitted] = useState(false)
     const {currentOffset} = useContext(CalendarContext)
+
+    useEffect(()=>{
+        setEventsList([]);
+    },[setEventsList])
 
     const handleClick = async () => {
         setLoading(true)

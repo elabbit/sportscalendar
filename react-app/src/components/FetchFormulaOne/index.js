@@ -1,13 +1,17 @@
 import dayjs from "dayjs";
 import "./FetchFormulaOne.css";
 import formulaOneLogo from "../../images/formulaOneLogo.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BarLoader from "react-spinners/BarLoader";
 
 const FetchFormulaOne = ({ eventsList, setEventsList }) => {
     const [loading, setLoading] = useState(false)
     const [type, setType] = useState('race');
     const [hasSubmitted, setHasSubmitted] = useState(false)
+
+    useEffect(()=>{
+        setEventsList([]);
+    },[setEventsList])
 
     const handleClick = async () => {
         setLoading(true)

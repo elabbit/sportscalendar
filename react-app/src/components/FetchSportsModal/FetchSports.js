@@ -9,6 +9,8 @@ import dayjs from 'dayjs';
 import ConfirmationModal from "../ConfirmationModal";
 import BarLoader from "react-spinners/BarLoader";
 import CategoryMMA from "../CategoryMMA";
+import CategoryFootball from "../CategoryFootball";
+import CategoryBasketball from "../CategoryBasketball";
 
 const FetchSports = ({ hideModal }) => {
     const calendars = useSelector(state => state.calendars)
@@ -24,30 +26,38 @@ const FetchSports = ({ hideModal }) => {
             const currCal = Object.values(calendars).find((cal) => cal.id === currentCalendar.id)
             setCurrentCalendar(currCal)
         }
-    }, [calendars])
+    }, [calendars, currentCalendar, setCurrentCalendar])
+
+    const checkStartTime =  (startTime) => {
+        if(startTime === null){
+            return undefined
+        }
+        return  dayjs(startTime).subtract(currentOffset - 4, 'hour').format("HH:mm")
+    }
+
 
     const handleAdd = () => {
         setLoading(true)
 
-        if(eventsList[0].category === "UFC" || eventsList[0].category === 'NASCAR')
-        {
-        Promise.all(eventsList.map(async (event) => {
-            await dispatch(addEvent(event.title, event.description, event.location, event.category,
-                dayjs(event.startDate).format("YYYY-MM-DD"), dayjs(event.startTime).subtract(currentOffset-4, 'hour').format("HH:mm"), color, false, event.venue, event.image, currentCalendar.id))
-        }
-        )).then(() => {
-            setLoading(false)
-            setShowConfirmMod(true)
-        })
+        if (eventsList[0].category === "UFC" || eventsList[0].category === 'NASCAR' ||
+        eventsList[0].category === "NFL" || eventsList[0].category === "NBA") {
+            Promise.all(eventsList.map(async (event) => {
+                await dispatch(addEvent(event.title, event.description, event.location, event.category,
+                    dayjs(event.startDate).format("YYYY-MM-DD"),checkStartTime(event.startTime), color, false, event.venue, event.image, currentCalendar.id))
+            }
+            )).then(() => {
+                setLoading(false)
+                setShowConfirmMod(true)
+            })
         } else
-        Promise.all(eventsList.map(async (event) => {
-            await dispatch(addEvent(event.title, event.description, event.location, event.category,
-                dayjs(event.startDate).format("YYYY-MM-DD"), dayjs(event.startTime).format("HH:mm"), color, false, event.venue, event.image, currentCalendar.id))
-        }
-        )).then(() => {
-            setLoading(false)
-            setShowConfirmMod(true)
-        })
+            Promise.all(eventsList.map(async (event) => {
+                await dispatch(addEvent(event.title, event.description, event.location, event.category,
+                    dayjs(event.startDate).format("YYYY-MM-DD"), dayjs(event.startTime).format("HH:mm"), color, false, event.venue, event.image, currentCalendar.id))
+            }
+            )).then(() => {
+                setLoading(false)
+                setShowConfirmMod(true)
+            })
     }
 
     const handleClose = () => {
@@ -69,17 +79,29 @@ const FetchSports = ({ hideModal }) => {
                 <div className="sports-content">
                     <Tabs>
                         <TabList>
-                            <Tab>Motorsports</Tab>
+                            <Tab>Basketball</Tab>
+                            <Tab>Football</Tab>
                             <Tab>MMA</Tab>
+                            <Tab>Motorsports</Tab>
                         </TabList>
                         <TabPanel>
                             <div className="category-container">
-                                <CategoryMotorsports eventsList={eventsList} setEventsList={setEventsList} />
+                                <CategoryBasketball eventsList={eventsList} setEventsList={setEventsList} />
+                            </div>
+                        </TabPanel>
+                        <TabPanel>
+                            <div className="category-container">
+                                <CategoryFootball eventsList={eventsList} setEventsList={setEventsList} />
                             </div>
                         </TabPanel>
                         <TabPanel>
                             <div className="category-container">
                                 <CategoryMMA eventsList={eventsList} setEventsList={setEventsList} />
+                            </div>
+                        </TabPanel>
+                        <TabPanel>
+                            <div className="category-container">
+                                <CategoryMotorsports eventsList={eventsList} setEventsList={setEventsList} />
                             </div>
                         </TabPanel>
                     </Tabs>

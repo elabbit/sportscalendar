@@ -4,7 +4,7 @@ from ..models import db, Calendar, Event
 from app.forms import EventForm
 import requests
 import os
-
+from datetime import timedelta
 
 event_routes = Blueprint('event', __name__)
 
@@ -32,10 +32,8 @@ def add_event(calendarId):
         db.session.add(newEvent)
         db.session.commit()
         calendar = Calendar.query.get(calendarId)
-
         return {"calendar": calendar.to_dict(), "event": newEvent.to_dict()}
-    print('@@@@@@@@@@@@@', form.errors)
-    return ''
+
 
 @event_routes.route('/edit/<eventId>', methods=['PUT'])
 @login_required
@@ -68,7 +66,7 @@ def delete_event(eventId):
 
 @event_routes.route('/getformulaone/<type>')
 @login_required
-def get_sports(type):
+def get_formulaone(type):
     headers = {
         'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com',
         'X-RapidAPI-Key': os.environ.get('FORMULA_KEY'),
@@ -86,8 +84,14 @@ def race_dict(race, type):
         title = race['competition']['name']
     if type == "1st Qualifying":
         title = f"{race['competition']['name']} - Qualifying"
-
-
+    if type == "Sprint":
+        title = f"{race['competition']['name']} - Sprint"
+    if type == "1st Practice":
+        title = f"{race['competition']['name']} - FP1"
+    if type == "2nd Practice":
+        title = f"{race['competition']['name']} - FP2"
+    if type == "3rd Practice":
+        title = f"{race['competition']['name']} - FP3"
     return {
         'title': title,
         'description': '',
@@ -97,4 +101,115 @@ def race_dict(race, type):
         'image': race['circuit']['image'],
         'startDate': race['date'],
         'startTime': race['date']
+        }
+
+
+@event_routes.route('/getufc')
+@login_required
+def get_ufc():
+    headers = {
+        'Ocp-Apim-Subscription-Key': os.environ.get('UFC_KEY'),
+    }
+
+    response = requests.get('https://api.sportsdata.io/v3/mma/scores/json/Schedule/UFC/2022', headers=headers)
+    data = response.json()
+    return {'events': [ufc_dict(event) for event in data if event['Status'] == "Scheduled" and "UFC" in event['Name']]}
+
+
+def ufc_dict(event):
+    return {
+        'title': event['Name'],
+        'description': '',
+        'category': 'UFC',
+        'location': '',
+        'venue': '',
+        'image': '',
+        'startDate': event['Day'],
+        'startTime': event['DateTime']
+        }
+
+@event_routes.route('/getnascar/<series>')
+@login_required
+def get_nascar(series):
+    headers = {
+        'Ocp-Apim-Subscription-Key': os.environ.get('NASCAR_KEY'),
+    }
+    response = requests.get('https://api.sportsdata.io/nascar/v2/json/races/2022', headers=headers)
+    data = response.json()
+    return {'races': [nascar_dict(event) for event in data if (event['IsOver'] == False) and (event['SeriesID'] == int(series))]}
+
+
+
+def nascar_dict(event):
+    return {
+        'title': event['Name'],
+        'description': '',
+        'category': 'NASCAR',
+        'location': '',
+        'venue': event['Track'],
+        'image': '',
+        'startDate': event['Day'],
+        'startTime': event['DateTime']
+        }
+
+
+@event_routes.route('/getnfl/<team>')
+@login_required
+def get_nfl(team):
+    headers = {
+        'Ocp-Apim-Subscription-Key': os.environ.get('NFL_KEY'),
+    }
+    response = requests.get('https://api.sportsdata.io/v3/nfl/scores/json/Schedules/2022', headers=headers)
+    data = response.json()
+    return {'events': [nfl_dict(event) for event in data if "BYE" not in event["AwayTeam"] and (event["AwayTeam"] == team or event["HomeTeam"] == team)]}
+
+
+
+def nfl_dict(event):
+    return {
+        'title': f"{event['AwayTeam']} @ {event['HomeTeam']}",
+        'description': '',
+        'category': 'NFL',
+        'location': nfl_parse_location(event['StadiumDetails']),
+        'venue': nfl_parse_venue(event['StadiumDetails']),
+        'image': '',
+        'startDate': event['Date'],
+        'startTime': event['Date']
+        }
+
+def nfl_parse_venue(object):
+    if not object:
+        return ''
+    else:
+        return object['Name']
+
+def nfl_parse_location(object):
+    if not object:
+        return ''
+    else:
+        return f"{object['City'], object['State']}"
+
+
+@event_routes.route('/getnba/<team>')
+@login_required
+def get_nba(team):
+    headers = {
+        'Ocp-Apim-Subscription-Key': os.environ.get('NBA_KEY'),
+    }
+    response = requests.get('https://api.sportsdata.io/v3/nba/scores/json/Games/2023', headers=headers)
+    data = response.json()
+    return {'events': [nba_dict(event) for event in data if (event["AwayTeam"] == team or event["HomeTeam"] == team)]}
+
+
+
+def nba_dict(event):
+    return {
+        'title': f"{event['AwayTeam']} @ {event['HomeTeam']}",
+        'description': '',
+        'category': 'NBA',
+        'location': '',
+        'venue': '',
+        'image': '',
+        'startDate': event['Day'],
+        'startTime': event['DateTime']
         }
