@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../store/session';
 import { Modal } from '../../context/Modal';
+import CalendarContext from '../../context/CalendarContext';
 
 const LogoutButton = () => {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch()
+  const { setShowSide, setCurrentEvent, setCurrCat} = useContext(CalendarContext)
+
   const onLogout = async (e) => {
+    setShowSide(false)
+    setCurrentEvent('')
+    setCurrCat('all')
     await dispatch(logout());
   };
 
