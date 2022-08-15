@@ -49,12 +49,12 @@ const SplashPage = () => {
             <div className="splash-container">
                 <div>
                     <img src={splash} alt=''></img>
-                    </div>
                     {/* <div className="splash-img-container">
                         <img className={`${classes[indexOne]}`} src={splashImages[0]} alt="" />
                         <img className={`${classes[indexTwo]}`} src={splashImages[1]} alt="" />
                         <img className={`${classes[indexThree]}`} src={splashImages[2]} alt="" />
                     </div> */}
+                </div>
             </div>
             <div className='splash-form'>
                 {showLogin ?
