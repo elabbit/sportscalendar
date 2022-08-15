@@ -12,7 +12,7 @@ const EditEventForm = ({ hideForm, event }) => {
     const [location, setLocation] = useState(event.location);
     const [category, setCategory] = useState(event.category)
     const [startDate, setStartDate] = useState(dayjs(event.startDate).add(currentOffset, "hour").format("YYYY-MM-DD"));
-    const [startTime, setStartTime] = useState(event.startTime);
+    const [startTime, setStartTime] = useState(event.startTime === "None" ? '' : event.startTime);
     const [color, setColor] = useState(event.color);
 
     const dispatch = useDispatch();

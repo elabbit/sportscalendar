@@ -187,7 +187,7 @@ def nfl_parse_location(object):
     if not object:
         return ''
     else:
-        return f"{object['City'], object['State']}"
+        return f"{object['City']}, {object['State']}"
 
 
 @event_routes.route('/getnba/<team>')
