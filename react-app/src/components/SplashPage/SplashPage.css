@@ -16,3 +16,33 @@
     right: 174px;
     top: 210px;
 }
+
+.splash-img{
+    position: absolute;
+    left:-69px;
+    top:-282px;
+}
+
+/*
+.splash-img-container{
+    position: relative;
+}
+.fade-none {
+    opacity: 0;
+
+}
+
+.fade-out {
+    opacity: 0;
+    -webkit-transition: opacity 1.5s ease-out;
+    transition: opacity 1.5s ease-out;
+    visibility: visible;
+}
+
+.fade-in {
+    opacity: 1;
+    -webkit-transition: opacity 1.5s ease-in;
+    transition: opacity 1.5s ease-in;
+    z-index: 2;
+    visibility: visible;
+} */
