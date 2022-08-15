@@ -16,52 +16,54 @@ const SplashPage = () => {
     const splashImages = [splashImg1, splashImg2, splashImg3]
     const classes = ["splash-img fade-in", "splash-img ade-out", "splash-img fade-none"]
 
-    useEffect(()=> {
-      const imgId = setInterval(()=> {
-        if(indexOne === 2) {
-          setIndexOne(0);
-        }
-        else {
-          setIndexOne(indexOne + 1)
-        }
+    useEffect(() => {
+        const imgId = setInterval(() => {
+            if (indexOne === 2) {
+                setIndexOne(0);
+            }
+            else {
+                setIndexOne(indexOne + 1)
+            }
 
-        if(indexTwo === 2) {
-          setIndexTwo(0);
-        }
-        else {
-          setIndexTwo(indexTwo + 1)
-        }
+            if (indexTwo === 2) {
+                setIndexTwo(0);
+            }
+            else {
+                setIndexTwo(indexTwo + 1)
+            }
 
-        if(indexThree === 2) {
-          setIndexThree(0);
-        }
-        else {
-          setIndexThree(indexThree + 1)
-        }
+            if (indexThree === 2) {
+                setIndexThree(0);
+            }
+            else {
+                setIndexThree(indexThree + 1)
+            }
 
-      }, 5000)
-      return () => clearInterval(imgId);
+        }, 10000)
+        return () => clearInterval(imgId);
     }, [splashImages.length, indexOne, indexTwo, indexThree]);
 
 
     return (
         <div className='splash-outer'>
+
             <div className="splash-container">
-                <div>
-                    <img src={splash} alt=''></img>
-                    {/* <div className="splash-img-container">
-                        <img className={`${classes[indexOne]}`} src={splashImages[0]} alt="" />
-                        <img className={`${classes[indexTwo]}`} src={splashImages[1]} alt="" />
-                        <img className={`${classes[indexThree]}`} src={splashImages[2]} alt="" />
-                    </div> */}
-                </div>
+            <div>
+                <img className="splash-temp" src={splash} alt=''></img>
             </div>
-            <div className='splash-form'>
-                {showLogin ?
-                    <LoginForm setShowLogin={setShowLogin} />
-                    :
-                    <SignUpForm setShowLogin={setShowLogin} />
-                }
+                <div className="splash-img-container">
+                    <img className={`one ${classes[indexOne]}`} src={splashImages[0]} alt="" />
+                    <img className={`two ${classes[indexTwo]}`} src={splashImages[1]} alt="" />
+                    <img className={`three ${classes[indexThree]}`} src={splashImages[2]} alt="" />
+                </div>
+
+                <div className='splash-form'>
+                    {showLogin ?
+                        <LoginForm setShowLogin={setShowLogin} />
+                        :
+                        <SignUpForm setShowLogin={setShowLogin} />
+                    }
+                </div>
             </div>
         </div>
     )

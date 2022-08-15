@@ -59,10 +59,10 @@ Figuring out how to create a calendar was tough. Manipulating date and time requ
 1. Clone this repository (only this branch)
 
    ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
+   git clone https://github.com/elabbit/sportscalendar.git
    ```
 
-2. Install dependencies
+2. Install dependenciesc
 
       ```bash
       pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
