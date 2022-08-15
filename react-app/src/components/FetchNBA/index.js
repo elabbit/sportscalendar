@@ -3,7 +3,7 @@ import nbaLogo from "../../images/nbaLogo.png";
 import { useContext, useEffect, useState } from "react";
 import BarLoader from "react-spinners/BarLoader";
 import CalendarContext from "../../context/CalendarContext";
-
+import './FetchNBA.css'
 
 const FetchNBA = ({ eventsList, setEventsList }) => {
     const [loading, setLoading] = useState(false)
@@ -34,7 +34,7 @@ useEffect(()=>{
         <div className="formula-container">
             <div className="formula-header">
                 <img className='formula-logo' src={nbaLogo} alt='' />
-                <div>Season: 22-23</div>
+                <div className='nba-season'>Season: 22-23</div>
                 <select className="nfl-team-select" onChange={(e) => setTeam(e.target.value)} value={team}>
                     <option value={"GS"}>Golden State Warriors</option>
                     <option value={"LAL"}>Los Angeles Lakers</option>

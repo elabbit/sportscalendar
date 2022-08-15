@@ -5,7 +5,8 @@ import LogoutButton from "../auth/LogoutButton"
 import EventDetails from "../EventDetails"
 import FetchSports from "../FetchSportsModal"
 import ListCategory from "../ListCategory/index.js"
-
+import AddEventModal from "../AddEventModal"
+import dayjs from 'dayjs'
 const Sidebar = ({ right, setRight, setShowCal, showEditEvent, setShowEditEvent}) => {
     const { setShowSide, setCurrentEvent, setCurrCat} = useContext(CalendarContext)
 
@@ -14,7 +15,6 @@ const Sidebar = ({ right, setRight, setShowCal, showEditEvent, setShowEditEvent}
         setCurrentEvent('')
         setCurrCat('all')
     }
-
 
     return (
         <div className="sidebar-outer">
@@ -35,6 +35,7 @@ const Sidebar = ({ right, setRight, setShowCal, showEditEvent, setShowEditEvent}
                 <LogoutButton />
             </div>
             <div className="sidebar-options">
+                <AddEventModal day={null}/>
                 <FetchSports/>
             </div>
             <div>

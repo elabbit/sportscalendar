@@ -2,7 +2,7 @@ import { useState } from "react";
 import LoginForm from "../auth/LoginForm";
 import SignUpForm from "../auth/SignUpForm";
 import "./SplashPage.css"
-import splash from "../../images/splash7.png"
+import splash from "../../images/splash-temp.png"
 
 const SplashPage = () => {
     const [showLogin, setShowLogin] = useState(true);

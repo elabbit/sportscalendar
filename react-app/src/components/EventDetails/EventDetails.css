@@ -9,7 +9,10 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    overflow: auto;
+    max-height:350px;
 }
+
 
 .side-event-container * {
     font-size: 15px;
@@ -34,6 +37,7 @@
 
 .side-event-category {
     font-style: italic;
+    max-width:130px;
 }
 
 .side-event-bttns {
@@ -67,7 +71,6 @@
 
 
 .eve-logo-container{
-
     display: flex;
     justify-content: center;
     align-items: center;
