@@ -17,6 +17,9 @@ border: none;
 padding:4px;
 border-radius: 3px;
 }
+.cat-container select:hover{
+    cursor: pointer;
+}
 
 .cat-list-header {
     font-weight: 560;
@@ -54,7 +57,7 @@ border-radius: 3px;
     border-bottom: 1px solid grey;
 }
 .cat-item-inner:hover{
-    opacity: .5;
+    opacity: .6;
 }
 
 .cat-item-title {
