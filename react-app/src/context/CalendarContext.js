@@ -10,7 +10,9 @@ const CalendarContext = React.createContext({
     currentOffset: 0,
     setCurrentOffset: (offset)=>{},
     showSide: false,
-    setShowSide: (boolean) => {}
+    setShowSide: (boolean) => {},
+    currCat: null,
+    setCurrCal:(cat)=>{}
 
 })
 

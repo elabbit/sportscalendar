@@ -52,10 +52,11 @@ justify-content: space-evenly;
 }
 
 .sidebar-options{
-    margin:20px;
+    margin:15px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom:5px;
 
 }
 
@@ -71,4 +72,11 @@ cursor: pointer;
 
 .sidebar-options button:hover{
 background-color: #00BFA5;
+}
+
+.sidebar-outer{
+    display: flex;
+    flex-direction: column;
+    height:100%;
+    justify-content: space-between;
 }

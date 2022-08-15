@@ -4,13 +4,22 @@ import "./Sidebar.css"
 import LogoutButton from "../auth/LogoutButton"
 import EventDetails from "../EventDetails"
 import FetchSports from "../FetchSportsModal"
+import ListCategory from "../ListCategory/index.js"
 
 const Sidebar = ({ right, setRight, setShowCal, showEditEvent, setShowEditEvent}) => {
-    const { setShowSide } = useContext(CalendarContext)
+    const { setShowSide, setCurrentEvent, setCurrCat} = useContext(CalendarContext)
+
+    const handleSideCancel = () =>{
+        setShowSide(false)
+        setCurrentEvent('')
+        setCurrCat('all')
+    }
+
 
     return (
+        <div className="sidebar-outer">
         <div className="sidebar-container">
-            <div className="sidebar-cancel-bttn" onClick={() => setShowSide(false)}>
+            <div className="sidebar-cancel-bttn" onClick={handleSideCancel}>
                 <button className="arrow-button" >
                     {right ?
                         <i className="fa-solid fa-angles-right"></i>
@@ -31,7 +40,10 @@ const Sidebar = ({ right, setRight, setShowCal, showEditEvent, setShowEditEvent}
             <div>
                 <EventDetails showEditEvent={showEditEvent} setShowEditEvent={setShowEditEvent}/>
             </div>
+
         </div>
+         <ListCategory />
+            </div>
     )
 }
 
