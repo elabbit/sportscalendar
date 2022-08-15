@@ -59,10 +59,10 @@ Figuring out how to create a calendar was tough. Manipulating date and time requ
 1. Clone this repository (only this branch)
 
    ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
+   git clone https://github.com/elabbit/sportscalendar.git
    ```
 
-2. Install dependencies
+2. Install dependenciesc
 
       ```bash
       pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
@@ -167,7 +167,7 @@ each of the following variables:
 
 7. Push to your `main` branch! This will trigger the Github Action to build your Docker image and deploy your application to the Heroku container registry. Please note that the Github Action will automatically upgrade your production database with `flask db upgrade`. However, it will *not* automatically seed your database. You must manually seed your production database if/when you so choose (see step 8).
 
-8. *Attention!* Please run this command *only if you wish to seed your production database*: `heroku run -a HEROKU_APP_NAME flask seed all`
+8. *Attention!* Please run this command *only if you wish to seed your production database*: `heroku run -a sportscalendar-jade flask seed all`
 
 ## Helpful commands
 |    Command            |    Purpose    |

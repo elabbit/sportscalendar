@@ -3,11 +3,13 @@
     justify-content: center;
     margin: auto;
     position: relative;
-    margin-top:40px;
+    margin-top: 40px;
+
 }
 
 .splash-container {
     position: absolute;
+    z-index:1;
 }
 
 .splash-form {
@@ -15,4 +17,54 @@
     width: 200px;
     right: 174px;
     top: 210px;
+    z-index: 3;
+}
+
+.splash-img {
+    position: absolute;
+}
+
+.fade-none {
+    opacity: 0;
+}
+
+.fade-out {
+    opacity: 0;
+    -webkit-transition: opacity 1.5s ease-out;
+    transition: opacity 1.5s ease-out;
+    visibility: visible;
+
+}
+
+.fade-in {
+    opacity: 1;
+    -webkit-transition: opacity 1.5s ease-in;
+    transition: opacity 1.5s ease-in;
+    z-index: 2;
+    visibility: visible;
+}
+
+.one {
+    top: 63px;
+    left: 170px;
+
+}
+
+.two {
+    width: 719px;
+    top: 67px;
+    left: 168px;
+
+}
+
+.three {
+    width: 720px;
+    top: 67px;
+    left: 167px;
+}
+
+
+.splash-temp{
+    position: relative;
+    z-index:3;
 }
