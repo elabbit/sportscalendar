@@ -56,7 +56,8 @@ const ListCategory = () => {
                 const filtered = filterArr.filter((eve) => (eve.category === currCat))
                 setEveList(filtered.splice(0, 10))
             }
-        }
+            if(startInd < 0) setEveList([])
+         }
 
     }, [currentCalendar, currentEvent, currCat, currentOffset])
 

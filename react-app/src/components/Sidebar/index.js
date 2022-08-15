@@ -6,7 +6,7 @@ import EventDetails from "../EventDetails"
 import FetchSports from "../FetchSportsModal"
 import ListCategory from "../ListCategory/index.js"
 import AddEventModal from "../AddEventModal"
-import dayjs from 'dayjs'
+
 const Sidebar = ({ right, setRight, setShowCal, showEditEvent, setShowEditEvent}) => {
     const { setShowSide, setCurrentEvent, setCurrCat} = useContext(CalendarContext)
 
