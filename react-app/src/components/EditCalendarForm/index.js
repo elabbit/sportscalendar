@@ -19,6 +19,11 @@ const EditCalendarForm = ({ setShowEditForm, calendars, calendar }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if(!title.trim().length){
+            setErrors([`Please enter a title.`])
+            setShowErrorModal(true)
+            return
+        }
         if (title !== calendar.title && Object.values(calendars).findIndex((cal) => (cal.title === title)) > -1) {
             setErrors([`Already have a calendar named ${title}!`])
             setShowErrorModal(true)

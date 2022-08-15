@@ -4,6 +4,7 @@ import { editEvent } from "../../store/calendars";
 import "./EditEventForm.css"
 import CalendarContext from "../../context/CalendarContext";
 import dayjs from "dayjs";
+import ErrorModal from '../ErrorModal';
 
 const EditEventForm = ({ hideForm, event }) => {
     const { setCurrentCalendar, setCurrentEvent, currentOffset } = useContext(CalendarContext);
@@ -14,11 +15,19 @@ const EditEventForm = ({ hideForm, event }) => {
     const [startDate, setStartDate] = useState(dayjs(event.startDate).add(currentOffset, "hour").format("YYYY-MM-DD"));
     const [startTime, setStartTime] = useState(event.startTime === "None" ? '' : event.startTime);
     const [color, setColor] = useState(event.color);
+    const [errors, setErrors] = useState([]);
+    const [showErrorModal, setShowErrorModal] = useState(false)
 
     const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!title.trim().length) {
+            setErrors([`Please enter a title.`])
+            setShowErrorModal(true)
+            return
+        }
+
         let newStartTime = undefined;
         if (startTime !== '' && startTime !== "None") {
             let editStartTime = startTime;
@@ -39,6 +48,7 @@ const EditEventForm = ({ hideForm, event }) => {
 
     return (
         <div className="edit-event-container">
+            <ErrorModal hideModal={() => setShowErrorModal(false)} showModal={showErrorModal} validationErrors={errors} />
             <form className="edit-event-form" onSubmit={handleSubmit}>
                 <div className="edit-event-header" style={{borderBottom:`3px solid ${color}`}}>Edit Event</div>
                 <input

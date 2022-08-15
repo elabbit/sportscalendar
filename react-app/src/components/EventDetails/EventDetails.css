@@ -9,7 +9,22 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    overflow: auto;
+    max-height:350px;
 }
+
+
+.side-event-container::-webkit-scrollbar {
+    width: 12px;
+    background: #adc9cd;
+}
+
+.side-event-container::-webkit-scrollbar-thumb {
+    background: #015d67;
+    -webkit-border-radius: 1ex;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
 
 .side-event-container * {
     font-size: 15px;
@@ -34,6 +49,7 @@
 
 .side-event-category {
     font-style: italic;
+    max-width:130px;
 }
 
 .side-event-bttns {
@@ -67,7 +83,6 @@
 
 
 .eve-logo-container{
-
     display: flex;
     justify-content: center;
     align-items: center;

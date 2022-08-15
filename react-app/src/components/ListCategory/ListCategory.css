@@ -1,23 +1,25 @@
 .cat-container {
     background-color: transparent;
-    height: 100%;
     margin: 10px;
     margin-bottom: 25px;
-    max-height: 391px;
-    min-height: 150px;
     border-radius: 2px;
     padding: 15px 10px;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    height: 100%;
+
+    max-height: 382px;
+    min-height: 200px;
 }
 
-.cat-container select{
-border: none;
-padding:4px;
-border-radius: 3px;
+.cat-container select {
+    border: none;
+    padding: 4px;
+    border-radius: 3px;
 }
-.cat-container select:hover{
+
+.cat-container select:hover {
     cursor: pointer;
 }
 
@@ -26,7 +28,7 @@ border-radius: 3px;
     font-size: 15px;
     display: flex;
     justify-content: center;
-    padding:2px;
+    padding: 2px;
 }
 
 .cat-list-events {
@@ -36,9 +38,10 @@ border-radius: 3px;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    margin-right:-5px;
-    padding-bottom:5px;
+    margin-right: -5px;
+    padding-bottom: 5px;
 }
+
 .cat-list-events::-webkit-scrollbar {
     width: 12px;
     background: #adc9cd;
@@ -56,7 +59,8 @@ border-radius: 3px;
     padding-bottom: 2px;
     border-bottom: 1px solid grey;
 }
-.cat-item-inner:hover{
+
+.cat-item-inner:hover {
     opacity: .6;
 }
 

@@ -100,6 +100,7 @@ height:26px;
 padding:2px 8px;
 border-radius: 4px;
 cursor: pointer;
+max-width:200px;
 }
 
 .sports-footer button{
