@@ -28,11 +28,11 @@ const FetchSports = ({ hideModal }) => {
         }
     }, [calendars, currentCalendar, setCurrentCalendar])
 
-    const checkStartTime =  (startTime) => {
-        if(startTime === null){
+    const checkStartTime = (startTime) => {
+        if (startTime === null) {
             return undefined
         }
-        return  dayjs(startTime).subtract(currentOffset - 4, 'hour').format("HH:mm")
+        return dayjs(startTime).subtract(currentOffset - 4, 'hour').format("HH:mm")
     }
 
 
@@ -40,10 +40,10 @@ const FetchSports = ({ hideModal }) => {
         setLoading(true)
 
         if (eventsList[0].category === "UFC" || eventsList[0].category === 'NASCAR' ||
-        eventsList[0].category === "NFL" || eventsList[0].category === "NBA") {
+            eventsList[0].category === "NFL" || eventsList[0].category === "NBA") {
             Promise.all(eventsList.map(async (event) => {
                 await dispatch(addEvent(event.title, event.description, event.location, event.category,
-                    dayjs(event.startDate).format("YYYY-MM-DD"),checkStartTime(event.startTime), color, false, event.venue, event.image, currentCalendar.id))
+                    dayjs(event.startDate).format("YYYY-MM-DD"), checkStartTime(event.startTime), color, false, event.venue, event.image, currentCalendar.id))
             }
             )).then(() => {
                 setLoading(false)
@@ -120,16 +120,16 @@ const FetchSports = ({ hideModal }) => {
                         list="presetColors"
                     />
                     <datalist id="presetColors">
-                        <option>#EC8993</option>
-                        <option>#ffb480</option>
-                        <option>#f8f38d</option>
-                        <option>#c4f581</option>
-                        <option>#87f33f</option>
-                        <option>#32EEBD</option>
-                        <option>#08cad1</option>
+                        <option>#FFADAD</option>
+                        <option>#FFD6A5</option>
+                        <option>#FDFFB6</option>
+                        <option>#CAFFBF</option>
+                        <option>#98F5E1</option>
+                        <option>#9BF6FF</option>
+                        <option>#A0C4FF</option>
+                        <option>#BDB2FF</option>
+                        <option>#FFC6FF</option>
                         <option>#adc9cd</option>
-                        <option>#00C7FC</option>
-                        <option>#9d94ff</option>
                     </datalist>
                     <div className="add-eve-load">
                         {!loading ?

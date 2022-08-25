@@ -7,30 +7,23 @@ from app.models import db, User, Calendar, Event
 def seed_users():
     demo = User(
         username='Demo', email='demo@email.com', password='password')
-    labbit = User(
-        username='labbit', email='xeddieee@gmail.com', password='password')
 
     db.session.add(demo)
-    db.session.add(labbit)
     db.session.commit()
 
     calendar1 = Calendar(
-        title="Demo's Calendar", description="appointments, reminders, and other important dates!", userId=1
+        title="Demo's Calendar", description="appointments, reminders, and other important dates!", userId=1, background=1
     )
     calendar2 = Calendar(
-        title="Gym Classes", description="Yoga and fitness classes at Movement Boulder and MMA classes from Easton Training Center.", userId=1
+        title="Gym Classes", description="Yoga and fitness classes at Movement Boulder and MMA classes from Easton Training Center.", userId=1, background=2
     )
     calendar3 = Calendar(
-        title="Fitness Tracker", description="Do you even lift bro?", userId=1
-    )
-    calendar4 = Calendar(
-        title="App Academy Schedule", description="Mod 7. Last mod, best mod.", userId=1
+        title="Fitness Tracker", description="Do you even lift bro?", userId=1, background=3
     )
 
     db.session.add(calendar1)
     db.session.add(calendar2)
     db.session.add(calendar3)
-    db.session.add(calendar4)
     db.session.commit()
 
 
@@ -53,7 +46,7 @@ def seed_users():
         startTime="17:00:00",
         userId=1,
         calendarId=1,
-        color="#32EEBD"
+        color="#9BF6FF"
     )
     event3= Event(
         title="Lynn's birthday",
@@ -63,7 +56,7 @@ def seed_users():
         startDate="2022-07-21",
         userId=1,
         calendarId=1,
-        color="#ffb480"
+        color="#FFD6A5"
     )
     event4= Event(
         title="group project due",
@@ -73,7 +66,7 @@ def seed_users():
         startDate="2022-07-25",
         userId=1,
         calendarId=1,
-        color="#00C7FC"
+        color="#BDB2FF"
     )
     event5= Event(
         title="passport renewal",
@@ -84,7 +77,7 @@ def seed_users():
         startTime="12:00:00",
         userId=1,
         calendarId=1,
-        color="#c4f581"
+        color="#CAFFBF"
     )
     event6= Event(
         title="dental cleaning",
@@ -95,7 +88,7 @@ def seed_users():
         startTime="10:00:00",
         userId=1,
         calendarId=1,
-        color="#08cad1"
+        color="#A0C4FF"
     )
     event7= Event(
         title="Abel's birthday dinner",
@@ -106,7 +99,7 @@ def seed_users():
         startTime="06:00:00",
         userId=1,
         calendarId=1,
-        color="#ffb480"
+        color="#FFD6A5"
     )
     event8= Event(
         title="golf",
@@ -117,7 +110,7 @@ def seed_users():
         startTime="13:00:00",
         userId=1,
         calendarId=1,
-        color="#f8f38d"
+        color="#FDFFB6"
     )
     event9= Event(
         title="transmission repair",
@@ -128,7 +121,7 @@ def seed_users():
         startTime="09:00:00",
         userId=1,
         calendarId=1,
-        color="#32EEBD"
+        color="#9BF6FF"
     )
     event10= Event(
         title="vaccine shot",
@@ -139,7 +132,7 @@ def seed_users():
         startTime="15:00:00",
         userId=1,
         calendarId=1,
-        color="#08cad1"
+        color="#A0C4FF"
     )
     event11= Event(
         title="car shopping",
@@ -149,7 +142,7 @@ def seed_users():
         startDate="2022-08-13",
         userId=1,
         calendarId=1,
-        color="#87f33f"
+        color="#98F5E1"
     )
     event12= Event(
         title="movie",
@@ -160,7 +153,7 @@ def seed_users():
         startTime="19:00:00",
         userId=1,
         calendarId=1,
-        color="#f8f38d"
+        color="#FDFFB6"
     )
     event13= Event(
         title="capstone project due",
@@ -170,7 +163,7 @@ def seed_users():
         startDate="2022-08-15",
         userId=1,
         calendarId=1,
-        color="#00C7FC"
+        color="#BDB2FF"
     )
     event14= Event(
         title="date night",
@@ -181,7 +174,7 @@ def seed_users():
         startTime="18:00:00",
         userId=1,
         calendarId=1,
-        color="#EC8993"
+        color="#FFADAD"
     )
     event15= Event(
         title="MTG night",
@@ -191,7 +184,7 @@ def seed_users():
         startDate="2022-08-18",
         userId=1,
         calendarId=1,
-        color="#9d94ff"
+        color="#FFC6FF"
     )
     event16= Event(
         title="license renewal",
@@ -202,7 +195,7 @@ def seed_users():
         startTime="13:00:00",
         userId=1,
         calendarId=1,
-        color="#c4f581"
+        color="#CAFFBF"
     )
     event17= Event(
         title="Jonathan's birthday",
@@ -212,7 +205,7 @@ def seed_users():
         startDate="2022-08-21",
         userId=1,
         calendarId=1,
-        color="#ffb480"
+        color="#FFD6A5"
     )
     event18= Event(
         title="lunch with friends",
@@ -223,7 +216,7 @@ def seed_users():
         startTime="13:00:00",
         userId=1,
         calendarId=1,
-        color="#87f33f"
+        color="#98F5E1"
     )
     event19= Event(
         title="date night",
@@ -234,7 +227,7 @@ def seed_users():
         startTime="18:00:00",
         userId=1,
         calendarId=1,
-        color="#EC8993"
+        color="#FFADAD"
     )
     event20= Event(
         title="hiking",
@@ -245,7 +238,7 @@ def seed_users():
         startTime="19:00:00",
         userId=1,
         calendarId=1,
-        color="#f8f38d"
+        color="#FDFFB6"
     )
     event21= Event(
         title="new tires",
@@ -256,7 +249,7 @@ def seed_users():
         startTime="13:30:00",
         userId=1,
         calendarId=1,
-        color="#32EEBD"
+        color="#9BF6FF"
     )
     event22= Event(
         title="GRADUATION!",
@@ -266,7 +259,7 @@ def seed_users():
         startDate="2022-08-26",
         userId=1,
         calendarId=1,
-        color="#00C7FC"
+        color="#BDB2FF"
     )
     event23= Event(
         title="party time",
@@ -276,7 +269,7 @@ def seed_users():
         startDate="2022-08-27",
         userId=1,
         calendarId=1,
-        color="#87f33f"
+        color="#98F5E1"
     )
     event24= Event(
         title="MTG night",
@@ -286,7 +279,7 @@ def seed_users():
         startDate="2022-08-29",
         userId=1,
         calendarId=1,
-        color="#9d94ff"
+        color="#FFC6FF"
     )
     event25= Event(
         title="doctor check up",
@@ -297,7 +290,7 @@ def seed_users():
         startTime="14:30:00",
         userId=1,
         calendarId=1,
-        color="#08cad1"
+        color="#A0C4FF"
     )
     event26= Event(
         title="Labor Day",
@@ -318,7 +311,7 @@ def seed_users():
         startTime="13:00:00",
         userId=1,
         calendarId=1,
-        color="#f8f38d"
+        color="#FDFFB6"
     )
     event28= Event(
         title="David's birthday",
@@ -328,7 +321,7 @@ def seed_users():
         startDate="2022-09-21",
         userId=1,
         calendarId=1,
-        color="#ffb480"
+        color="#FFD6A5"
     )
     event29= Event(
         title="date night",
@@ -339,7 +332,7 @@ def seed_users():
         startTime="18:30:00",
         userId=1,
         calendarId=1,
-        color="#EC8993"
+        color="#FFADAD"
     )
 
     db.session.add(event1)
@@ -382,7 +375,7 @@ def seed_users():
         startTime="18:30:00",
         userId=1,
         calendarId=2,
-        color="#9d94ff"
+        color="#FFADAD"
     )
     event31= Event(
         title="Kickboxing",
@@ -393,7 +386,7 @@ def seed_users():
         startTime="17:30:00",
         userId=1,
         calendarId=2,
-        color="#32EEBD"
+        color="#FFD6A5"
     )
     event32= Event(
         title="Vinyasa Flow",
@@ -404,7 +397,7 @@ def seed_users():
         startTime="17:30:00",
         userId=1,
         calendarId=2,
-        color="#00C7FC"
+        color="#CAFFBF"
     )
     event33= Event(
         title="Alpine Fit",
@@ -415,7 +408,7 @@ def seed_users():
         startTime="17:30:00",
         userId=1,
         calendarId=2,
-        color="#87f33f"
+        color="#A0C4FF"
     )
     event34= Event(
         title="Muay Thai",
@@ -426,7 +419,7 @@ def seed_users():
         startTime="11:30:00",
         userId=1,
         calendarId=2,
-        color="#08cad1"
+        color="#BDB2FF"
     )
     event35= Event(
         title="Power Flow",
@@ -437,7 +430,7 @@ def seed_users():
         startTime="18:30:00",
         userId=1,
         calendarId=2,
-        color="#9d94ff"
+        color="#FFADAD"
     )
     event36= Event(
         title="Kickboxing",
@@ -448,7 +441,7 @@ def seed_users():
         startTime="17:30:00",
         userId=1,
         calendarId=2,
-        color="#32EEBD"
+        color="#FFD6A5"
     )
     event37= Event(
         title="Vinyasa Flow",
@@ -459,7 +452,7 @@ def seed_users():
         startTime="17:30:00",
         userId=1,
         calendarId=2,
-        color="#00C7FC"
+        color="#CAFFBF"
     )
     event38= Event(
         title="Alpine Fit",
@@ -470,7 +463,7 @@ def seed_users():
         startTime="17:30:00",
         userId=1,
         calendarId=2,
-        color="#87f33f"
+        color="#A0C4FF"
     )
     event39= Event(
         title="Muay Thai",
@@ -481,7 +474,7 @@ def seed_users():
         startTime="11:30:00",
         userId=1,
         calendarId=2,
-        color="#08cad1"
+        color="#BDB2FF"
     )
     event40= Event(
         title="Power Flow",
@@ -492,7 +485,7 @@ def seed_users():
         startTime="18:30:00",
         userId=1,
         calendarId=2,
-        color="#9d94ff"
+        color="#FFADAD"
     )
     event41= Event(
         title="Kickboxing",
@@ -503,7 +496,7 @@ def seed_users():
         startTime="17:30:00",
         userId=1,
         calendarId=2,
-        color="#32EEBD"
+        color="#FFD6A5"
     )
     event42= Event(
         title="Vinyasa Flow",
@@ -514,7 +507,7 @@ def seed_users():
         startTime="17:30:00",
         userId=1,
         calendarId=2,
-        color="#00C7FC"
+        color="#CAFFBF"
     )
     event43= Event(
         title="Alpine Fit",
@@ -525,7 +518,7 @@ def seed_users():
         startTime="17:30:00",
         userId=1,
         calendarId=2,
-        color="#87f33f"
+        color="#A0C4FF"
     )
     event44= Event(
         title="Muay Thai",
@@ -536,7 +529,7 @@ def seed_users():
         startTime="11:30:00",
         userId=1,
         calendarId=2,
-        color="#08cad1"
+        color="#BDB2FF"
     )
     event45= Event(
         title="Power Flow",
@@ -547,7 +540,7 @@ def seed_users():
         startTime="18:30:00",
         userId=1,
         calendarId=2,
-        color="#9d94ff"
+        color="#FFADAD"
     )
     event46= Event(
         title="Kickboxing",
@@ -558,7 +551,7 @@ def seed_users():
         startTime="17:30:00",
         userId=1,
         calendarId=2,
-        color="#32EEBD"
+        color="#FFD6A5"
     )
     event47= Event(
         title="Vinyasa Flow",
@@ -569,7 +562,7 @@ def seed_users():
         startTime="17:30:00",
         userId=1,
         calendarId=2,
-        color="#00C7FC"
+        color="#CAFFBF"
     )
     event48= Event(
         title="Alpine Fit",
@@ -580,7 +573,7 @@ def seed_users():
         startTime="17:30:00",
         userId=1,
         calendarId=2,
-        color="#87f33f"
+        color="#A0C4FF"
     )
     event49= Event(
         title="Muay Thai",
@@ -591,7 +584,7 @@ def seed_users():
         startTime="11:30:00",
         userId=1,
         calendarId=2,
-        color="#08cad1"
+        color="#BDB2FF"
     )
     event50= Event(
         title="Power Flow",
@@ -602,7 +595,7 @@ def seed_users():
         startTime="18:30:00",
         userId=1,
         calendarId=2,
-        color="#9d94ff"
+        color="#FFADAD"
     )
     event51= Event(
         title="Kickboxing",
@@ -613,7 +606,7 @@ def seed_users():
         startTime="17:30:00",
         userId=1,
         calendarId=2,
-        color="#32EEBD"
+        color="#FFD6A5"
     )
     event52= Event(
         title="Vinyasa Flow",
@@ -624,7 +617,7 @@ def seed_users():
         startTime="17:30:00",
         userId=1,
         calendarId=2,
-        color="#00C7FC"
+        color="#CAFFBF"
     )
 
     db.session.add(event30)
@@ -660,7 +653,7 @@ def seed_users():
         startDate="2022-08-01",
         userId=1,
         calendarId=3,
-        color="#EC8993"
+        color="#98F5E1"
     )
     event54= Event(
         title="chest/shoulder/tricep",
@@ -670,7 +663,7 @@ def seed_users():
         startDate="2022-08-02",
         userId=1,
         calendarId=3,
-        color="#ffb480"
+        color="#98F5E1"
     )
     event55= Event(
         title="campusboard",
@@ -680,7 +673,7 @@ def seed_users():
         startDate="2022-08-03",
         userId=1,
         calendarId=3,
-        color="#f8f38d"
+        color="#98F5E1"
     )
     event56= Event(
         title="back/bicep",
@@ -690,7 +683,7 @@ def seed_users():
         startDate="2022-08-04",
         userId=1,
         calendarId=3,
-        color="#c4f581"
+        color="#98F5E1"
     )
     event57= Event(
         title="leg day",
@@ -700,7 +693,7 @@ def seed_users():
         startDate="2022-08-05",
         userId=1,
         calendarId=3,
-        color="#adc9cd"
+        color="#98F5E1"
     )
     event58= Event(
         title="core",
@@ -710,7 +703,7 @@ def seed_users():
         startDate="2022-08-06",
         userId=1,
         calendarId=3,
-        color="#9d94ff"
+        color="#98F5E1"
     )
     event59= Event(
         title="hangboard",
@@ -720,7 +713,7 @@ def seed_users():
         startDate="2022-08-08",
         userId=1,
         calendarId=3,
-        color="#EC8993"
+        color="#98F5E1"
     )
     event60= Event(
         title="chest/shoulder/tricep",
@@ -730,7 +723,7 @@ def seed_users():
         startDate="2022-08-09",
         userId=1,
         calendarId=3,
-        color="#ffb480"
+        color="#98F5E1"
     )
     event61= Event(
         title="campusboard",
@@ -740,7 +733,7 @@ def seed_users():
         startDate="2022-08-10",
         userId=1,
         calendarId=3,
-        color="#f8f38d"
+        color="#98F5E1"
     )
     event62= Event(
         title="back/bicep",
@@ -750,7 +743,7 @@ def seed_users():
         startDate="2022-08-11",
         userId=1,
         calendarId=3,
-        color="#c4f581"
+        color="#98F5E1"
     )
     event63= Event(
         title="leg day",
@@ -760,7 +753,7 @@ def seed_users():
         startDate="2022-08-12",
         userId=1,
         calendarId=3,
-        color="#adc9cd"
+        color="#98F5E1"
     )
     event64= Event(
         title="core",
@@ -770,7 +763,107 @@ def seed_users():
         startDate="2022-08-13",
         userId=1,
         calendarId=3,
-        color="#9d94ff"
+        color="#98F5E1"
+    )
+    event65= Event(
+        title="hangboard",
+        description="15mm 30lbs 5x10s max hangs",
+        location="",
+        category="climbing",
+        startDate="2022-08-15",
+        userId=1,
+        calendarId=3,
+        color="#98F5E1"
+    )
+    event66= Event(
+        title="chest/shoulder/tricep",
+        description="5x5 150lbs bench, 5x5 150lbs incline bench, 5x5 80lbs military press, 3x10 15lb dumbbell lateral raises, 3x15 35lbs skullcrushers",
+        location="",
+        category="lifting",
+        startDate="2022-08-16",
+        userId=1,
+        calendarId=3,
+        color="#98F5E1"
+    )
+    event67= Event(
+        title="campusboard",
+        description="2x ladders, 2x ladder skips, 2x6 bumps, 2x power pulls",
+        location="",
+        category="climbing",
+        startDate="2022-08-17",
+        userId=1,
+        calendarId=3,
+        color="#98F5E1"
+    )
+    event68= Event(
+        title="back/bicep",
+        description="5x5 180lbs deadlift, 3x10 40lbs dumbbell row, 3x10 25lbs bicep curls, 3x10 25lb hammer curls",
+        location="",
+        category="lifting",
+        startDate="2022-08-18",
+        userId=1,
+        calendarId=3,
+        color="#98F5E1"
+    )
+    event69= Event(
+        title="leg day",
+        description="5x5 180lbs squat, 3x10 80lbs bulgarian split squat, 3x10 90lbs calf raises",
+        location="",
+        category="lifting",
+        startDate="2022-08-19",
+        userId=1,
+        calendarId=3,
+        color="#98F5E1"
+    )
+    event70= Event(
+        title="core",
+        description="3 sets(20 v-ups, 10 toe-to-bars, 40 russian twists, 1 min plank)",
+        location="",
+        category="fitness",
+        startDate="2022-08-20",
+        userId=1,
+        calendarId=3,
+        color="#98F5E1"
+    )
+    event71= Event(
+        title="hangboard",
+        description="15mm 30lbs 5x10s max hangs",
+        location="",
+        category="climbing",
+        startDate="2022-08-22",
+        userId=1,
+        calendarId=3,
+        color="#98F5E1"
+    )
+    event72= Event(
+        title="chest/shoulder/tricep",
+        description="5x5 150lbs bench, 5x5 150lbs incline bench, 5x5 80lbs military press, 3x10 15lb dumbbell lateral raises, 3x15 35lbs skullcrushers",
+        location="",
+        category="lifting",
+        startDate="2022-08-23",
+        userId=1,
+        calendarId=3,
+        color="#98F5E1"
+    )
+    event73= Event(
+        title="campusboard",
+        description="2x ladders, 2x ladder skips, 2x6 bumps, 2x power pulls",
+        location="",
+        category="climbing",
+        startDate="2022-08-24",
+        userId=1,
+        calendarId=3,
+        color="#98F5E1"
+    )
+    event74= Event(
+        title="back/bicep",
+        description="5x5 180lbs deadlift, 3x10 40lbs dumbbell row, 3x10 25lbs bicep curls, 3x10 25lb hammer curls",
+        location="",
+        category="lifting",
+        startDate="2022-08-25",
+        userId=1,
+        calendarId=3,
+        color="#98F5E1"
     )
 
     db.session.add(event53)
@@ -785,130 +878,6 @@ def seed_users():
     db.session.add(event62)
     db.session.add(event63)
     db.session.add(event64)
-    db.session.commit()
-
-    event65= Event(
-        title="Welcome to Mod 7 Pt. 1",
-        description="",
-        location="",
-        category="live lecture",
-        startDate="2022-08-01",
-        startTime="11:00:00",
-        userId=1,
-        calendarId=4,
-        color="#EC8993"
-    )
-    event66= Event(
-        title="Mod 7 Pt. 2",
-        description="",
-        location="",
-        category="live lecture",
-        startDate="2022-08-15",
-        startTime="13:30:00",
-        userId=1,
-        calendarId=4,
-        color="#EC8993"
-    )
-    event67= Event(
-        title="The Resume",
-        description="",
-        location="",
-        category="live lecture",
-        startDate="2022-08-15",
-        startTime="14:00:00",
-        userId=1,
-        calendarId=4,
-        color="#EC8993"
-    )
-    event68= Event(
-        title="The Personal Pitch",
-        description="",
-        location="",
-        category="live lecture",
-        startDate="2022-08-16",
-        startTime="09:15:00",
-        userId=1,
-        calendarId=4,
-        color="#EC8993"
-    )
-    event69= Event(
-        title="Online Presence",
-        description="",
-        location="",
-        category="live lecture",
-        startDate="2022-08-17",
-        startTime="09:15:00",
-        userId=1,
-        calendarId=4,
-        color="#EC8993"
-    )
-    event70= Event(
-        title="Non-Technical Interviews",
-        description="",
-        location="",
-        category="live lecture",
-        startDate="2022-08-18",
-        startTime="09:15:00",
-        userId=1,
-        calendarId=4,
-        color="#EC8993"
-    )
-    event71= Event(
-        title="Applying Approaches",
-        description="",
-        location="",
-        category="live lecture",
-        startDate="2022-08-18",
-        startTime="13:30:00",
-        userId=1,
-        calendarId=4,
-        color="#EC8993"
-    )
-    event72= Event(
-        title="Technical Interviewing",
-        description="",
-        location="",
-        category="live lecture",
-        startDate="2022-08-22",
-        startTime="09:15:00",
-        userId=1,
-        calendarId=4,
-        color="#EC8993"
-    )
-    event73= Event(
-        title="Preparing for an Onsite",
-        description="",
-        location="",
-        category="live lecture",
-        startDate="2022-08-23",
-        startTime="09:15:00",
-        userId=1,
-        calendarId=4,
-        color="#EC8993"
-    )
-    event74= Event(
-        title="System Design",
-        description="",
-        location="",
-        category="live lecture",
-        startDate="2022-08-23",
-        startTime="01:30:00",
-        userId=1,
-        calendarId=4,
-        color="#EC8993"
-    )
-    event75= Event(
-        title="Moving Forward",
-        description="",
-        location="",
-        category="live lecture",
-        startDate="2022-08-26",
-        startTime="01:30:00",
-        userId=1,
-        calendarId=4,
-        color="#EC8993"
-    )
-
     db.session.add(event65)
     db.session.add(event66)
     db.session.add(event67)
@@ -919,7 +888,6 @@ def seed_users():
     db.session.add(event72)
     db.session.add(event73)
     db.session.add(event74)
-    db.session.add(event75)
     db.session.commit()
 
 

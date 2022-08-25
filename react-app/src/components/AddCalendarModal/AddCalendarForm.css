@@ -53,6 +53,18 @@
     gap: 5px;
 }
 
+.add-cal-bg{
+    padding-left:5px;
+}
+
+#bg-select{
+background-color:#d5e4e6;
+width:138px;
+border:none;
+padding:4px;
+border-radius: 4px;
+}
+
 .add-cal-tog-bttns {
     padding-left:5px;
     display: flex;

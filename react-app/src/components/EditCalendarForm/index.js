@@ -12,6 +12,7 @@ const EditCalendarForm = ({ setShowEditForm, calendars, calendar }) => {
     const { setCurrentCalendar } = useContext(CalendarContext)
     const [title, setTitle] = useState(calendar.title);
     const [description, setDescription] = useState(calendar.description || '');
+    const [background, setBackground] = useState(calendar.background)
     const [def, setDef] = useState(calendar.default)
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
@@ -31,7 +32,7 @@ const EditCalendarForm = ({ setShowEditForm, calendars, calendar }) => {
         }
 
         const calendarId = calendar.id;
-        const data = await dispatch(editCalendar(title, description, def, calendarId));
+        const data = await dispatch(editCalendar(title, description, def, background, calendarId));
         if (data) {
             setCurrentCalendar(data)
             setShowEditForm(false);

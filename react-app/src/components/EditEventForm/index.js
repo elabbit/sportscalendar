@@ -50,7 +50,7 @@ const EditEventForm = ({ hideForm, event }) => {
         <div className="edit-event-container">
             <ErrorModal hideModal={() => setShowErrorModal(false)} showModal={showErrorModal} validationErrors={errors} />
             <form className="edit-event-form" onSubmit={handleSubmit}>
-                <div className="edit-event-header" style={{borderBottom:`3px solid ${color}`}}>Edit Event</div>
+                <div className="edit-event-header" style={{ borderBottom: `3px solid ${color}` }}>Edit Event</div>
                 <input
                     type='text'
                     name='title'
@@ -103,16 +103,17 @@ const EditEventForm = ({ hideForm, event }) => {
                         list="presetColors"
                     />
                     <datalist id="presetColors">
-                        <option>#EC8993</option>
-                        <option>#ffb480</option>
-                        <option>#f8f38d</option>
-                        <option>#c4f581</option>
-                        <option>#87f33f</option>
-                        <option>#32EEBD</option>
-                        <option>#08cad1</option>
+                        <option>#FFADAD</option>
+                        <option>#FFD6A5</option>
+                        <option>#FDFFB6</option>
+                        <option>#CAFFBF</option>
+                        <option>#98F5E1</option>
+                        <option>#9BF6FF</option>
+                        <option>#A0C4FF</option>
+                        <option>#BDB2FF</option>
+                        <option>#FFC6FF</option>
                         <option>#adc9cd</option>
-                        <option>#00C7FC</option>
-                        <option>#9d94ff</option>
+
                     </datalist>
                     <div className="edit-eve-bttns">
 

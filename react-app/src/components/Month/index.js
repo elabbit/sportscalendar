@@ -4,8 +4,9 @@ import CalendarContext from "../../context/CalendarContext";
 import Day from "../Day";
 import "./Month.css";
 
+
 const Month = ({ month, events }) => {
-    const { currentOffset } = useContext(CalendarContext)
+    const { currentOffset, currentCalendar } = useContext(CalendarContext)
 
     const eventsProp = (events, day) => {
         return Object.values(events).filter((event) => (dayjs(event.startDate).add(currentOffset, 'hour').format("DD-MM-YY") === day.format("DD-MM-YY")));
@@ -22,7 +23,10 @@ const Month = ({ month, events }) => {
                 <div>FRI</div>
                 <div>SAT</div>
             </div>
+
             <div className="month-container">
+                <div className="bg-conatiner" style={currentCalendar.background ? {backgroundImage: `url('/images/bg${currentCalendar.background}.png')`} : null}>
+                </div>
                 {month.map((row, i) => (
                     <React.Fragment key={i}>
                         {
@@ -32,6 +36,7 @@ const Month = ({ month, events }) => {
                         }
                     </React.Fragment>
                 ))}
+
             </div>
         </div>
     )

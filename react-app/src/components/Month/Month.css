@@ -1,19 +1,32 @@
-
-.month-outer{
-margin-top:10px;
-display: flex;
-flex-direction: column;
-gap:5px;
+.month-outer {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 
 }
 
 .month-container {
     display: grid;
+    position: relative;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(5, 1fr);
     border: 1px solid #adc9cd;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
+}
+
+.bg-conatiner {
+    background-position: center;
+    content: "";
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: .3;
+    z-index: -1;
 }
 
 
@@ -22,14 +35,14 @@ gap:5px;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     background-color: #adc9cd;
-    padding:6px;
-    margin-bottom:-5px;
+    padding: 6px;
+    margin-bottom: -5px;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
 
-
 }
-.month-weekdays div{
+
+.month-weekdays div {
     word-break: break-all;
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -37,5 +50,5 @@ gap:5px;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
-    font-weight:530;
+    font-weight: 530;
 }

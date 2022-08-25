@@ -29,6 +29,7 @@ def add_calendar():
             title=form.data['title'],
             description=form.data['description'],
             default=form.data['defcal'],
+            background=form.data['background'],
             userId=current_user.id
         )
         db.session.add(calendar)
@@ -57,6 +58,9 @@ def edit_calendar(calendarId):
         db.session.commit()
 
         editedCal.default=form.data['defcal']
+        db.session.commit()
+
+        editedCal.background=form.data['background']
         db.session.commit()
 
         return editedCal.to_dict()

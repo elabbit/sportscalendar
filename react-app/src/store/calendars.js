@@ -31,14 +31,14 @@ export const getCalendars = () => async (dispatch) => {
 
 }
 
-export const addCalendar = (title, description, defcal) => async (dispatch) => {
+export const addCalendar = (title, description, defcal, background) => async (dispatch) => {
     const response = await fetch('/api/calendars/new', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            title, description, defcal
+            title, description, defcal, background
         }),
     })
 
@@ -49,7 +49,7 @@ export const addCalendar = (title, description, defcal) => async (dispatch) => {
     }
 }
 
-export const editCalendar = (title, description, defcal, calendarId) => async (dispatch) => {
+export const editCalendar = (title, description, defcal, background, calendarId) => async (dispatch) => {
     const response = await fetch(`/api/calendars/edit/${calendarId}`, {
         method: 'PUT',
         headers: {
