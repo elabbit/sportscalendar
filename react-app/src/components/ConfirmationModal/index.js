@@ -8,8 +8,6 @@ function ConfirmationModal({ hideModal, showModal, eventsNumber, selectedTitle, 
         setAddList([]);
     }
 
-
-
     return (
         <>
             {showModal && (

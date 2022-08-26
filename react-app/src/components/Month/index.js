@@ -16,9 +16,11 @@ const Month = ({ month, events }) => {
     const imageUrl = (num) => {
         if(num === 1) return "https://instaspambucket.s3.amazonaws.com/42181ffe30d443078dd00aa64a6e3e11.png"
         else if(num === 2) return "https://instaspambucket.s3.amazonaws.com/1ef163f544ff4048899526e0078beb41.png"
-        else if(num ===3) return "https://instaspambucket.s3.amazonaws.com/10129fb2ad2546aabe49c99fea0b786a.png"
+        else if(num === 3) return "https://instaspambucket.s3.amazonaws.com/10129fb2ad2546aabe49c99fea0b786a.png"
+        else if(num === 4) return "https://instaspambucket.s3.amazonaws.com/07f0324e8fa44bddba20517c56a936db.png"
         else return ''
     }
+
 
     return (
         <div className="month-outer">

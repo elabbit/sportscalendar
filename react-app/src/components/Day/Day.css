@@ -35,10 +35,9 @@
 
 
 .day-event:hover{
-    box-shadow: 0 0 0 2px grey;
-
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0,0,0,.1);
 }
-
 
 
 .day-body{

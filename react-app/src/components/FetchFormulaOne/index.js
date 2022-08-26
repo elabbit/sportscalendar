@@ -30,6 +30,7 @@ const FetchFormulaOne = ({ eventsList, setEventsList }) => {
     const handleChange = (e) => {
         setType(e.target.value)
         setEventsList([])
+        setHasSubmitted(false)
     }
 
     return (

@@ -85,6 +85,7 @@ const EditCalendarForm = ({ setShowEditForm, calendars, calendar }) => {
                         <option key="bg1" value={1}>Gradient</option>
                         <option key="bg2" value={2}>Half Dome</option>
                         <option key="bg3" value={3}>Mountains</option>
+                        <option key="bg4" value={4}>Beach</option>
                     </select>
                 </div>
                 <div className="edit-cal-buttons">

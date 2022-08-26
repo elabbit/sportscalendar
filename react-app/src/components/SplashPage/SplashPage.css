@@ -45,22 +45,23 @@
 }
 
 .one {
-    top: 63px;
-    left: 170px;
+    width:712px;
+    top: 67px;
+    left: 172px;
 
 }
 
 .two {
-    width: 719px;
-    top: 67px;
-    left: 168px;
+    width: 717px;
+    top: 66px;
+    left: 172px;
 
 }
 
 .three {
     width: 720px;
-    top: 67px;
-    left: 167px;
+    top: 65px;
+    left: 170px;
 }
 
 

@@ -39,7 +39,7 @@ const SplashPage = () => {
                 setIndexThree(indexThree + 1)
             }
 
-        }, 10000)
+        }, 8000)
         return () => clearInterval(imgId);
     }, [splashImages.length, indexOne, indexTwo, indexThree]);
 

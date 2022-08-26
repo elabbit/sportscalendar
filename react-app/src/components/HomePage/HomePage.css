@@ -45,6 +45,7 @@
 }
 
 .sidebar-button {
+    margin:1px;
     border: none;
     background-color: transparent;
 }
@@ -74,6 +75,7 @@
 .spacer {
     width: 240px;
     flex-shrink: 0;
+
 }
 
 .content-container-left {
