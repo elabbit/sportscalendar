@@ -13,7 +13,7 @@ const AddCalendarForm = ({ hideModal, calendars }) => {
     const [background, setBackground] = useState(0);
     const [def, setDef] = useState(false);
     const dispatch = useDispatch();
-    const { setCurrentCalendar } = useContext(CalendarContext)
+    const { setCurrentCalendar , setCurrentEvent} = useContext(CalendarContext)
     const [errors, setErrors] = useState([]);
     const [showErrorModal, setShowErrorModal] = useState(false)
 
@@ -34,6 +34,7 @@ const AddCalendarForm = ({ hideModal, calendars }) => {
         const data = await dispatch(addCalendar(title, description, def, background));
         if (data) {
             setCurrentCalendar(data)
+            setCurrentEvent('')
             hideModal();
         }
     }
@@ -42,7 +43,6 @@ const AddCalendarForm = ({ hideModal, calendars }) => {
         e.preventDefault();
         hideModal()
     }
-
 
     return (
         <div className="add-cal-container">

@@ -56,7 +56,7 @@ export const editCalendar = (title, description, defcal, background, calendarId)
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            title, description, defcal
+            title, description, defcal, background
         }),
     })
 

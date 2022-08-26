@@ -38,7 +38,6 @@ const CalendarHeader = ({ calendars }) => {
 
     return (
             <div className="calendar-header-container">
-
                 <div className="calendar-header-left">
                     <div className="calendar-header-month">{dayjs(new Date(dayjs().year(), monthIndex)).format("MMMM YYYY")}</div>
                     <div className="cal-month-nav">

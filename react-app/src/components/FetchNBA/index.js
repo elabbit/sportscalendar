@@ -34,7 +34,7 @@ useEffect(()=>{
         <div className="formula-container">
             <div className="formula-header">
                 <img className='formula-logo' src={nbaLogo} alt='' />
-                <div className='nba-season'>Pre-Season: 22-23</div>
+                <div className='nba-season'>Season: 22-23</div>
                 <select className="nfl-team-select" onChange={(e) => setTeam(e.target.value)} value={team}>
                     <option value={"GS"}>Golden State Warriors</option>
                     <option value={"LAL"}>Los Angeles Lakers</option>

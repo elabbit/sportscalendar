@@ -12,7 +12,7 @@ const EditCalendarForm = ({ setShowEditForm, calendars, calendar }) => {
     const { setCurrentCalendar } = useContext(CalendarContext)
     const [title, setTitle] = useState(calendar.title);
     const [description, setDescription] = useState(calendar.description || '');
-    const [background, setBackground] = useState(calendar.background)
+    const [background, setBackground] = useState(calendar.background || 0)
     const [def, setDef] = useState(calendar.default)
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
@@ -20,7 +20,8 @@ const EditCalendarForm = ({ setShowEditForm, calendars, calendar }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if(!title.trim().length){
+        console.log(background)
+        if (!title.trim().length) {
             setErrors([`Please enter a title.`])
             setShowErrorModal(true)
             return
@@ -48,7 +49,7 @@ const EditCalendarForm = ({ setShowEditForm, calendars, calendar }) => {
         <form className="edit-cal-form" onSubmit={handleSubmit}>
             <ErrorModal hideModal={() => setShowErrorModal(false)} showModal={showErrorModal} validationErrors={errors} />
             <div className="edit-cal-top">
-                <div className="edit-cal-title-def">
+
                     <input
                         className="edit-cal-title"
                         type='text'
@@ -59,17 +60,15 @@ const EditCalendarForm = ({ setShowEditForm, calendars, calendar }) => {
                         maxLength="40"
                         required
                     />
-                    <Toggle
-                        checked={def}
-                        icons={false}
-                        onChange={(e) => setDef(e.target.checked)}
-                    />
-                    <div>Default?</div>
+                    <div className="edit-def-toggle">
+                    <span>Default?</span>
+                        <Toggle
+                            checked={def}
+                            icons={false}
+                            onChange={(e) => setDef(e.target.checked)}
+                        />
                 </div>
-                <div className="edit-cal-buttons">
-                    <button type='submit'><i className="fa-solid fa-check"></i></button>
-                    <button type="cancel" onClick={handleCancel}><i className="fa-solid fa-xmark"></i></button>
-                </div>
+
             </div>
             <div className="edit-cal-text-div">
                 <textarea
@@ -79,6 +78,20 @@ const EditCalendarForm = ({ setShowEditForm, calendars, calendar }) => {
                     value={description}
                     maxLength="200"
                 />
+            </div>
+            <div className="edit-bg-btns">
+                <div className='edit-cal-bg'>
+                    <select name="edit-bg-select" id="edit-bg-select" onChange={(e) => setBackground(e.target.value)} value={background}>
+                        <option key="none" value={0}>None</option>
+                        <option key="bg1" value={1}>Gradient</option>
+                        <option key="bg2" value={2}>Half Dome</option>
+                        <option key="bg3" value={3}>Mountains</option>
+                    </select>
+                </div>
+                <div className="edit-cal-buttons">
+                    <button type='submit'><i className="fa-solid fa-check"></i></button>
+                    <button type="cancel" onClick={handleCancel}><i className="fa-solid fa-xmark"></i></button>
+                </div>
             </div>
         </form>
     );
