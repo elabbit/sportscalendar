@@ -7,10 +7,11 @@ import CalendarContext from '../../context/CalendarContext';
 const LogoutButton = () => {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch()
-  const { setShowSide, setCurrentEvent, setCurrCat} = useContext(CalendarContext)
+  const { setShowSide, setCurrentEvent, setCurrCat, setCurrentCalendar} = useContext(CalendarContext)
 
   const onLogout = async (e) => {
     setShowSide(false)
+    setCurrentCalendar('')
     setCurrentEvent('')
     setCurrCat('all')
     await dispatch(logout());
