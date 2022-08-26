@@ -167,7 +167,7 @@ def get_nfl(team):
 
 def nfl_dict(event):
     return {
-        'title': f"{event['AwayTeam']} @ {event['HomeTeam']}",
+        'title': f"{event['AwayTeam']} @ {event['HomeTeam']} - Week {event['Week']}",
         'description': '',
         'category': 'NFL',
         'location': nfl_parse_location(event['StadiumDetails']),

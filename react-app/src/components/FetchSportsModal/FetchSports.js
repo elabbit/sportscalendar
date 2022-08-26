@@ -20,6 +20,8 @@ const FetchSports = ({ hideModal }) => {
     const [color, setColor] = useState('#adc9cd');
     const [loading, setLoading] = useState(false);
     const [showConfimMod, setShowConfirmMod] = useState(false);
+    const [addList, setAddList] = useState([]);
+    const [eventsNumber, setEventsNumber] = useState(0)
 
     useEffect(() => {
         if (currentCalendar) {
@@ -28,6 +30,12 @@ const FetchSports = ({ hideModal }) => {
         }
     }, [calendars, currentCalendar, setCurrentCalendar])
 
+    useEffect(() => {
+        const currEvents = currentCalendar.events.filter((eve)=>{ return eve.category === eventsList[0]?.category }).map((eve)=>{return eve.title})
+        const addArr = [...eventsList].filter((eve)=>{return !currEvents.includes(eve.title)})
+        setAddList(addArr)
+    }, [eventsList, currentCalendar.events])
+
     const checkStartTime = (startTime) => {
         if (startTime === null) {
             return undefined
@@ -35,24 +43,22 @@ const FetchSports = ({ hideModal }) => {
         return dayjs(startTime).subtract(currentOffset - 4, 'hour').format("HH:mm")
     }
 
-
     const handleAdd = () => {
         setLoading(true)
-
-        if (eventsList[0].category === "UFC" || eventsList[0].category === 'NASCAR' ||
-            eventsList[0].category === "NFL" || eventsList[0].category === "NBA") {
-            Promise.all(eventsList.map(async (event) => {
+        setEventsNumber(addList.length)
+        if (eventsList[0].category === "Formula 1") {
+            Promise.all(addList.map(async (event) => {
                 await dispatch(addEvent(event.title, event.description, event.location, event.category,
-                    dayjs(event.startDate).format("YYYY-MM-DD"), checkStartTime(event.startTime), color, false, event.venue, event.image, currentCalendar.id))
+                    dayjs(event.startDate).format("YYYY-MM-DD"), dayjs(event.startTime).format("HH:mm"), color, false, event.venue, event.image, currentCalendar.id))
             }
             )).then(() => {
                 setLoading(false)
                 setShowConfirmMod(true)
             })
         } else
-            Promise.all(eventsList.map(async (event) => {
+            Promise.all(addList.map(async (event) => {
                 await dispatch(addEvent(event.title, event.description, event.location, event.category,
-                    dayjs(event.startDate).format("YYYY-MM-DD"), dayjs(event.startTime).format("HH:mm"), color, false, event.venue, event.image, currentCalendar.id))
+                    dayjs(event.startDate).format("YYYY-MM-DD"), checkStartTime(event.startTime), color, false, event.venue, event.image, currentCalendar.id))
             }
             )).then(() => {
                 setLoading(false)
@@ -71,7 +77,7 @@ const FetchSports = ({ hideModal }) => {
 
     return (
         <>
-            <ConfirmationModal hideModal={() => setShowConfirmMod(false)} showModal={showConfimMod} eventsNumber={eventsList.length} selectedTitle={currentCalendar?.title} />
+            <ConfirmationModal hideModal={() => setShowConfirmMod(false)} showModal={showConfimMod} eventsNumber={eventsNumber} selectedTitle={currentCalendar?.title} setAddList={setAddList} />
             <div className="sports-container">
                 <div className="sports-header">
                     <h2>Find Sports Events</h2>

@@ -20,8 +20,6 @@ const Month = ({ month, events }) => {
         else return ''
     }
 
-
-
     return (
         <div className="month-outer">
             <div className="month-weekdays">

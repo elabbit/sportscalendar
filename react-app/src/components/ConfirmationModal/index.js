@@ -1,7 +1,15 @@
 import React from 'react';
 import { Modal } from '../../context/Modal';
 
-function ConfirmationModal({ hideModal, showModal, eventsNumber, selectedTitle }) {
+function ConfirmationModal({ hideModal, showModal, eventsNumber, selectedTitle, setAddList }) {
+
+    const handleClick = () => {
+        hideModal();
+        setAddList([]);
+    }
+
+
+
     return (
         <>
             {showModal && (
@@ -18,7 +26,7 @@ function ConfirmationModal({ hideModal, showModal, eventsNumber, selectedTitle }
 
                         }
                         <div className='err-mod-bttns'>
-                            <button type='submit' onClick={hideModal}><i className="fa-solid fa-check"></i></button>
+                            <button type='submit' onClick={handleClick}><i className="fa-solid fa-check"></i></button>
                         </div>
                     </div>
                 </Modal>

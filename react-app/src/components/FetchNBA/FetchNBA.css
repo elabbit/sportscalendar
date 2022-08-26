@@ -1,3 +1,7 @@
 .nba-season{
-    max-width:80px;
+    max-width:100px;
+}
+
+.nba-team-select{
+    width:180px !important;
 }

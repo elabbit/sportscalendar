@@ -29,6 +29,12 @@ const FetchNascar = ({ eventsList, setEventsList }) => {
         }
     }
 
+    const handleChange = (e) => {
+        setSeries(e.target.value)
+        setEventsList([])
+        setHasSubmitted(false)
+    }
+
     return (
         <div className="formula-container">
             <div className="formula-header">
@@ -36,7 +42,7 @@ const FetchNascar = ({ eventsList, setEventsList }) => {
                 <div>
                     Season: 2022
                 </div>
-                <select className="formula-type-select" onChange={(e) => setSeries(e.target.value)} value={series}>
+                <select className="formula-type-select" onChange={handleChange} value={series}>
                     <option value={1}>Cup Series</option>
                     <option value={2}>Xfinity Series</option>
                     <option value={3}>Truck Series</option>

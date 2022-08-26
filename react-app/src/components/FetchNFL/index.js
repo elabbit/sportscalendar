@@ -30,12 +30,18 @@ const FetchNFL = ({ eventsList, setEventsList }) => {
         }
     }
 
+    const handleChange = (e) => {
+        setTeam(e.target.value)
+        setEventsList([])
+        setHasSubmitted(false)
+    }
+
     return (
         <div className="formula-container">
             <div className="formula-header">
             <img className='nfl-logo' src={nflLogo} alt='' />
                 <div>Season: 22-23</div>
-                <select className="nfl-team-select" onChange={(e) => setTeam(e.target.value)} value={team}>
+                <select className="nfl-team-select" onChange={handleChange} value={team}>
                     <option value={"SF"}>San Francisco 49ers</option>
                     <option value={"WAS"}>Washington Commanders</option>
                     <option value={"CAR"}>Carolina Panthers</option>

@@ -27,6 +27,11 @@ const FetchFormulaOne = ({ eventsList, setEventsList }) => {
         }
     }
 
+    const handleChange = (e) => {
+        setType(e.target.value)
+        setEventsList([])
+    }
+
     return (
         <div className="formula-container">
             <div className="formula-header">
@@ -34,7 +39,7 @@ const FetchFormulaOne = ({ eventsList, setEventsList }) => {
                 <div>
                     Season: 2022
                 </div>
-                <select className="formula-type-select" onChange={(e) => setType(e.target.value)} value={type}>
+                <select className="formula-type-select" onChange={handleChange} value={type}>
                     <option value={"race"}>Race</option>
                     <option value={"1st Qualifying"}>Qualifying</option>
                     <option value={"Sprint"}>Sprint</option>
