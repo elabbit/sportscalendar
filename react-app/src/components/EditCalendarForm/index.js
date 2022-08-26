@@ -20,7 +20,6 @@ const EditCalendarForm = ({ setShowEditForm, calendars, calendar }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(background)
         if (!title.trim().length) {
             setErrors([`Please enter a title.`])
             setShowErrorModal(true)

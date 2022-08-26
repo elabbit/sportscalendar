@@ -82,7 +82,7 @@ const Day = ({ day, events }) => {
             <div className="day-body">
                 {dayEvents.sort((a, b) => b.startTime - a.startTime).map((event, i) => (
                     <div className="day-event" key={i} onClick={() => eventClick(event)}
-                        style={{ backgroundColor: `${event.color}` }}>{convertTime(event.startTime)} {event.title}</div>
+                        style={{ backgroundColor: `${event.color}` }}><span>{convertTime(event.startTime)} {event.title}</span></div>
                 ))}
             </div>
 
