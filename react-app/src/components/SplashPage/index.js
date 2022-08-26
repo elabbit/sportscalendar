@@ -4,8 +4,8 @@ import SignUpForm from "../auth/SignUpForm";
 import "./SplashPage.css"
 import splash from "../../images/splash-temp.png"
 import splashImg1 from '../../images/realsplash1.png'
-import splashImg2 from '../../images/realsplash2.png'
-import splashImg3 from '../../images/realsplash3.png'
+import splashImg3 from '../../images/realsplash2.png'
+import splashImg2 from '../../images/realsplash3.png'
 
 const SplashPage = () => {
     const [showLogin, setShowLogin] = useState(true);
