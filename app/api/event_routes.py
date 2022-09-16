@@ -201,7 +201,6 @@ def get_nba(team):
     return {'events': [nba_dict(event) for event in data if (event["AwayTeam"] == team or event["HomeTeam"] == team)]}
 
 
-
 def nba_dict(event):
     return {
         'title': f"{event['AwayTeam']} @ {event['HomeTeam']}",

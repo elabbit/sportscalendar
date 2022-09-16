@@ -7,7 +7,7 @@ const CalendarWrapper = (props) => {
     const [monthIndex, setMonthIndex] = useState(dayjs().month());
     const [currentCalendar, setCurrentCalendar] = useState();
     const [currentEvent, setCurrentEvent] = useState();
-    const [currentOffset, setCurrentOffset] = useState(new Date().getTimezoneOffset()/60);
+    const [currentOffset, setCurrentOffset] = useState(new Date().getTimezoneOffset()/60 +1);
     const [showSide, setShowSide] = useState(false)
     const [currCat, setCurrCat] = useState("all")
 

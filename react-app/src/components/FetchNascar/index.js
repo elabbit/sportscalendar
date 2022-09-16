@@ -60,7 +60,7 @@ const FetchNascar = ({ eventsList, setEventsList }) => {
                     eventsList.map((race) => (
                         <div key={race.title} className="formula-item">
                             <div className="formula-item-title">{race.title} <span>{race.venue}</span></div>
-                            <div>{dayjs(race.startDate).format("dddd MMMM DD, YYYY")} {dayjs(race.startTime).subtract(currentOffset-4, 'hour').format("h:mm a")}</div>
+                            <div>{dayjs(race.startDate).format("dddd MMMM DD, YYYY")} {dayjs(race.startTime).subtract(currentOffset-5, 'hour').format("h:mm a")}</div>
 
                         </div>
                     ))

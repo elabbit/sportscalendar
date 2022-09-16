@@ -51,14 +51,28 @@
     font-size: 22px;
 }
 
-.sidebar-options {
+.sidebar-options-top {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    gap: 5px;
+}
+
+.sidebar-options-bottom {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 10px;
-    gap: 5px;
+}
+
+.sidebar-options-bottom button{
+width:100%;
 }
 
 .sidebar-options button {

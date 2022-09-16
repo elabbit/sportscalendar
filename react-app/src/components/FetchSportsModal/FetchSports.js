@@ -40,7 +40,7 @@ const FetchSports = ({ hideModal }) => {
         if (startTime === null) {
             return undefined
         }
-        return dayjs(startTime).subtract(currentOffset - 4, 'hour').format("HH:mm")
+        return dayjs(startTime).subtract(currentOffset - 5, 'hour').format("HH:mm")
     }
 
     const handleAdd = () => {
