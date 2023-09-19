@@ -72,7 +72,7 @@ def get_formulaone(type):
         'X-RapidAPI-Key': os.environ.get('FORMULA_KEY'),
     }
 
-    params = {'type': type, 'season': '2022', 'next':'10'}
+    params = {'type': type, 'season': '2023', 'next':'10'}
 
     response = requests.get('https://api-formula-1.p.rapidapi.com/races', params=params, headers=headers)
     data = response.json()
@@ -111,7 +111,7 @@ def get_ufc():
         'Ocp-Apim-Subscription-Key': os.environ.get('UFC_KEY'),
     }
 
-    response = requests.get('https://api.sportsdata.io/v3/mma/scores/json/Schedule/UFC/2022', headers=headers)
+    response = requests.get('https://api.sportsdata.io/v3/mma/scores/json/Schedule/UFC/2023', headers=headers)
     data = response.json()
     return {'events': [ufc_dict(event) for event in data if event['Status'] == "Scheduled" and "UFC" in event['Name']]}
 
@@ -134,7 +134,7 @@ def get_nascar(series):
     headers = {
         'Ocp-Apim-Subscription-Key': os.environ.get('NASCAR_KEY'),
     }
-    response = requests.get('https://api.sportsdata.io/nascar/v2/json/races/2022', headers=headers)
+    response = requests.get('https://api.sportsdata.io/nascar/v2/json/races/2023', headers=headers)
     data = response.json()
     return {'races': [nascar_dict(event) for event in data if (event['IsOver'] == False) and (event['SeriesID'] == int(series))]}
 
@@ -159,8 +159,9 @@ def get_nfl(team):
     headers = {
         'Ocp-Apim-Subscription-Key': os.environ.get('NFL_KEY'),
     }
-    response = requests.get('https://api.sportsdata.io/v3/nfl/scores/json/Schedules/2022', headers=headers)
+    response = requests.get('https://api.sportsdata.io/v3/nfl/scores/json/Schedules/2023', headers=headers)
     data = response.json()
+    print({'events': [nfl_dict(event) for event in data if "BYE" not in event["AwayTeam"] and (event["AwayTeam"] == team or event["HomeTeam"] == team)]})
     return {'events': [nfl_dict(event) for event in data if "BYE" not in event["AwayTeam"] and (event["AwayTeam"] == team or event["HomeTeam"] == team)]}
 
 

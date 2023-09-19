@@ -38,7 +38,7 @@ const FetchFormulaOne = ({ eventsList, setEventsList }) => {
             <div className="formula-header">
                 <img className='formula-logo' src={formulaOneLogo} alt='' />
                 <div>
-                    Season: 2022
+                    Season: 2023
                 </div>
                 <select className="formula-type-select" onChange={handleChange} value={type}>
                     <option value={"race"}>Race</option>

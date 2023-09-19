@@ -40,7 +40,7 @@ const FetchNascar = ({ eventsList, setEventsList }) => {
             <div className="formula-header">
                 <img className='formula-logo' src={nascarLogo} alt='' />
                 <div>
-                    Season: 2022
+                    Season: 2023
                 </div>
                 <select className="formula-type-select" onChange={handleChange} value={series}>
                     <option value={1}>Cup Series</option>

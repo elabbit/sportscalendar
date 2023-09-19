@@ -40,8 +40,8 @@ useEffect(()=>{
         <div className="formula-container">
             <div className="formula-header">
                 <img className='formula-logo' src={nbaLogo} alt='' />
-                <div className='nba-season'>Season: 22-23</div>
-                <select className="nba-team-select" onChange={handleChange} value={team}>
+                <div className='nba-season'>Season: 23-24 *Starting soon!</div>
+                <select hidden="true" className="nba-team-select" onChange={handleChange} value={team}>
                     <option value={"GS"}>Golden State Warriors</option>
                     <option value={"LAL"}>Los Angeles Lakers</option>
                     <option value={"WAS"}>Washington Wizards</option>
@@ -51,7 +51,7 @@ useEffect(()=>{
                 </select>
                 <div className="formula-loading-div">
                     {!loading ?
-                        <button onClick={handleClick}>Search</button>
+                        <button hidden="true" onClick={handleClick}>Search</button>
                         :
                         <BarLoader width="60px" />
                     }

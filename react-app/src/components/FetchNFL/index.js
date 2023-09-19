@@ -40,7 +40,7 @@ const FetchNFL = ({ eventsList, setEventsList }) => {
         <div className="formula-container">
             <div className="formula-header">
             <img className='nfl-logo' src={nflLogo} alt='' />
-                <div>Season: 22-23</div>
+                <div>Season: 23-24</div>
                 <select className="nfl-team-select" onChange={handleChange} value={team}>
                     <option value={"SF"}>San Francisco 49ers</option>
                     <option value={"WAS"}>Washington Commanders</option>
@@ -57,7 +57,7 @@ const FetchNFL = ({ eventsList, setEventsList }) => {
             </div>
             <div className='formula-body'>
                 {eventsList.length ?
-                    eventsList.map((race) => (
+                    eventsList.filter((race)=>!dayjs(race.startDate).isBefore(dayjs())).map((race) => (
                         <div key={race.title} className="formula-item">
                             <div className="formula-item-title">{race.title} <span>{race.venue}</span></div>
                             <div>{dayjs(race.startDate).format("dddd MMMM DD, YYYY")} {dayjs(race.startTime).subtract(currentOffset - 5, 'hour').format("h:mm a")}</div>
