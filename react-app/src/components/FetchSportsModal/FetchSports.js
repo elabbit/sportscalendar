@@ -45,7 +45,9 @@ const FetchSports = ({ hideModal }) => {
 
     const handleAdd = () => {
         setLoading(true)
+        setAddList(addList.filter((race)=>!dayjs(race.startDate).isBefore(dayjs())))
         setEventsNumber(addList.length)
+
         if (eventsList[0].category === "Formula 1") {
             Promise.all(addList.map(async (event) => {
                 await dispatch(addEvent(event.title, event.description, event.location, event.category,
@@ -56,7 +58,7 @@ const FetchSports = ({ hideModal }) => {
                 setShowConfirmMod(true)
             })
         } else
-            Promise.all(addList.map(async (event) => {
+            Promise.all(addList.filter((race)=>!dayjs(race.startDate).isBefore(dayjs())).map(async (event) => {
                 await dispatch(addEvent(event.title, event.description, event.location, event.category,
                     dayjs(event.startDate).format("YYYY-MM-DD"), checkStartTime(event.startTime), color, false, event.venue, event.image, currentCalendar.id))
             }

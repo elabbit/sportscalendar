@@ -64,6 +64,7 @@ const FetchNFL = ({ eventsList, setEventsList }) => {
 
                         </div>
                     ))
+
                     :
                     <>
                         {(hasSubmitted && !eventsList.length) &&
