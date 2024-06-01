@@ -40,16 +40,17 @@ const FetchNFL = ({ eventsList, setEventsList }) => {
         <div className="formula-container">
             <div className="formula-header">
             <img className='nfl-logo' src={nflLogo} alt='' />
-                <div>Season: 23-24</div>
-                <select className="nfl-team-select" onChange={handleChange} value={team}>
+                <div>Season: 24-25</div>
+                <div>Coming Soon!</div>
+                {/* <select className="nfl-team-select" onChange={handleChange} value={team}>
                     <option value={"SF"}>San Francisco 49ers</option>
                     <option value={"WAS"}>Washington Commanders</option>
                     <option value={"CAR"}>Carolina Panthers</option>
                     <option value={"LAR"}>Los Angeles Rams</option>
-                </select>
+                </select> */}
                 <div className="formula-loading-div">
                     {!loading ?
-                        <button onClick={handleClick}>Search</button>
+                        <button hidden="true" onClick={handleClick}>Search</button>
                         :
                         <BarLoader width="60px" />
                     }
